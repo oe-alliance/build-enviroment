@@ -1,17 +1,17 @@
 #!/usr/bin/make -f
 
 # MACHINE examples: et5x00 et6x00 et9x00 dm500hd dm800se dm7020hd dm8000
-MACHINE ?= et9x00
+# MACHINE ?= vuultimo
 
 # Adjust according to the number CPU cores to use for parallel build.
 # Default: Number of processors in /proc/cpuinfo, if present, or 1.
 NR_CPU := $(shell [ -f /proc/cpuinfo ] && grep -c '^processor\s*:' /proc/cpuinfo || echo 1)
-BB_NUMBER_THREADS ?= $(NR_CPU)
+BB_NUMBER_THREADS ?= $(($NR_CPU * 3))
 PARALLEL_MAKE ?= -j $(NR_CPU)
 
 XSUM ?= md5sum
 
-BUILD_DIR = $(CURDIR)/build-$(MACHINE)
+BUILD_DIR = $(CURDIR)/builds/$(MACHINE)
 TOPDIR = $(BUILD_DIR)
 DL_DIR = $(CURDIR)/sources
 SSTATE_DIR = $(TOPDIR)/sstate-cache
@@ -22,17 +22,18 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-oe \
 	$(CURDIR)/openembedded-core/meta \
 	$(CURDIR)/meta-openpli \
+	$(CURDIR)/meta-openvix \
 
 CONFFILES = \
 	$(TOPDIR)/env.source \
-	$(TOPDIR)/conf/openpli.conf \
+	$(TOPDIR)/conf/openvix.conf \
 	$(TOPDIR)/conf/bblayers.conf \
 	$(TOPDIR)/conf/local.conf \
 	$(TOPDIR)/conf/site.conf
 
 CONFDEPS = \
 	$(DEPDIR)/.env.source.$(BITBAKE_ENV_HASH) \
-	$(DEPDIR)/.openpli.conf.$(OPENPLI_CONF_HASH) \
+	$(DEPDIR)/.openvix.conf.$(OPENVIX_CONF_HASH) \
 	$(DEPDIR)/.bblayers.conf.$(MACHINE).$(BBLAYERS_CONF_HASH) \
 	$(DEPDIR)/.local.conf.$(MACHINE).$(LOCAL_CONF_HASH)
 
@@ -46,12 +47,12 @@ hash = $(shell echo $(1) | $(XSUM) | awk '{print $$1}')
 .DEFAULT_GOAL := all
 all: init
 	@echo
-	@echo "Openembedded for the OpenPLi 3.0 environment has been initialized"
+	@echo "Openembedded for the OpenViX 3.0 environment has been initialized"
 	@echo "properly. Now you can start building your image, by doing either:"
 	@echo
-	@echo " make -f Makefile image"
+	@echo " make -f openvix MACHINE=vuultimo image"
 	@echo "	or"
-	@echo " cd $(BUILD_DIR) ; source env.source ; bitbake openpli-enigma2-image"
+	@echo " cd $(BUILD_DIR) ; source env.source ; bitbake openvix-image"
 	@echo
 
 $(BBLAYERS):
@@ -60,8 +61,9 @@ $(BBLAYERS):
 init: $(BBLAYERS) $(CONFFILES)
 
 image: init
-	@echo 'Building image for $(MACHINE)'
-	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake openpli-enigma2-image
+	@if [ -d "meta-openpli/conf/machine" ]; then mv meta-openpli/conf/machine meta-openpli/conf/machine_pli; fi
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake openvix-image
+	@if [ -d "meta-openpli/conf/machine_pli" ]; then mv meta-openpli/conf/machine_pli meta-openpli/conf/machine; fi
 
 update:
 	@echo 'Updating Git repositories...'
@@ -89,8 +91,8 @@ $(TOPDIR)/env.source: $(DEPDIR)/.env.source.$(BITBAKE_ENV_HASH)
 	@echo 'Generating $@'
 	@echo 'export PATH=$(CURDIR)/openembedded-core/scripts:$(CURDIR)/bitbake/bin:$${PATH}' >> $@
 
-OPENPLI_CONF_HASH := $(call hash, \
-	'OPENPLI_CONF_VERSION = "1"' \
+OPENVIX_CONF_HASH := $(call hash, \
+	'OPENVIX_CONF_VERSION = "1"' \
 	'CURDIR = "$(CURDIR)"' \
 	'BB_NUMBER_THREADS = "$(BB_NUMBER_THREADS)"' \
 	'PARALLEL_MAKE = "$(PARALLEL_MAKE)"' \
@@ -99,15 +101,15 @@ OPENPLI_CONF_HASH := $(call hash, \
 	'TMPDIR = "$(TMPDIR)"' \
 	)
 
-$(TOPDIR)/conf/openpli.conf: $(DEPDIR)/.openpli.conf.$(OPENPLI_CONF_HASH)
+$(TOPDIR)/conf/openvix.conf: $(DEPDIR)/.openvix.conf.$(OPENVIX_CONF_HASH)
 	@echo 'Generating $@'
 	@test -d $(@D) || mkdir -p $(@D)
-	@echo 'SSTATE_DIR = "$(SSTATE_DIR)"' >> $@
+	@echo 'SSTATE_DIR = "$(SSTATE_DIR)"' > $@
 	@echo 'TMPDIR = "$(TMPDIR)"' >> $@
 	@echo 'BB_GENERATE_MIRROR_TARBALLS = "0"' >> $@
 	@echo 'BBINCLUDELOGS = "yes"' >> $@
 	@echo 'CONF_VERSION = "1"' >> $@
-	@echo 'DISTRO = "openpli"' >> $@
+	@echo 'DISTRO = "openvix"' >> $@
 	@echo 'EXTRA_IMAGE_FEATURES = "debug-tweaks"' >> $@
 	@echo 'USER_CLASSES = "buildstats"' >> $@
 
@@ -123,13 +125,13 @@ $(TOPDIR)/conf/local.conf: $(DEPDIR)/.local.conf.$(MACHINE).$(LOCAL_CONF_HASH)
 	@test -d $(@D) || mkdir -p $(@D)
 	@echo 'TOPDIR = "$(TOPDIR)"' > $@
 	@echo 'MACHINE = "$(MACHINE)"' >> $@
-	@echo 'require $(TOPDIR)/conf/openpli.conf' >> $@
+	@echo 'require $(TOPDIR)/conf/openvix.conf' >> $@
 
 $(TOPDIR)/conf/site.conf: $(CURDIR)/site.conf
-	@ln -s ../../site.conf $@
+	@ln -s ../../../site.conf $@
 
 $(CURDIR)/site.conf:
-	@echo 'SCONF_VERSION = "1"' >> $@
+	@echo 'SCONF_VERSION = "1"' > $@
 	@echo 'BB_NUMBER_THREADS = "$(BB_NUMBER_THREADS)"' >> $@
 	@echo 'PARALLEL_MAKE = "$(PARALLEL_MAKE)"' >> $@
 	@echo 'BUILD_OPTIMIZATION = "-march=native -O2 -pipe"' >> $@

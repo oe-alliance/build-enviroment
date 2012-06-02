@@ -1,7 +1,8 @@
-/build-*
+/build*
 /.deps/
 /meta-*/
 !/meta-openpli/
+!/meta-openvix/
 /openembedded-core/
 /sources/
 *.swp
