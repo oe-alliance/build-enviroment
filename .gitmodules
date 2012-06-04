@@ -14,3 +14,6 @@
 	path = meta-openpli/recipes-openpli/e2openplugins
 	url = git://github.com/E2OpenPlugins/e2openplugins.git
 	ignore = dirty
+[submodule "meta-openvix"]
+	path = meta-openvix
+	url = git://git.assembla.com/openvix.16.git
