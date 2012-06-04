@@ -58,6 +58,8 @@ all: init
 $(BBLAYERS):
 	[ -d $@ ] || $(MAKE) $(MFLAGS) update
 
+initialize: init
+
 init: $(BBLAYERS) $(CONFFILES)
 
 image: init
@@ -80,7 +82,7 @@ update:
 		echo "The openpli OE is now up-to-date."; \
 	fi
 
-.PHONY: all image init update usage
+.PHONY: all image init initialize update usage
 
 BITBAKE_ENV_HASH := $(call hash, \
 	'BITBAKE_ENV_VERSION = "0"' \
@@ -112,6 +114,10 @@ $(TOPDIR)/conf/openvix.conf: $(DEPDIR)/.openvix.conf.$(OPENVIX_CONF_HASH)
 	@echo 'DISTRO = "openvix"' >> $@
 	@echo 'EXTRA_IMAGE_FEATURES = "debug-tweaks"' >> $@
 	@echo 'USER_CLASSES = "buildstats"' >> $@
+	@if [ -f "$(CURDIR)/branding.conf" ]; then \
+		echo "### BRANDING" >> $@; \
+		cat $(CURDIR)/branding.conf >> $@; \
+	fi
 
 LOCAL_CONF_HASH := $(call hash, \
 	'LOCAL_CONF_VERSION = "0"' \
