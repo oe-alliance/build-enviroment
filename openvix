@@ -64,10 +64,8 @@ init: $(BBLAYERS) $(CONFFILES)
 
 image: init
 	@if [ -d "meta-openpli/conf/machine" ]; then mv meta-openpli/conf/machine meta-openpli/conf/machine_pli; fi
-	@if [ -d "meta-openpli/conf/machine" ]; then mv openvix3.0/meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend openvix3.0/meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend_old; fi
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake openvix-image
 	@if [ -d "meta-openpli/conf/machine_pli" ]; then mv meta-openpli/conf/machine_pli meta-openpli/conf/machine; fi
-	@if [ -d "meta-openpli/conf/machine" ]; then mv openvix3.0/meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend_old openvix3.0/meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend; fi
 
 update:
 	@echo 'Updating Git repositories...'
