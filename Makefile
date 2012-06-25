@@ -2,6 +2,7 @@
 
 # MACHINE examples: et5x00 et6x00 et9x00 dm500hd dm800se dm7020hd dm8000
 # MACHINE ?= vuultimo
+# DISTRO ?= openvix
 
 # Adjust according to the number CPU cores to use for parallel build.
 # Default: Number of processors in /proc/cpuinfo, if present, or 1.
@@ -26,14 +27,14 @@ BBLAYERS ?= \
 
 CONFFILES = \
 	$(TOPDIR)/env.source \
-	$(TOPDIR)/conf/openvix.conf \
+	$(TOPDIR)/conf/$(DISTRO).conf \
 	$(TOPDIR)/conf/bblayers.conf \
 	$(TOPDIR)/conf/local.conf \
 	$(TOPDIR)/conf/site.conf
 
 CONFDEPS = \
 	$(DEPDIR)/.env.source.$(BITBAKE_ENV_HASH) \
-	$(DEPDIR)/.openvix.conf.$(OPENVIX_CONF_HASH) \
+	$(DEPDIR)/.$(DISTRO).conf.$($(DISTRO)_CONF_HASH) \
 	$(DEPDIR)/.bblayers.conf.$(MACHINE).$(BBLAYERS_CONF_HASH) \
 	$(DEPDIR)/.local.conf.$(MACHINE).$(LOCAL_CONF_HASH)
 
@@ -50,9 +51,9 @@ all: init
 	@echo "Openembedded for the OpenViX 3.0 environment has been initialized"
 	@echo "properly. Now you can start building your image, by doing either:"
 	@echo
-	@echo " make -f openvix MACHINE=vuultimo image"
+	@echo "MACHINE=vuuno DISTRO=openvix make image"
 	@echo "	or"
-	@echo " cd $(BUILD_DIR) ; source env.source ; bitbake openvix-image"
+	@echo "cd $(BUILD_DIR) ; source env.source ; bitbake $(DISTRO)-image"
 	@echo
 
 $(BBLAYERS):
@@ -64,7 +65,7 @@ init: $(BBLAYERS) $(CONFFILES)
 
 image: init
 	@if [ -d "meta-openpli/conf/machine" ]; then mv meta-openpli/conf/machine meta-openpli/conf/machine_pli; fi
-	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake openvix-image
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake $(DISTRO)-image
 	@if [ -d "meta-openpli/conf/machine_pli" ]; then mv meta-openpli/conf/machine_pli meta-openpli/conf/machine; fi
 
 update:
@@ -93,8 +94,8 @@ $(TOPDIR)/env.source: $(DEPDIR)/.env.source.$(BITBAKE_ENV_HASH)
 	@echo 'Generating $@'
 	@echo 'export PATH=$(CURDIR)/openembedded-core/scripts:$(CURDIR)/bitbake/bin:$${PATH}' >> $@
 
-OPENVIX_CONF_HASH := $(call hash, \
-	'OPENVIX_CONF_VERSION = "1"' \
+$(DISTRO)_CONF_HASH := $(call hash, \
+	'$(DISTRO)_CONF_VERSION = "1"' \
 	'CURDIR = "$(CURDIR)"' \
 	'BB_NUMBER_THREADS = "$(BB_NUMBER_THREADS)"' \
 	'PARALLEL_MAKE = "$(PARALLEL_MAKE)"' \
@@ -103,7 +104,7 @@ OPENVIX_CONF_HASH := $(call hash, \
 	'TMPDIR = "$(TMPDIR)"' \
 	)
 
-$(TOPDIR)/conf/openvix.conf: $(DEPDIR)/.openvix.conf.$(OPENVIX_CONF_HASH)
+$(TOPDIR)/conf/$(DISTRO).conf: $(DEPDIR)/.$(DISTRO).conf.$($(DISTRO)_CONF_HASH)
 	@echo 'Generating $@'
 	@test -d $(@D) || mkdir -p $(@D)
 	@echo 'SSTATE_DIR = "$(SSTATE_DIR)"' > $@
@@ -111,7 +112,7 @@ $(TOPDIR)/conf/openvix.conf: $(DEPDIR)/.openvix.conf.$(OPENVIX_CONF_HASH)
 	@echo 'BB_GENERATE_MIRROR_TARBALLS = "0"' >> $@
 	@echo 'BBINCLUDELOGS = "yes"' >> $@
 	@echo 'CONF_VERSION = "1"' >> $@
-	@echo 'DISTRO = "openvix"' >> $@
+	@echo 'DISTRO = "$(DISTRO)"' >> $@
 	@echo 'EXTRA_IMAGE_FEATURES = "debug-tweaks"' >> $@
 	@echo 'USER_CLASSES = "buildstats"' >> $@
 	@if [ -f "$(CURDIR)/branding.conf" ]; then \
@@ -131,7 +132,7 @@ $(TOPDIR)/conf/local.conf: $(DEPDIR)/.local.conf.$(MACHINE).$(LOCAL_CONF_HASH)
 	@test -d $(@D) || mkdir -p $(@D)
 	@echo 'TOPDIR = "$(TOPDIR)"' > $@
 	@echo 'MACHINE = "$(MACHINE)"' >> $@
-	@echo 'require $(TOPDIR)/conf/openvix.conf' >> $@
+	@echo 'require $(TOPDIR)/conf/$(DISTRO).conf' >> $@
 
 $(TOPDIR)/conf/site.conf: $(CURDIR)/site.conf
 	@ln -s ../../../site.conf $@
