@@ -80,7 +80,7 @@ update:
 	else \
 		$(GIT) submodule sync && \
 		$(GIT) submodule update --init && \
-		echo "The openpli OE is now up-to-date."; \
+		echo "The oe-alliance is now up-to-date."; \
 	fi
 
 .PHONY: all image init initialize update usage
