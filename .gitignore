@@ -2,7 +2,7 @@
 /.deps/
 /meta-*/
 !/meta-openpli/
-!/meta-openvix/
+!/meta-oe-alliance/
 /openembedded-core/
 /sources/
 *.swp
