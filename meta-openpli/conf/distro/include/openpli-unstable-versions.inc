@@ -31,6 +31,12 @@ SRCREV_pn-enigma2-plugin-settings-henksat-13e-19e-23e-28e ?= "${HENKSAT_GITREV}"
 SRCREV_pn-enigma2-plugin-settings-henksat-wavefrontier ?= "${HENKSAT_GITREV}"
 SRCREV_pn-enigma2-plugin-settings-henksat-rotating ?= "${HENKSAT_GITREV}"
 SRCREV_pn-enigma2-plugin-settings-henksat-13e-19e-23e-28e-4.8e-0.8w ?= "${HENKSAT_GITREV}"
+SRCREV_pn-enigma2-plugin-settings-henksat-13e-19e-23e-28e-42e-7e ?= "${HENKSAT_GITREV}"
+
+HANS_GITREV ?= "${AUTOREV}"
+SRCREV_pn-enigma2-plugin-settings-hans-19e-23e ?= "${HANS_GITREV}"
+SRCREV_pn-enigma2-plugin-settings-hans-13e-19e-23e-28e ?= "${HANS_GITREV}"
+SRCREV_pn-enigma2-plugin-settings-hans-13e-19e-23e-28e-rotating ?= "${HANS_GITREV}"
 
 # svn
 SRCREV_pn-tuxbox-common ?= "${AUTOREV}"
@@ -39,3 +45,8 @@ SRCREV_pn-enigma2-plugin-extensions-tuxcom ?= "${AUTOREV}"
 SRCREV_pn-enigma2-plugin-extensions-tuxterm ?= "${AUTOREV}"
 SRCREV_pn-oscam-experimental ?= "${AUTOREV}"
 SRCREV_pn-oscam-unstable = "${AUTOREV}"
+SRCREV_pn-oscam-util-list-smargo = "${AUTOREV}"
+
+RYTECSETTINGS_SRCDATE ?= "20120614"
+SRCDATE_enigma2-plugin-settings-rytec-13e19e23e28e ?= "${RYTECSETTINGS_SRCDATE}"
+SRCDATE_enigma2-plugin-settings-rytec-motor ?= "${RYTECSETTINGS_SRCDATE}"

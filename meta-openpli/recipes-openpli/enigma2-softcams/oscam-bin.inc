@@ -2,12 +2,14 @@ DESCRIPTION = "Oscam binary, freshly compiled"
 LICENSE = "GPLv3"
 
 PV = "svn${SRCPV}"
-PR = "r0"
-DEPENDS = "${OSCAMDEPENS}"
+PR = "r3"
+
+DEPENDS = "libusb openssl"
+RDEPENDS_${PN} = "openssl oscam-util-list-smargo"
 RREPLACES_${PN} = "oscam-bin"
 RCONFLICTS_${PN} = "oscam-bin"
 RPROVIDES_${PN} = "${OSCAMBIN}"
-RDEPENDS_${PN} = "${OSCAMRDEPENDS}"
+
 #the three options below are not needed but makes it easier to trace the cmake generated cross compile files
 #All generated files by cmake will be in a subdir called build_dir
 OECMAKE_BUILDPATH = "${WORKDIR}/${MODULE}/build_dir"
@@ -31,16 +33,16 @@ S = "${WORKDIR}/${MODULE}"
 
 do_generate_toolchain_file_append() {
 	echo "set( OPTIONAL_INCLUDE_DIR \"${STAGING_DIR_HOST}/usr/include/PCSC\" CACHE STRING \"Some optional include directories\" )" >> ${WORKDIR}/toolchain.cmake
-	echo "set( LIBUSBDIR ${STAGING_DIR}/${MULTIMACH_TARGET_SYS}/usr ) " >> ${WORKDIR}/toolchain.cmake \
+	echo "set( LIBUSBDIR ${STAGING_DIR_HOST} ) " >> ${WORKDIR}/toolchain.cmake \
 }
 
 EXTRA_OECMAKE += "\
 	-DOSCAM_SYSTEM_NAME=Tuxbox \
 	-DWEBIF=1 \
 	-DWITH_STAPI=0 \
-	-DHAVE_LIBUSB=0 \
-	-${SSL} \
-	-${PCSC} \
+	-DHAVE_LIBUSB=1 \
+	-DWITH_SSL=1 \
+	-DHAVE_PCSC=0 \
 	"
 
 inherit cmake update-alternatives

@@ -64,8 +64,6 @@ DEPENDS += " \
 
 ENIGMA2_OPTIONAL = " \
 	channelsettings-enigma2-meta \
-	dvbsnoop \
-	dvdfs \
 	enigma2-pliplugins \
 	enigma2-plugin-drivers-usbserial \
 	enigma2-plugin-extensions-ambx \
@@ -77,12 +75,10 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-skins-pli-hd \
 	enigma2-plugins \
 	enigma2-skins \
-	minidlna \
-	mtd-utils \
-	nano \
 	picons-enigma2-meta \
 	softcams-enigma2-meta \
 	task-openplugins \
+	${@base_contains("MACHINE_FEATURES", "blindscan-dvbs", "enigma2-plugin-systemplugins-satscan" , "", d)} \
 	"
 
 IMAGE_INSTALL += " \
