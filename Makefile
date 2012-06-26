@@ -1,8 +1,8 @@
 #!/usr/bin/make -f
 
-# MACHINE examples: et5x00 et6x00 et9x00 dm500hd dm800se dm7020hd dm8000
-# MACHINE ?= vuultimo
-# DISTRO ?= openvix
+# MACHINE examples: et5x00 et6x00 et9x00 dm500hd dm800se dm7020hd dm8000 gb800se gb800ue gb800solo gbquad venton-hdx
+MACHINE ?= vuultimo
+DISTRO ?= openvix
 
 # Adjust according to the number CPU cores to use for parallel build.
 # Default: Number of processors in /proc/cpuinfo, if present, or 1.
@@ -48,7 +48,7 @@ hash = $(shell echo $(1) | $(XSUM) | awk '{print $$1}')
 .DEFAULT_GOAL := all
 all: init
 	@echo
-	@echo "Openembedded for the OpenViX 3.0 environment has been initialized"
+	@echo "Openembedded for the oe-alliance environment has been initialized"
 	@echo "properly. Now you can start building your image, by doing either:"
 	@echo
 	@echo "MACHINE=vuuno DISTRO=openvix make image"
