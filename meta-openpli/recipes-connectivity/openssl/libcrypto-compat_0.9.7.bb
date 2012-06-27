@@ -2,11 +2,11 @@ DESCRIPTION = "Compatibility for packages that link to libcrypto or libssl 0.9.7
 
 require conf/license/openpli-gplv2.inc
 
-PACKAGES = "${PN}"
+AUTO_LIBNAME_PKGS = ""
 PACKAGE_ARCH = "all"
-RDEPENDS_${PN} = "libcrypto"
+RDEPENDS_${PN} = "libcrypto libssl"
 RPROVIDES_${PN} = "libcrypto${PV} libssl${PV}"
-PR = "r2"
+PR = "r4"
 SRC_URI = ""
 S = "${WORKDIR}"
 
@@ -23,3 +23,5 @@ do_install () {
 	ln -s /lib/libcrypto.so.0.9.8 ${D}/usr/lib/libcrypto.so.0.9.7
 	ln -s libssl.so.0.9.8 ${D}/usr/lib/libssl.so.0.9.7
 }
+
+FILES_${PN} = "/usr/lib/"
