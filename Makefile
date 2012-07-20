@@ -14,7 +14,7 @@ PARALLEL_MAKE ?= -j $(NR_CPU)
 
 XSUM ?= md5sum
 
-BUILD_DIR = $(CURDIR)/builds/$(MACHINE)
+BUILD_DIR = $(CURDIR)/builds/$(DISTRO)/$(MACHINE)
 TOPDIR = $(BUILD_DIR)
 DL_DIR = $(CURDIR)/sources
 SSTATE_DIR = $(TOPDIR)/sstate-cache
@@ -68,7 +68,7 @@ init: $(BBLAYERS) $(CONFFILES)
 layercheck:
 	@if [ -e "$(TOPDIR)/conf/local.conf" -a "$(grep require $(TOPDIR)/conf/local.conf)" != "require $(TOPDIR)/conf/$(DISTRO).conf" ]; then rm $(TOPDIR)/conf/local.conf; fi
 
-image: layercheck init
+image: init
 	@if [ -d "meta-openpli/conf/machine" ]; then mv meta-openpli/conf/machine meta-openpli/conf/machine_pli; fi
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake $(DISTRO)-image
 	@if [ -d "meta-openpli/conf/machine_pli" ]; then mv meta-openpli/conf/machine_pli meta-openpli/conf/machine; fi
@@ -140,7 +140,7 @@ $(TOPDIR)/conf/local.conf: $(DEPDIR)/.local.conf.$(MACHINE).$(LOCAL_CONF_HASH)
 	@echo 'require $(TOPDIR)/conf/$(DISTRO).conf' >> $@
 
 $(TOPDIR)/conf/site.conf: $(CURDIR)/site.conf
-	@ln -s ../../../site.conf $@
+	@ln -s ../../../../site.conf $@
 
 $(CURDIR)/site.conf:
 	@echo 'SCONF_VERSION = "1"' > $@
