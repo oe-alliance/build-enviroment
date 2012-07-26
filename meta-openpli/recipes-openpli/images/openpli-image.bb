@@ -30,6 +30,7 @@ IMAGE_INSTALL = " \
 
 OPTIONAL_PACKAGES ?= ""
 OPTIONAL_PACKAGES += " \
+	autossh \
 	ctorrent \
 	cups \
 	djmount \
@@ -39,6 +40,7 @@ OPTIONAL_PACKAGES += " \
 	hddtemp \
 	hdparm \
 	inadyn-mt \
+	iperf \
 	joe \
 	mc \
 	minidlna \
@@ -55,14 +57,16 @@ OPTIONAL_PACKAGES += " \
 	rsync \
 	sabnzbd \
 	samba \
+	sshpass \
 	smartmontools \
 	strace \
 	tcpdump \
 	vim \
 	wakelan \
 	zeroconf \
-	iperf \
 	"
 
 export IMAGE_BASENAME = "openpli"
 IMAGE_LINGUAS = ""
+
+IMAGE_FEATURES += "package-management"
