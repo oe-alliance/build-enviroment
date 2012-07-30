@@ -70,8 +70,10 @@ layercheck:
 
 image: init
 	@if [ -d "meta-openpli/conf/machine" ]; then mv meta-openpli/conf/machine meta-openpli/conf/machine_pli; fi
+	@if [ -e "meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend" ]; then mv meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend_pli; fi
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake $(DISTRO)-image
 	@if [ -d "meta-openpli/conf/machine_pli" ]; then mv meta-openpli/conf/machine_pli meta-openpli/conf/machine; fi
+	@if [ -e "meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend_pli" ]; then mv meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend_pli meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend; fi
 
 update:
 	@echo 'Updating Git repositories...'
