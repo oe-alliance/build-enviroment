@@ -1,6 +1,6 @@
 require linux.inc
 
-INC_PR = "r9"
+INC_PR = "r11"
 
 PACKAGES_DYNAMIC = "kernel-*"
 
@@ -45,6 +45,7 @@ USB_ROOT = "/dev/sdb2"
 USB_ROOT_dm8000 = "/dev/sdf2"
 
 do_install_append() {
+        ${STRIP} ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}
         gzip -9 ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}
         echo "/boot/bootlogo-${MACHINE}.elf.gz filename=/boot/bootlogo-${MACHINE}.jpg" > ${D}/${KERNEL_IMAGEDEST}/autoexec.bat
         echo "/boot/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}.gz ${CMDLINE}" >> ${D}/${KERNEL_IMAGEDEST}/autoexec.bat
@@ -55,16 +56,38 @@ do_install_append() {
 FILES_kernel-image += "/${KERNEL_IMAGEDEST}/autoexec*.bat"
 
 pkg_preinst_kernel-image() {
-        if [ -z "$D" ] && mountpoint -q /${KERNEL_IMAGEDEST}; then mount -o remount,rw /${KERNEL_IMAGEDEST}; fi
+	if [ -z "$D" ]
+	then
+		if mountpoint -q /${KERNEL_IMAGEDEST}
+		then
+			mount -o remount,rw,compr=none /${KERNEL_IMAGEDEST}
+		else
+			mount -t jffs2 -o rw,compr=none mtd:'boot partition' /${KERNEL_IMAGEDEST}
+		fi
+	fi
 }
 pkg_prerm_kernel-image() {
-        if [ -z "$D" ] && mountpoint -q /${KERNEL_IMAGEDEST}; then mount -o remount,rw /${KERNEL_IMAGEDEST}; fi
+	if [ -z "$D" ]
+	then
+		if mountpoint -q /${KERNEL_IMAGEDEST}
+		then
+			mount -o remount,rw,compr=none /${KERNEL_IMAGEDEST}
+		else
+			mount -t jffs2 -o rw,compr=none mtd:'boot partition' /${KERNEL_IMAGEDEST}
+		fi
+	fi
 }
 pkg_postinst_kernel-image() {
-        if [ -z "$D" ] && mountpoint -q /${KERNEL_IMAGEDEST}; then mount -o remount,ro /${KERNEL_IMAGEDEST}; fi
+	if [ -z "$D" ]
+	then
+		umount /${KERNEL_IMAGEDEST}
+	fi
 }
 pkg_postrm_kernel-image() {
-        if [ -z "$D" ] && mountpoint -q /${KERNEL_IMAGEDEST}; then mount -o remount,ro /${KERNEL_IMAGEDEST}; fi
+	if [ -z "$D" ]
+	then
+		umount /${KERNEL_IMAGEDEST}
+	fi
 }
 
 # Do not use update-alternatives!
