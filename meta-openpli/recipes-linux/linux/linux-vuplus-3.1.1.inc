@@ -3,7 +3,7 @@ LICENSE = "GPL"
 SECTION = "kernel"
 KV = "3.1.1"
 
-MACHINE_KERNEL_PR_append = ".1"
+PR_INC = ".1"
 
 SRCREV = "r2"
 
@@ -30,7 +30,7 @@ export OS = "Linux"
 KERNEL_IMAGETYPE = "vmlinux"
 KERNEL_OUTPUT = "vmlinux"
 KERNEL_OBJECT_SUFFIX = "ko"
-KERNEL_IMAGEDEST = "tmp"
+KERNEL_IMAGEDEST = "/tmp"
 
 FILES_kernel-image = "/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz"
 
