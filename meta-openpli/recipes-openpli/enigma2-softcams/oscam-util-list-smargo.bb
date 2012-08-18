@@ -1,5 +1,9 @@
 DESCRIPTION = "List smargo utility"
 LICENSE = "GPLv3"
+
+# stick to working rev, r7267 breaks CMakeLists.txt.diff
+SRCREV_pn-oscam-util-list-smargo = "7175"
+
 PV = "svn${SRCPV}"
 PR = "r0"
 
@@ -7,8 +11,10 @@ DEPENDS = "libusb"
 
 INHIBIT_PACKAGE_STRIP = "1"
 
+include oscamurl.inc
+
 SRC_URI = " \
-		svn://oscam.to/svn/oscam/trunk;module=utils;proto=http;scmdata=keep \
+		svn://${OSCAMHOST}/svn/oscam/trunk;module=utils;proto=http;scmdata=keep \
 		file://CMakeLists.txt.diff \
 		"
 
