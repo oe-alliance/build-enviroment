@@ -6,7 +6,7 @@ LICENSE = "CLOSED"
 PV = "${KV}+${SRCDATE}"
 PR = "r0"
 
-SRC_URI = "http://www.et-view.com/download/drivers/${MACHINE}-drivers-${KV}-${SRCDATE}.zip"
+SRC_URI = "http://www.xp-support.tv/support/drivers/${MACHINE}-drivers-${KV}-${SRCDATE}.zip"
 
 S = "${WORKDIR}"
 
@@ -20,7 +20,7 @@ do_compile() {
 do_install() {
 	install -d ${D}/lib/modules/${KV}/extra
 	install -d ${D}/${sysconfdir}/modules-load.d
-	for i in tpm modloader modloader2 dvb; do
+	for i in ${MACHINE}_1 ${MACHINE}_2 ${MACHINE}_3 ${MACHINE}_4; do
 		install -m 0755 ${WORKDIR}/$i.ko ${D}/lib/modules/${KV}/extra
 		echo $i >> ${D}/${sysconfdir}/modules-load.d/_${MACHINE}.conf
 	done

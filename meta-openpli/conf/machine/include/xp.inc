@@ -1,5 +1,5 @@
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS = "\
-	et-dvb-modules-${MACHINE} \
+	xp-dvb-modules-${MACHINE} \
 	"
 
 MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS = "\
@@ -15,6 +15,8 @@ MACHINE_EXTRA_RRECOMMENDS = " \
 	ntfs-3g \
 	"
 
+CHIPSET = "bcm7358"
+
 DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dtsdownmix"
 
 TARGET_ARCH = "mipsel"
@@ -22,10 +24,9 @@ DEFAULTTUNE = "mips32el"
 
 GLIBC_EXTRA_OECONF = "--with-tls --with-__thread"
 
-PREFERRED_PROVIDER_virtual/kernel = "linux-etxx00"
-PREFERRED_PROVIDER_virtual/blindscan-dvbs = "et-blindscan-dvbs-utils"
+PREFERRED_PROVIDER_virtual/kernel = "linux-xp"
 
-PREFERRED_VERSION_linux-etxx00 = "3.4.3"
+PREFERRED_VERSION_linux-xp = "3.5.1"
 PREFERRED_VERSION_linux-libc-headers = "3.3"
 
 KERNEL_IMAGETYPE = "vmlinux"
@@ -43,7 +44,7 @@ IMAGEDIR ?= "${MACHINE}"
 IMAGE_CMD_ubi_append = " \
 	mkdir -p ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}; \
 	cp ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ubi ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/rootfs.bin; \
-	gzip -9c ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/kernel.bin; \
+	gzip -c ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/kernel.bin; \
 	echo ${DISTRO_NAME}-${DISTRO_VERSION}-${DATE} > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/imageversion; \
 	echo "rename this file to 'force' to force an update without confirmation" > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/noforce; \
 	cd ${DEPLOY_DIR_IMAGE}; \
@@ -51,8 +52,10 @@ IMAGE_CMD_ubi_append = " \
 	rm -Rf ${IMAGEDIR}; \
 	"
 
+TARGET_FPU = "soft"
+
 MACHINE_FEATURES += "alsa usbhost wifi 3dtv switchoff textlcd osdposition hdmicec"
 
 require conf/machine/include/tune-mips32.inc
 
-MACHINE_KERNEL_PR = "r2"
+MACHINE_KERNEL_PR = "r0"

@@ -10,8 +10,9 @@ notify() {
 case "$ACTION" in
 	add|"")
 		ACTION="add"
-		FSTYPE=`blkid /dev/${MDEV} | grep -v 'TYPE="swap"' | grep ${MDEV} | sed -e "s/.*TYPE=//" -e 's/"//g'`
-		if [ -z "$FSTYPE" ] ; then
+		# Run the result of blkid as a shell command
+		eval `blkid /dev/${MDEV} | grep ${MDEV} | cut -d ':' -f 2`
+		if [ -z "$TYPE" ] ; then
 			exit 0
 		fi
 		# check if already mounted
@@ -23,6 +24,12 @@ case "$ACTION" in
 		# check for "please don't mount it" file
 		if [ -f "/dev/nomount.${DEVBASE}" ] ; then
 			# blocked
+			exit 0
+		fi
+		if [ $TYPE == swap ] ; then
+			if ! grep -q "^/dev/${MDEV} " /proc/swaps ; then
+				swapon /dev/${MDEV}
+			fi
 			exit 0
 		fi
 		# check for full-disk partition
@@ -51,45 +58,49 @@ case "$ACTION" in
 				# mount the first non-removable internal device on /media/hdd
 				DEVICETYPE="hdd"
 			else
-				MODEL=`cat /sys/block/$DEVBASE/device/model`
-				if [ "$MODEL" == "USB CF Reader   " ]; then
-					DEVICETYPE="cf"
-				elif [ "$MODEL" == "Compact Flash   " ]; then
-					DEVICETYPE="cf"
-				elif [ "$MODEL" == "USB SD Reader   " ]; then
-					DEVICETYPE="mmc1"
-				elif [ "$MODEL" == "USB SD  Reader  " ]; then
-					DEVICETYPE="mmc1"
-				elif [ "$MODEL" == "SD/MMC          " ]; then
-					DEVICETYPE="mmc1"
-				elif [ "$MODEL" == "USB MS Reader   " ]; then
-					DEVICETYPE="mmc1"
-				elif [ "$MODEL" == "SM/xD-Picture   " ]; then
-					DEVICETYPE="mmc1"
-				elif [ "$MODEL" == "USB SM Reader   " ]; then
-					DEVICETYPE="mmc1"
-				elif [ "$MODEL" == "MS/MS-Pro       " ]; then
-					DEVICETYPE="mmc1"
+				if [ -z "${LABEL}" ] ; then
+					MODEL=`cat /sys/block/$DEVBASE/device/model`
+					if [ "$MODEL" == "USB CF Reader   " ]; then
+						DEVICETYPE="cf"
+					elif [ "$MODEL" == "Compact Flash   " ]; then
+						DEVICETYPE="cf"
+					elif [ "$MODEL" == "USB SD Reader   " ]; then
+						DEVICETYPE="mmc1"
+					elif [ "$MODEL" == "USB SD  Reader  " ]; then
+						DEVICETYPE="mmc1"
+					elif [ "$MODEL" == "SD/MMC          " ]; then
+						DEVICETYPE="mmc1"
+					elif [ "$MODEL" == "USB MS Reader   " ]; then
+						DEVICETYPE="mmc1"
+					elif [ "$MODEL" == "SM/xD-Picture   " ]; then
+						DEVICETYPE="mmc1"
+					elif [ "$MODEL" == "USB SM Reader   " ]; then
+						DEVICETYPE="mmc1"
+					elif [ "$MODEL" == "MS/MS-Pro       " ]; then
+						DEVICETYPE="mmc1"
+					else
+						DEVICETYPE="usb"
+					fi
 				else
-					DEVICETYPE="usb"
+					DEVICETYPE="${LABEL}"
 				fi
 			fi
 			# Use mkdir as 'atomic' action, failure means someone beat us to the punch
 			MOUNTPOINT="/media/$DEVICETYPE"
-			if ! mkdir $MOUNTPOINT ; then
+			if ! mkdir "${MOUNTPOINT}" ; then
 				MOUNTPOINT="/media/$MDEV"
-				mkdir -p $MOUNTPOINT
+				mkdir -p "${MOUNTPOINT}"
 			fi
-			mount -t auto /dev/$MDEV $MOUNTPOINT
+			mount -t auto /dev/$MDEV "${MOUNTPOINT}"
 		fi
 		;;
 	remove)
-		MOUNTPOINT=`grep "^/dev/$MDEV\s" /proc/mounts | cut -d' ' -f 2`
-		if [ -z "$MOUNTPOINT" ] ; then
+		MOUNTPOINT=`grep "^/dev/$MDEV\s" /proc/mounts | cut -d' ' -f 2 | sed 's/\\\\040/ /g'`
+		if [ -z "${MOUNTPOINT}" ] ; then
 			MOUNTPOINT="/media/$MDEV"
 		fi
-		umount $MOUNTPOINT || umount /dev/$MDEV
-		rmdir $MOUNTPOINT
+		umount "${MOUNTPOINT}" || umount "/dev/${MDEV}"
+		rmdir "${MOUNTPOINT}"
 		;;
 	*)
 		# Unexpected keyword
