@@ -2,8 +2,10 @@
 /.deps/
 /meta-*/
 !/meta-openpli/
+!/meta-local/
 !/meta-oe-alliance/
 /openembedded-core/
 /sources/
 *.swp
 site.conf
+bblayers.conf
