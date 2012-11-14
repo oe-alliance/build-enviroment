@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-# MACHINE examples: dm500hd dm800se dm7020hd dm8000 et5x00 et6x00 et9x00 gb800se gb800solo gb800ue gbquad odinm9 tmtwin ventonhdx vuduo vusolo vuultimo vuuno
+# MACHINE examples: dm500hd dm800se dm7020hd dm8000 et5x00 et6x00 et9x00 gb800se gb800solo gb800ue gbquad maram9 tmtwin ventonhdx vuduo vusolo vuultimo vuuno
 MACHINE ?= vuultimo
 
 # DISTRO examples: openvix openmips openaaf openpli
