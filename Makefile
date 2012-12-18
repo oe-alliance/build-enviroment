@@ -17,7 +17,7 @@ XSUM ?= md5sum
 BUILD_DIR = $(CURDIR)/builds/$(DISTRO)/$(MACHINE)
 TOPDIR = $(BUILD_DIR)
 DL_DIR = $(CURDIR)/sources
-SSTATE_DIR = $(TOPDIR)/sstate-cache
+SSTATE_DIR = $(CURDIR)/builds/$(DISTRO)/sstate-cache
 TMPDIR = $(TOPDIR)/tmp
 DEPDIR = $(TOPDIR)/.deps
 
