@@ -58,12 +58,14 @@ OPTIONAL_PACKAGES += " \
 	procps \
 	pyload \
 	rsync \
+	rtorrent \
 	sabnzbd \
 	samba \
 	sshpass \
 	smartmontools \
 	strace \
 	tcpdump \
+	tmux \
 	transmission \
 	vim \
 	wakelan \
