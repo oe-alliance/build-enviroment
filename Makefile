@@ -1,9 +1,8 @@
 #!/usr/bin/make -f
 
-# MACHINE examples: dm500hd dm800se dm7020hd dm8000 et5x00 et6x00 et9x00 gb800se gb800solo gb800ue gbquad odinm9 tmtwin ventonhdx vuduo vusolo vuultimo vuuno
-MACHINE ?= vuultimo
+# MACHINE examples: dm500hd dm800se dm7020hd dm8000 dm800 ebox5000 et4x00 et5x00 et6x00 et9x00 gb800se gb800solo gb800ue gbquad ixussone odinm9 odimm7 tm2t tmsingle tmtwin tmsingle ventonhde ventonhdx vuduo vusolo vuultimo vuuno vusolo2 vuduo2 xp1000
 
-# DISTRO examples: openvix openmips openaaf openpli
+# DISTRO examples: openvix openmips openaaf openpl opensif
 DISTRO ?= openvix
 
 # Adjust according to the number CPU cores to use for parallel build.
