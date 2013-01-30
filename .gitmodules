@@ -17,3 +17,6 @@
 [submodule "meta-oe-alliance"]
 	path = meta-oe-alliance
 	url = git://github.com/oe-alliance/oe-alliance-core.git
+[submodule "meta-stlinux"]
+	path = meta-stlinux
+	url = https://github.com/DvbMedia/meta-stlinux.git
