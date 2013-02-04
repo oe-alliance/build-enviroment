@@ -1,4 +1,4 @@
-MACHINE_KERNEL_PR_append = ".${INC_PR}.32"
+MACHINE_KERNEL_PR_append = ".${INC_PR}.35"
 
 PATCHREV = "b299a6a132d842b074b289b2568eece452d0663c"
 PATCHLEVEL = "31"
@@ -29,8 +29,15 @@ SRC_URI = " \
 			file://em28xx_fix_terratec_entries.patch \
 			file://em28xx_add_terratec_h5_rev3.patch \
 			file://fix-dvb-siano-sms-order.patch \
+			file://dvb-usb-af9035.patch \
+			file://dvb-usb-a867.patch \
 			file://defconfig \
+			file://nfs-max-rwsize-8k.patch \
 "
+
+SRC_URI_append_dm8000 = "\
+			file://0001-disable-broken-brcm-shared-uart-irq-support-for-bcm7.patch \
+			"
 
 SRC_URI[kernel.md5sum] = "7ceb61f87c097fc17509844b71268935"
 SRC_URI[kernel.sha256sum] = "c881fc2b53cf0da7ca4538aa44623a7de043a41f76fd5d0f51a31f6ed699d463"
