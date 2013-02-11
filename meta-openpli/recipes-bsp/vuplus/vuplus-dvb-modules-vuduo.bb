@@ -1,0 +1,8 @@
+require vuplus-dvb-modules.inc
+
+DOWNLOADMACHINE = "bm750"
+RELEASEDIR = ""
+
+SRCDATE = "20130125"
+SRC_URI[md5sum] = "ca8ec5518a2d7e892465e50354284049"
+SRC_URI[sha256sum] = "616359e0861be516d6acae6b133b1afbcece4f1433b0527ce0f18a80903178d0"
