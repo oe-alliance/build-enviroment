@@ -9,7 +9,6 @@
 *.swp
 site.conf
 bblayers.conf
-meta-openpli/recipes-bsp/vuplus/enigma2-transtreamproxy-util/transcoding.patch
 meta-openpli/recipes-bsp/vuplus/vuplus-opera-browser-plugin/aitreader.py
 meta-openpli/recipes-bsp/vuplus/vuplus-opera-browser-plugin/dumpait
 meta-openpli/recipes-bsp/vuplus/vuplus-opera-browser-plugin/vuplus-opera-browser-plugin_20130105.patch
