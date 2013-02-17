@@ -14,3 +14,4 @@ meta-openpli/conf/machine/
 meta-openpli/recipes-bsp/etxx00/
 meta-openpli/recipes-bsp/vuplus/
 meta-openpli/recipes-bsp/xp/
+meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend
