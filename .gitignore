@@ -9,14 +9,6 @@
 *.swp
 site.conf
 bblayers.conf
-meta-openpli/recipes-bsp/vuplus/vuplus-opera-browser-plugin/aitreader.py
-meta-openpli/recipes-bsp/vuplus/vuplus-opera-browser-plugin/dumpait
-meta-openpli/recipes-bsp/vuplus/vuplus-opera-browser-plugin/vuplus-opera-browser-plugin_20130105.patch
-meta-openpli/recipes-bsp/vuplus/vuplus-opera-browser-plugin.bb
-meta-openpli/recipes-bsp/vuplus/vuplus-opera-browser-util.bb
-meta-openpli/recipes-bsp/vuplus/vuplus-dvb-modules-vuduo.bb
-meta-openpli/recipes-bsp/vuplus/vuplus-dvb-modules-vusolo.bb
-meta-openpli/recipes-bsp/vuplus/vuplus-dvb-modules-vusolo2.bb
-meta-openpli/recipes-bsp/vuplus/vuplus-dvb-modules-vuultimo.bb
-meta-openpli/recipes-bsp/vuplus/vuplus-dvb-modules-vuuno.bb
-meta-openpli/recipes-bsp/vuplus/vuplus-dvb-modules.inc
+meta-openpli/recipes-bsp/etxx00/
+meta-openpli/recipes-bsp/vuplus/
+meta-openpli/recipes-bsp/xp/
