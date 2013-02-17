@@ -9,6 +9,8 @@
 *.swp
 site.conf
 bblayers.conf
+meta-openpli/conf/distro/openpli.conf
+meta-openpli/conf/machine/
 meta-openpli/recipes-bsp/etxx00/
 meta-openpli/recipes-bsp/vuplus/
 meta-openpli/recipes-bsp/xp/
