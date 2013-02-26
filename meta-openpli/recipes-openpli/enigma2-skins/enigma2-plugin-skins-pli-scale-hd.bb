@@ -1,22 +1,17 @@
-inherit gitpkgv
-
-PN = "enigma2-plugin-skins-pli-scale-hd"
-
 SUMMARY = "PLi-Scale-HD skin, scalable clean maximum screen utilisation"
 DESCRIPTION = "Screen based on resizable templates."
 MAINTAINER = "Stephen R. van den Berg AKA BuGless <srb@cuci.nl>"
-LICENSE = "Proprietary"
+LICENSE = "GPLv2+"
 
-LIC_FILES_CHKSUM = "file://LICENSE;md5=8c6df343eefac4184a40b488b231ab9f"
+LIC_FILES_CHKSUM = "file://COPYING;md5=eb723b61539feef013de476e68b5c50a"
 
-SRCREV = ""
+inherit gitpkgv
+
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
-PR = "r0"
+PR = "r1"
 PACKAGE_ARCH = "all"
 
-PACKAGES = "${PN}"
-PROVIDES = "${PN}"
 BRANCH = "master"
 
 SRC_URI = "git://devel.cuci.nl/enigma2-skin-pli-scale-hd;protocol=git;branch=${BRANCH}"

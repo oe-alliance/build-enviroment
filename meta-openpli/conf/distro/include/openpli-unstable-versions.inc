@@ -9,6 +9,7 @@ SRCREV_pn-enigma2-pliplugins ?= "${AUTOREV}"
 SRCREV_pn-enigma2-plugin-extensions-et-livestream ?= "${AUTOREV}"
 SRCREV_pn-enigma2-plugin-extensions-xmltvimport ?= "${AUTOREV}"
 SRCREV_pn-enigma2-plugin-skins-pli-hd ?= "${AUTOREV}"
+SRCREV_pn-enigma2-plugin-skins-pli-scale-hd ?= "${AUTOREV}"
 SRCREV_pn-enigma2-plugins ?= "${AUTOREV}"
 SRCREV_pn-enigma2-skins ?= "${AUTOREV}"
 SRCREV_pn-gst-plugin-libxt ?= "${AUTOREV}"
@@ -42,6 +43,7 @@ SRCREV_pn-enigma2-plugin-settings-hans-13e-19e-23e-28e-rotating ?= "${HANS_GITRE
 
 # svn
 SRCREV_pn-tuxbox-common ?= "${AUTOREV}"
+SRCREV_pn-dvbsnoop ?= "${AUTOREV}"
 SRCREV_pn-tuxterm ?= "${AUTOREV}"
 SRCREV_pn-enigma2-plugin-extensions-tuxcom ?= "${AUTOREV}"
 SRCREV_pn-enigma2-plugin-extensions-tuxterm ?= "${AUTOREV}"
