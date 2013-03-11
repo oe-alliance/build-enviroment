@@ -10,8 +10,8 @@ DEPENDS = "libvorbis libogg libao zlib libmikmod flac audiofile virtual/libiconv
 PR = "r1"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/musicpd/mpd-${PV}.tar.bz2 \
-		file://mpd/mpd.conf \
-		file://mpd/mpd.init \
+		file://mpd.conf \
+		file://mpd.init \
 		"
 
 SRC_URI[md5sum] = "5489dd327fba12c67f01558d2cfa6d57"
@@ -49,6 +49,6 @@ do_compile_prepend() {
 do_install_append() {
 	install -d ${D}/var/lib/mpd/playlists
 	install -d ${D}${sysconfdir}/init.d
-	install -m 755 ${WORKDIR}/mpd/mpd.init ${D}${sysconfdir}/init.d/mpd
-	install -m 644 ${WORKDIR}/mpd/mpd.conf ${D}${sysconfdir}/mpd.conf
+	install -m 755 ${WORKDIR}/mpd.init ${D}${sysconfdir}/init.d/mpd
+	install -m 644 ${WORKDIR}/mpd.conf ${D}${sysconfdir}/mpd.conf
 }
