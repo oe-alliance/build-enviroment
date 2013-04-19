@@ -17,6 +17,7 @@ SRCREV_pn-hotplug-e2-helper ?= "${AUTOREV}"
 SRCREV_pn-libdreamdvd ?= "${AUTOREV}"
 SRCREV_pn-usbtunerhelper ?= "${AUTOREV}"
 SRCREV_pn-gst-plugin-dvbmediasink ?= "${AUTOREV}"
+SRCREV_pn-gst-plugin-dreambox-dvbmediasink ?= "${AUTOREV}"
 SRCREV_pn-libtuxtxt ?= "${AUTOREV}"
 SRCREV_pn-tuxtxt-enigma2 ?= "${AUTOREV}"
 SRCREV_pn-libdvbsi++ ?= "bf0c2bb7b326b93713629dbf74f63a0a54ffe59d"
@@ -38,6 +39,7 @@ SRCREV_pn-enigma2-plugin-settings-henksat-13e-19e-23e-28e-42e-7e ?= "${HENKSAT_G
 
 HANS_GITREV ?= "${AUTOREV}"
 SRCREV_pn-enigma2-plugin-settings-hans-19e-23e ?= "${HANS_GITREV}"
+SRCREV_pn-enigma2-plugin-settings-hans-19e-23e-28e ?= "${HANS_GITREV}"
 SRCREV_pn-enigma2-plugin-settings-hans-13e-19e-23e-28e ?= "${HANS_GITREV}"
 SRCREV_pn-enigma2-plugin-settings-hans-13e-19e-23e-28e-rotating ?= "${HANS_GITREV}"
 
