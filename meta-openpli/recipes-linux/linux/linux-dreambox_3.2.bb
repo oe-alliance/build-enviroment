@@ -1,4 +1,4 @@
-MACHINE_KERNEL_PR_append = ".${INC_PR}.37"
+MACHINE_KERNEL_PR_append = ".${INC_PR}.38"
 
 PATCHREV = "4e0356d04e89df800361b9252f990716f5523c6e"
 PATCHLEVEL = "41"
@@ -28,6 +28,7 @@ SRC_URI = " \
 			file://fix-dvb-siano-sms-order.patch \
 			file://dvb-usb-af9035.patch \
 			file://dvb-usb-a867.patch \
+			file://dvb-usb-rtl2832.patch \
 			file://defconfig \
 "
 

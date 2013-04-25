@@ -3,8 +3,7 @@ inherit image_types
 IMAGE_CMD_jffs2.nfi = " \
 	mkfs.jffs2 \
 		--root=${IMAGE_ROOTFS}/boot \
-		--disable-compressor=lzo \
-		--compression-mode=size \
+		--compression-mode=none \
 		--output=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.boot.jffs2 \
 		${EXTRA_IMAGECMD}; \
 	rm -rf ${IMAGE_ROOTFS}/boot/*; \
@@ -15,7 +14,7 @@ IMAGE_CMD_jffs2.nfi = " \
 		--output=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.jffs2 \
 		${EXTRA_IMAGECMD}; \
 	${DREAMBOX_BUILDIMAGE} \
-		--boot-partition ${DREAMBOX_PART0_SIZE}:${STAGING_DATADIR}/dreambox-secondstage/secondstage-${MACHINE}.bin \
+		--boot-partition ${DREAMBOX_PART0_SIZE}:${DEPLOY_DIR_IMAGE}/secondstage-${MACHINE}.bin \
 		--data-partition ${DREAMBOX_PART1_SIZE}:${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.boot.jffs2 \
 		--data-partition ${DREAMBOX_PART2_SIZE}:${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.jffs2 \
 		> ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.nfi; \
@@ -24,8 +23,7 @@ IMAGE_CMD_jffs2.nfi = " \
 IMAGE_CMD_sum.jffs2.nfi = " \
 	mkfs.jffs2 \
 		--root=${IMAGE_ROOTFS}/boot \
-		--disable-compressor=lzo \
-		--compression-mode=size \
+		--compression-mode=none \
 		--output=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.boot.jffs2 \
 		${EXTRA_IMAGECMD}; \
 	sumtool \
@@ -44,7 +42,7 @@ IMAGE_CMD_sum.jffs2.nfi = " \
 		-o ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.sum.jffs2 \
 		${EXTRA_IMAGECMD}; \
 	${DREAMBOX_BUILDIMAGE} \
-		--boot-partition ${DREAMBOX_PART0_SIZE}:${STAGING_DATADIR}/dreambox-secondstage/secondstage-${MACHINE}.bin \
+		--boot-partition ${DREAMBOX_PART0_SIZE}:${DEPLOY_DIR_IMAGE}/secondstage-${MACHINE}.bin \
 		--data-partition ${DREAMBOX_PART1_SIZE}:${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.boot.sum.jffs2 \
 		--data-partition ${DREAMBOX_PART2_SIZE}:${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.sum.jffs2 \
 		> ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.nfi; \
@@ -53,8 +51,7 @@ IMAGE_CMD_sum.jffs2.nfi = " \
 IMAGE_CMD_ubi.nfi = " \
 	mkfs.jffs2 \
 		--root=${IMAGE_ROOTFS}/boot \
-		--disable-compressor=lzo \
-		--compression-mode=size \
+		--compression-mode=none \
 		--output=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.boot.jffs2 \
 		${EXTRA_IMAGECMD}; \
 	rm -rf ${IMAGE_ROOTFS}/boot/*; \
@@ -86,7 +83,7 @@ IMAGE_CMD_ubi.nfi = " \
 		${MKUBIFS_ARGS}; \
 	ubinize -o ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ubi ${UBINIZE_ARGS} ubinize.cfg; \
 	${DREAMBOX_BUILDIMAGE} \
-		--boot-partition ${DREAMBOX_PART0_SIZE}:${STAGING_DATADIR}/dreambox-secondstage/secondstage-${MACHINE}.bin \
+		--boot-partition ${DREAMBOX_PART0_SIZE}:${DEPLOY_DIR_IMAGE}/secondstage-${MACHINE}.bin \
 		--data-partition ${DREAMBOX_PART1_SIZE}:${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.boot.jffs2 \
 		--data-partition ${DREAMBOX_PART2_SIZE}:${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ubi \
 		> ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.nfi; \
