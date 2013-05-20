@@ -2,7 +2,7 @@
 
 # MACHINE examples: dm500hd dm800se dm7020hd dm8000 dm800 e3hd ebox5000 et4x00 et5x00 et6x00 et9x00 gb800se gb800solo gb800ue gbquad iqonios100hd iqonios300hd ixussone ixusszero odinm9 odimm7 tm2t tmsingle tmtwin tmsingle ventonhde ventonhdx vuduo vusolo vuultimo vuuno vusolo2 vuduo2 xp1000 
 MACHINE ?= vuultimo
-# DISTRO examples: openvix openmips openaaf openpl opensif
+# DISTRO examples: openvix openmips openatv openpl opensif
 DISTRO ?= openvix
 
 # Adjust according to the number CPU cores to use for parallel build.
