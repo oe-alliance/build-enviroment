@@ -119,6 +119,7 @@ $(TOPDIR)/conf/$(DISTRO).conf: $(DEPDIR)/.$(DISTRO).conf.$($(DISTRO)_CONF_HASH)
 	@echo 'BBINCLUDELOGS = "yes"' >> $@
 	@echo 'CONF_VERSION = "1"' >> $@
 	@echo 'DISTRO = "$(DISTRO)"' >> $@
+	@echo 'MACHINEBUILD = "$(MACHINE)"' >> $@
 	@echo 'EXTRA_IMAGE_FEATURES = "debug-tweaks"' >> $@
 	@echo 'USER_CLASSES = "buildstats"' >> $@
 	@if [ -f "$(CURDIR)/branding.conf" ]; then \
@@ -137,7 +138,11 @@ $(TOPDIR)/conf/local.conf: $(DEPDIR)/.local.conf.$(MACHINE).$(LOCAL_CONF_HASH)
 	@echo 'Generating $@'
 	@test -d $(@D) || mkdir -p $(@D)
 	@echo 'TOPDIR = "$(TOPDIR)"' > $@
-	@echo 'MACHINE = "$(MACHINE)"' >> $@
+	@if [ "$(MACHINE)" = "dm7020hdv2" ]; then \
+		echo 'MACHINE = "dm7020hd"' >> $@; \
+	else \
+		echo 'MACHINE = "$(MACHINE)"' >> $@; \
+	fi
 	@echo 'require $(TOPDIR)/conf/$(DISTRO).conf' >> $@
 
 $(TOPDIR)/conf/site.conf: $(CURDIR)/site.conf
