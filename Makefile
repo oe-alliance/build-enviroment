@@ -81,7 +81,13 @@ update:
 	else \
 		$(GIT) submodule sync && \
 		$(GIT) submodule update --init && \
-		echo "The oe-alliance is now up-to-date."; \
+		cd meta-oe-alliance  && \
+		if [ -n "$(GIT_REMOTE)" ]; then \
+			$(GIT) submodule sync && \
+			$(GIT) submodule update --init; \
+		fi; \
+		echo "The oe-alliance is now up-to-date." ; \
+		cd .. ; \
 	fi
 
 .PHONY: all image init initialize update usage
