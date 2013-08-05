@@ -141,6 +141,8 @@ $(TOPDIR)/conf/local.conf: $(DEPDIR)/.local.conf.$(MACHINE).$(LOCAL_CONF_HASH)
 	@echo 'TOPDIR = "$(TOPDIR)"' > $@
 	@if [ "$(MACHINE)" = "dm7020hdv2" ]; then \
 		echo 'MACHINE = "dm7020hd"' >> $@; \
+	elif [ "$(MACHINE)" = "odinm6" ]; then \
+		echo 'MACHINE = "odinm7"' >> $@; \		
 	else \
 		echo 'MACHINE = "$(MACHINE)"' >> $@; \
 	fi
