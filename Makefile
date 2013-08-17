@@ -1,10 +1,5 @@
 #!/usr/bin/make -f
 
-# MACHINE examples: dm500hd dm800se dm7020hd dm8000 dm800 e3hd ebox5000 et4x00 et5x00 et6x00 et9x00 gb800se gb800solo gb800ue gbquad iqonios100hd iqonios300hd ixussone ixusszero odinm9 odimm7 tm2t tmsingle tmtwin tmsingle ventonhde ventonhdx vuduo vusolo vuultimo vuuno vusolo2 vuduo2 xp1000 
-MACHINE ?= vuultimo
-# DISTRO examples: openvix openmips openatv openpl opensif
-DISTRO ?= openvix
-
 # Adjust according to the number CPU cores to use for parallel build.
 # Default: Number of processors in /proc/cpuinfo, if present, or 1.
 NR_CPU := $(shell [ -f /proc/cpuinfo ] && grep -c '^processor\s*:' /proc/cpuinfo || echo 1)
@@ -13,15 +8,17 @@ PARALLEL_MAKE ?= -j $(NR_CPU)
 
 XSUM ?= md5sum
 
-BUILD_DIR = $(CURDIR)/builds/$(DISTRO)/$(MACHINE)
+BUILD_DIR = $(CURDIR)/builds/$(DISTRO)
 TOPDIR = $(BUILD_DIR)
 DL_DIR = $(CURDIR)/sources
-SSTATE_DIR = $(CURDIR)/builds/$(DISTRO)/sstate-cache
+SSTATE_DIR = $(TOPDIR)/sstate-cache
 TMPDIR = $(TOPDIR)/tmp
 DEPDIR = $(TOPDIR)/.deps
 
 BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-oe \
+	$(CURDIR)/meta-openembedded/meta-multimedia \
+	$(CURDIR)/meta-openembedded/meta-networking \
 	$(CURDIR)/openembedded-core/meta \
 	$(CURDIR)/meta-oe-alliance \
 
@@ -35,8 +32,8 @@ CONFFILES = \
 CONFDEPS = \
 	$(DEPDIR)/.env.source.$(BITBAKE_ENV_HASH) \
 	$(DEPDIR)/.$(DISTRO).conf.$($(DISTRO)_CONF_HASH) \
-	$(DEPDIR)/.bblayers.conf.$(MACHINE).$(BBLAYERS_CONF_HASH) \
-	$(DEPDIR)/.local.conf.$(MACHINE).$(LOCAL_CONF_HASH)
+	$(DEPDIR)/.bblayers.conf.$(BBLAYERS_CONF_HASH) \
+	$(DEPDIR)/.local.conf.$(LOCAL_CONF_HASH)
 
 GIT ?= git
 GIT_REMOTE := $(shell $(GIT) remote)
@@ -62,9 +59,6 @@ $(BBLAYERS):
 initialize: init
 
 init: $(BBLAYERS) $(CONFFILES)
-
-layercheck:
-	@if [ -e "$(TOPDIR)/conf/local.conf" -a "$(grep require $(TOPDIR)/conf/local.conf)" != "require $(TOPDIR)/conf/$(DISTRO).conf" ]; then rm $(TOPDIR)/conf/local.conf; fi
 
 image: init
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake $(DISTRO)-image
@@ -99,6 +93,10 @@ BITBAKE_ENV_HASH := $(call hash, \
 
 $(TOPDIR)/env.source: $(DEPDIR)/.env.source.$(BITBAKE_ENV_HASH)
 	@echo 'Generating $@'
+	@echo 'export BB_ENV_EXTRAWHITE="MACHINE"' > $@
+	@echo 'export MACHINE' >> $@
+	@echo 'export BB_ENV_EXTRAWHITE="DISTRO"' > $@
+	@echo 'export DISTRO' >> $@
 	@echo 'export PATH=$(CURDIR)/openembedded-core/scripts:$(CURDIR)/bitbake/bin:$${PATH}' >> $@
 
 $(DISTRO)_CONF_HASH := $(call hash, \
@@ -114,13 +112,11 @@ $(DISTRO)_CONF_HASH := $(call hash, \
 $(TOPDIR)/conf/$(DISTRO).conf: $(DEPDIR)/.$(DISTRO).conf.$($(DISTRO)_CONF_HASH)
 	@echo 'Generating $@'
 	@test -d $(@D) || mkdir -p $(@D)
-	@echo 'SSTATE_DIR = "$(SSTATE_DIR)"' > $@
+	@echo 'SSTATE_DIR = "$(SSTATE_DIR)"' >> $@
 	@echo 'TMPDIR = "$(TMPDIR)"' >> $@
 	@echo 'BB_GENERATE_MIRROR_TARBALLS = "0"' >> $@
 	@echo 'BBINCLUDELOGS = "yes"' >> $@
 	@echo 'CONF_VERSION = "1"' >> $@
-	@echo 'DISTRO = "$(DISTRO)"' >> $@
-	@echo 'MACHINEBUILD = "$(MACHINE)"' >> $@
 	@echo 'EXTRA_IMAGE_FEATURES = "debug-tweaks"' >> $@
 	@echo 'USER_CLASSES = "buildstats"' >> $@
 	@if [ -f "$(CURDIR)/branding.conf" ]; then \
@@ -132,31 +128,24 @@ LOCAL_CONF_HASH := $(call hash, \
 	'LOCAL_CONF_VERSION = "0"' \
 	'CURDIR = "$(CURDIR)"' \
 	'TOPDIR = "$(TOPDIR)"' \
-	'MACHINE = "$(MACHINE)"' \
 	)
 
-$(TOPDIR)/conf/local.conf: $(DEPDIR)/.local.conf.$(MACHINE).$(LOCAL_CONF_HASH)
+$(TOPDIR)/conf/local.conf: $(DEPDIR)/.local.conf.$(LOCAL_CONF_HASH)
 	@echo 'Generating $@'
 	@test -d $(@D) || mkdir -p $(@D)
 	@echo 'TOPDIR = "$(TOPDIR)"' > $@
-	@if [ "$(MACHINE)" = "dm7020hdv2" ]; then \
-		echo 'MACHINE = "dm7020hd"' >> $@; \
-	elif [ "$(MACHINE)" = "odinm6" ]; then \
-		echo 'MACHINE = "odinm7"' >> $@; \
-	else \
-		echo 'MACHINE = "$(MACHINE)"' >> $@; \
-	fi
 	@echo 'require $(TOPDIR)/conf/$(DISTRO).conf' >> $@
 
 $(TOPDIR)/conf/site.conf: $(CURDIR)/site.conf
-	@ln -s ../../../../site.conf $@
+	@ln -s ../../../site.conf $@
 
 $(CURDIR)/site.conf:
-	@echo 'SCONF_VERSION = "1"' > $@
+	@echo 'SCONF_VERSION = "1"' >> $@
 	@echo 'BB_NUMBER_THREADS = "$(BB_NUMBER_THREADS)"' >> $@
 	@echo 'PARALLEL_MAKE = "$(PARALLEL_MAKE)"' >> $@
 	@echo 'BUILD_OPTIMIZATION = "-march=native -O2 -pipe"' >> $@
 	@echo 'DL_DIR = "$(DL_DIR)"' >> $@
+	@echo 'INHERIT += "rm_deepwork"' >> $@
 
 BBLAYERS_CONF_HASH := $(call hash, \
 	'BBLAYERS_CONF_VERSION = "0"' \
@@ -164,7 +153,7 @@ BBLAYERS_CONF_HASH := $(call hash, \
 	'BBLAYERS = "$(BBLAYERS)"' \
 	)
 
-$(TOPDIR)/conf/bblayers.conf: $(DEPDIR)/.bblayers.conf.$(MACHINE).$(BBLAYERS_CONF_HASH)
+$(TOPDIR)/conf/bblayers.conf: $(DEPDIR)/.bblayers.conf.$(BBLAYERS_CONF_HASH)
 	@echo 'Generating $@'
 	@test -d $(@D) || mkdir -p $(@D)
 	@echo 'LCONF_VERSION = "4"' >> $@
