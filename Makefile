@@ -26,14 +26,12 @@ CONFFILES = \
 	$(TOPDIR)/env.source \
 	$(TOPDIR)/conf/$(DISTRO).conf \
 	$(TOPDIR)/conf/bblayers.conf \
-	$(TOPDIR)/conf/local.conf \
 	$(TOPDIR)/conf/site.conf
 
 CONFDEPS = \
 	$(DEPDIR)/.env.source.$(BITBAKE_ENV_HASH) \
 	$(DEPDIR)/.$(DISTRO).conf.$($(DISTRO)_CONF_HASH) \
 	$(DEPDIR)/.bblayers.conf.$(BBLAYERS_CONF_HASH) \
-	$(DEPDIR)/.local.conf.$(LOCAL_CONF_HASH)
 
 GIT ?= git
 GIT_REMOTE := $(shell $(GIT) remote)
@@ -124,17 +122,6 @@ $(TOPDIR)/conf/$(DISTRO).conf: $(DEPDIR)/.$(DISTRO).conf.$($(DISTRO)_CONF_HASH)
 		cat $(CURDIR)/branding.conf >> $@; \
 	fi
 
-LOCAL_CONF_HASH := $(call hash, \
-	'LOCAL_CONF_VERSION = "0"' \
-	'CURDIR = "$(CURDIR)"' \
-	'TOPDIR = "$(TOPDIR)"' \
-	)
-
-$(TOPDIR)/conf/local.conf: $(DEPDIR)/.local.conf.$(LOCAL_CONF_HASH)
-	@echo 'Generating $@'
-	@test -d $(@D) || mkdir -p $(@D)
-	@echo 'TOPDIR = "$(TOPDIR)"' > $@
-	@echo 'require $(TOPDIR)/conf/$(DISTRO).conf' >> $@
 
 $(TOPDIR)/conf/site.conf: $(CURDIR)/site.conf
 	@ln -s ../../../site.conf $@
