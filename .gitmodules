@@ -16,4 +16,4 @@
 	ignore = dirty
 [submodule "meta-oe-alliance"]
 	path = meta-oe-alliance
-	url = git@github.com:oe-alliance/oe-alliance-core.git
+	url = git://github.com/oe-alliance/oe-alliance-core.git
