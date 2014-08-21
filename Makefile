@@ -129,6 +129,9 @@ MACHINEBUILD=force1plus
 else ifeq ($(MACHINEBUILD),worldvisionf1)
 MACHINE=dags3
 MACHINEBUILD=worldvisionf1
+else ifeq ($(MACHINEBUILD),worldvisionf1plus)
+MACHINE=dags3
+MACHINEBUILD=worldvisionf1plus
 else ifeq ($(MACHINEBUILD),optimussos1plus)
 MACHINE=dags3
 MACHINEBUILD=optimussos1plus
