@@ -292,6 +292,57 @@ MACHINEBUILD=quadbox2400
 else ifeq ($(MACHINEBUILD),mutant1100)
 MACHINE=hd1100
 MACHINEBUILD=mutant1100
+
+else ifeq ($(MACHINEBUILD),amiko8900)
+MACHINE=spark
+MACHINEBUILD=amiko8900
+else ifeq ($(MACHINEBUILD),sognorevolution)
+MACHINE=spark
+MACHINEBUILD=sognorevolution
+else ifeq ($(MACHINEBUILD),arguspingulux)
+MACHINE=spark
+MACHINEBUILD=arguspingulux
+else ifeq ($(MACHINEBUILD),arguspinguluxmini)
+MACHINE=spark
+MACHINEBUILD=arguspinguluxmini
+else ifeq ($(MACHINEBUILD),arguspinguluxplus)
+MACHINE=spark
+MACHINEBUILD=arguspinguluxplus
+else ifeq ($(MACHINEBUILD),sparkreloaded)
+MACHINE=spark
+MACHINEBUILD=sparkreloaded
+else ifeq ($(MACHINEBUILD),fulanspark1)
+MACHINE=spark
+MACHINEBUILD=fulanspark1
+else ifeq ($(MACHINEBUILD),sabsolo)
+MACHINE=spark
+MACHINEBUILD=sabsolo
+else ifeq ($(MACHINEBUILD),sparklx)
+MACHINE=spark
+MACHINEBUILD=sparklx
+else ifeq ($(MACHINEBUILD),gis8120)
+MACHINE=spark
+MACHINEBUILD=gis8120
+
+else ifeq ($(MACHINEBUILD),amikoalien)
+MACHINE=spark7162
+MACHINEBUILD=amikoalien
+else ifeq ($(MACHINEBUILD),sognotriple)
+MACHINE=spark7162
+MACHINEBUILD=sognotriple
+else ifeq ($(MACHINEBUILD),sparktriplex)
+MACHINE=spark7162
+MACHINEBUILD=sparktriplex
+else ifeq ($(MACHINEBUILD),sabtriple)
+MACHINE=spark7162
+MACHINEBUILD=sabtriple
+else ifeq ($(MACHINEBUILD),giavatar)
+MACHINE=spark7162
+MACHINEBUILD=giavatar
+else ifeq ($(MACHINEBUILD),sparkone)
+MACHINE=spark7162
+MACHINEBUILD=sparkone
+
 endif
 
 initialize: init
