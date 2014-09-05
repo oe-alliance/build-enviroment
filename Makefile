@@ -39,6 +39,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ixuss \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-odin \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-skylake \
+	$(CURDIR)/meta-oe-alliance/meta-brands/meta-tripledot \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-vuplus \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xp \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xtrend \
@@ -343,6 +344,10 @@ MACHINEBUILD=giavatar
 else ifeq ($(MACHINEBUILD),sparkone)
 MACHINE=spark7162
 MACHINEBUILD=sparkone
+
+else ifeq ($(MACHINEBUILD),enibox)
+MACHINE=kmt3000
+MACHINEBUILD=enibox
 
 endif
 
