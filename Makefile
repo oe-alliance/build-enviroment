@@ -325,6 +325,12 @@ MACHINEBUILD=sparklx
 else ifeq ($(MACHINEBUILD),gis8120)
 MACHINE=spark
 MACHINEBUILD=gis8120
+else ifeq ($(MACHINEBUILD),dynaspark)
+MACHINE=spark
+MACHINEBUILD=dynaspark
+else ifeq ($(MACHINEBUILD),dynasparkplus)
+MACHINE=spark
+MACHINEBUILD=dynasparkplus
 
 else ifeq ($(MACHINEBUILD),amikoalien)
 MACHINE=spark7162
@@ -344,6 +350,9 @@ MACHINEBUILD=giavatar
 else ifeq ($(MACHINEBUILD),sparkone)
 MACHINE=spark7162
 MACHINEBUILD=sparkone
+else ifeq ($(MACHINEBUILD),dynaspark7162)
+MACHINE=spark7162
+MACHINEBUILD=dynaspark7162
 
 else ifeq ($(MACHINEBUILD),enibox)
 MACHINE=kmt3000
