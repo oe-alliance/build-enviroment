@@ -210,9 +210,15 @@ MACHINEBUILD=mbmini
 else ifeq ($(MACHINEBUILD),atemio5x00)
 MACHINE=inihde
 MACHINEBUILD=atemio5x00
-else ifeq ($(MACHINEBUILD),atemio6x00)
-MACHINE=inihde2
-MACHINEBUILD=atemio6x00
+else ifeq ($(MACHINEBUILD),atemio6000)
+MACHINE=inihde2am
+MACHINEBUILD=atemio6000
+else ifeq ($(MACHINEBUILD),atemio6100)
+MACHINE=inihde2am
+MACHINEBUILD=atemio6100
+else ifeq ($(MACHINEBUILD),atemio6200)
+MACHINE=inihde2am
+MACHINEBUILD=atemio6200
 else ifeq ($(MACHINEBUILD),sezammarvel)
 MACHINE=inihdp
 MACHINEBUILD=sezammarvel
