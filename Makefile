@@ -121,7 +121,7 @@ else ifeq ($(MACHINEBUILD),optimussos2)
 MACHINE=dags2
 MACHINEBUILD=optimussos2
 else ifeq ($(MACHINEBUILD),tmnano2super)
-MACHINE=dags3
+MACHINE=dags4
 MACHINEBUILD=tmnano2super
 else ifeq ($(MACHINEBUILD),tmnano3t)
 MACHINE=dags4
