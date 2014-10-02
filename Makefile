@@ -211,13 +211,13 @@ else ifeq ($(MACHINEBUILD),atemio5x00)
 MACHINE=inihde
 MACHINEBUILD=atemio5x00
 else ifeq ($(MACHINEBUILD),atemio6000)
-MACHINE=inihde2am
+MACHINE=inihde2
 MACHINEBUILD=atemio6000
 else ifeq ($(MACHINEBUILD),atemio6100)
-MACHINE=inihde2am
+MACHINE=inihde2
 MACHINEBUILD=atemio6100
 else ifeq ($(MACHINEBUILD),atemio6200)
-MACHINE=inihde2am
+MACHINE=inihde2
 MACHINEBUILD=atemio6200
 else ifeq ($(MACHINEBUILD),sezammarvel)
 MACHINE=inihdp
