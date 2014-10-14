@@ -102,6 +102,9 @@ MACHINEBUILD=iqonios100hd
 else ifeq ($(MACHINEBUILD),iqonios300hd)
 MACHINE=dags1
 MACHINEBUILD=iqonios300hd
+else ifeq ($(MACHINEBUILD),iqonios300hdv2)
+MACHINE=dags1
+MACHINEBUILD=iqonios300hdv2
 else ifeq ($(MACHINEBUILD),optimussos1)
 MACHINE=dags1
 MACHINEBUILD=optimussos1
