@@ -367,7 +367,7 @@ MACHINE=spark7162
 MACHINEBUILD=dynaspark7162
 
 else ifeq ($(MACHINEBUILD),enibox)
-MACHINE=kmt3000
+MACHINE=vg5000
 MACHINEBUILD=enibox
 
 endif
