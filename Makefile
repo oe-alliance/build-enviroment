@@ -369,6 +369,9 @@ MACHINEBUILD=dynaspark7162
 else ifeq ($(MACHINEBUILD),enibox)
 MACHINE=vg5000
 MACHINEBUILD=enibox
+else ifeq ($(MACHINEBUILD),mago)
+MACHINE=vg5000
+MACHINEBUILD=mago
 
 endif
 
