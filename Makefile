@@ -25,6 +25,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-filesystems \
 	$(CURDIR)/meta-openembedded/meta-python \
 	$(CURDIR)/meta-oe-alliance/meta-oe \
+	$(CURDIR)/meta-oe-alliance/meta-brands/meta-airdigital \	
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-azbox \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-blackbox \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-cube \
@@ -372,6 +373,13 @@ MACHINEBUILD=enibox
 else ifeq ($(MACHINEBUILD),mago)
 MACHINE=vg5000
 MACHINEBUILD=mago
+
+else ifeq ($(MACHINEBUILD),zgemmash1)
+MACHINE=sh1
+MACHINEBUILD=zgemmash1
+else ifeq ($(MACHINEBUILD),zgemmas2s)
+MACHINE=sh1
+MACHINEBUILD=zgemmas2s
 
 endif
 
