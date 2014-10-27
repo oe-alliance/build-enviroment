@@ -23,6 +23,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-multimedia \
 	$(CURDIR)/meta-openembedded/meta-networking \
 	$(CURDIR)/meta-openembedded/meta-filesystems \
+	$(CURDIR)/meta-openembedded/meta-systemd \
 	$(CURDIR)/meta-openembedded/meta-python \
 	$(CURDIR)/meta-oe-alliance/meta-oe \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-airdigital \
@@ -311,6 +312,9 @@ MACHINEBUILD=mutant1100
 else ifeq ($(MACHINEBUILD),amiko8900)
 MACHINE=spark
 MACHINEBUILD=amiko8900
+else ifeq ($(MACHINEBUILD),amikomini)
+MACHINE=spark
+MACHINEBUILD=amikomini
 else ifeq ($(MACHINEBUILD),sognorevolution)
 MACHINE=spark
 MACHINEBUILD=sognorevolution
