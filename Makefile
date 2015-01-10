@@ -23,7 +23,6 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-multimedia \
 	$(CURDIR)/meta-openembedded/meta-networking \
 	$(CURDIR)/meta-openembedded/meta-filesystems \
-	$(CURDIR)/meta-openembedded/meta-systemd \
 	$(CURDIR)/meta-openembedded/meta-python \
 	$(CURDIR)/meta-oe-alliance/meta-oe \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-airdigital \
@@ -131,6 +130,9 @@ MACHINEBUILD=tmnano2super
 else ifeq ($(MACHINEBUILD),tmnano3t)
 MACHINE=dags4
 MACHINEBUILD=tmnano3t
+else ifeq ($(MACHINEBUILD),tmnanose)
+MACHINE=dags5
+MACHINEBUILD=tmnanose
 else ifeq ($(MACHINEBUILD),force1)
 MACHINE=dags3
 MACHINEBUILD=force1
@@ -152,6 +154,9 @@ MACHINEBUILD=optimussos2plus
 else ifeq ($(MACHINEBUILD),optimussos3plus)
 MACHINE=dags3
 MACHINEBUILD=optimussos3plus
+else ifeq ($(MACHINEBUILD),force2solid)
+MACHINE=dags5
+MACHINEBUILD=force2solid
 
 else ifeq ($(MACHINEBUILD),classm)
 MACHINE=odinm7
@@ -224,6 +229,9 @@ MACHINEBUILD=atemio6100
 else ifeq ($(MACHINEBUILD),atemio6200)
 MACHINE=inihde2
 MACHINEBUILD=atemio6200
+else ifeq ($(MACHINEBUILD),mbminiplus)
+MACHINE=inihde2
+MACHINEBUILD=mbminiplus
 else ifeq ($(MACHINEBUILD),sezammarvel)
 MACHINE=inihdp
 MACHINEBUILD=sezammarvel
@@ -298,6 +306,9 @@ MACHINEBUILD=marvel1
 else ifeq ($(MACHINEBUILD),x2plus)
 MACHINE=ew7356
 MACHINEBUILD=x2plus
+else ifeq ($(MACHINEBUILD),bre2ze)
+MACHINE=ew7362
+MACHINEBUILD=bre2ze
 
 else ifeq ($(MACHINEBUILD),mutant2400)
 MACHINE=hd2400
@@ -377,6 +388,9 @@ MACHINEBUILD=enibox
 else ifeq ($(MACHINEBUILD),mago)
 MACHINE=vg5000
 MACHINEBUILD=mago
+else ifeq ($(MACHINEBUILD),tyrant)
+MACHINE=vg1000
+MACHINEBUILD=tyrant
 
 else ifeq ($(MACHINEBUILD),zgemmash1)
 MACHINE=sh1
