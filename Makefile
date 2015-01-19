@@ -28,6 +28,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-airdigital \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-azbox \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-blackbox \
+	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ceryon \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-cube \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dags \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dream \
@@ -157,6 +158,9 @@ MACHINEBUILD=optimussos3plus
 else ifeq ($(MACHINEBUILD),force2solid)
 MACHINE=dags5
 MACHINEBUILD=force2solid
+else ifeq ($(MACHINEBUILD),optimussos)
+MACHINE=dags5
+MACHINEBUILD=optimussos
 
 else ifeq ($(MACHINEBUILD),classm)
 MACHINE=odinm7
@@ -388,9 +392,16 @@ MACHINEBUILD=enibox
 else ifeq ($(MACHINEBUILD),mago)
 MACHINE=vg5000
 MACHINEBUILD=mago
+else ifeq ($(MACHINEBUILD),x1plus)
+MACHINE=vg5000
+MACHINEBUILD=x1plus
 else ifeq ($(MACHINEBUILD),tyrant)
 MACHINE=vg1000
 MACHINEBUILD=tyrant
+else ifeq ($(MACHINEBUILD),xcombo)
+MACHINE=vg2000
+MACHINEBUILD=xcombo
+
 
 else ifeq ($(MACHINEBUILD),zgemmash1)
 MACHINE=sh1
@@ -398,6 +409,10 @@ MACHINEBUILD=zgemmash1
 else ifeq ($(MACHINEBUILD),zgemmas2s)
 MACHINE=sh1
 MACHINEBUILD=zgemmas2s
+
+else ifeq ($(MACHINEBUILD),p62)
+MACHINE=7000s
+MACHINEBUILD=p62
 
 endif
 
