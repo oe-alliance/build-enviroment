@@ -39,6 +39,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-gigablue \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ini \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ixuss \
+	$(CURDIR)/meta-oe-alliance/meta-brands/meta-broadmedia \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-odin \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-skylake \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-tripledot \
@@ -140,6 +141,9 @@ MACHINEBUILD=force1
 else ifeq ($(MACHINEBUILD),force1plus)
 MACHINE=dags3
 MACHINEBUILD=force1plus
+else ifeq ($(MACHINEBUILD),megaforce1plus)
+MACHINE=dags3
+MACHINEBUILD=megaforce1plus
 else ifeq ($(MACHINEBUILD),worldvisionf1)
 MACHINE=dags3
 MACHINEBUILD=worldvisionf1
@@ -155,9 +159,12 @@ MACHINEBUILD=optimussos2plus
 else ifeq ($(MACHINEBUILD),optimussos3plus)
 MACHINE=dags3
 MACHINEBUILD=optimussos3plus
-else ifeq ($(MACHINEBUILD),force2solid)
+else ifeq ($(MACHINEBUILD),force2)
 MACHINE=dags5
-MACHINEBUILD=force2solid
+MACHINEBUILD=force2
+else ifeq ($(MACHINEBUILD),megaforce2)
+MACHINE=dags5
+MACHINEBUILD=megaforce2
 else ifeq ($(MACHINEBUILD),optimussos)
 MACHINE=dags5
 MACHINEBUILD=optimussos
@@ -224,6 +231,9 @@ MACHINEBUILD=mbmini
 else ifeq ($(MACHINEBUILD),atemio5x00)
 MACHINE=inihde
 MACHINEBUILD=atemio5x00
+else ifeq ($(MACHINEBUILD),bwidowx)
+MACHINE=inihde
+MACHINEBUILD=bwidowx
 else ifeq ($(MACHINEBUILD),atemio6000)
 MACHINE=inihde2
 MACHINEBUILD=atemio6000
@@ -323,6 +333,9 @@ MACHINEBUILD=quadbox2400
 else ifeq ($(MACHINEBUILD),mutant1100)
 MACHINE=hd1100
 MACHINEBUILD=mutant1100
+else ifeq ($(MACHINEBUILD),mutant1200)
+MACHINE=hd1200
+MACHINEBUILD=mutant1200
 
 else ifeq ($(MACHINEBUILD),amiko8900)
 MACHINE=spark
@@ -402,17 +415,32 @@ else ifeq ($(MACHINEBUILD),xcombo)
 MACHINE=vg2000
 MACHINEBUILD=xcombo
 
-
 else ifeq ($(MACHINEBUILD),zgemmash1)
 MACHINE=sh1
 MACHINEBUILD=zgemmash1
+else ifeq ($(MACHINEBUILD),zgemmash2)
+MACHINE=sh1
+MACHINEBUILD=zgemmash2
 else ifeq ($(MACHINEBUILD),zgemmas2s)
 MACHINE=sh1
 MACHINEBUILD=zgemmas2s
+else ifeq ($(MACHINEBUILD),zgemmass)
+MACHINE=sh1
+MACHINEBUILD=zgemmass
 
-else ifeq ($(MACHINEBUILD),p62)
+else ifeq ($(MACHINEBUILD),nano)
 MACHINE=7000s
-MACHINEBUILD=p62
+MACHINEBUILD=nano
+else ifeq ($(MACHINEBUILD),nanoc)
+MACHINE=7000s
+MACHINEBUILD=nanoc
+
+else ifeq ($(MACHINEBUILD),broadmedia300)
+MACHINE=g300
+MACHINEBUILD=broadmedia300
+else ifeq ($(MACHINEBUILD),sf3038)
+MACHINE=g300
+MACHINEBUILD=sf3038
 
 endif
 
