@@ -27,6 +27,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-oe \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-airdigital \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-azbox \
+	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ax \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-blackbox \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ceryon \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-cube \
@@ -135,6 +136,9 @@ MACHINEBUILD=tmnano3t
 else ifeq ($(MACHINEBUILD),tmnanose)
 MACHINE=dags5
 MACHINEBUILD=tmnanose
+else ifeq ($(MACHINEBUILD),tmnanocombo)
+MACHINE=dags5
+MACHINEBUILD=tmnanocombo
 else ifeq ($(MACHINEBUILD),force1)
 MACHINE=dags3
 MACHINEBUILD=force1
@@ -159,6 +163,9 @@ MACHINEBUILD=optimussos2plus
 else ifeq ($(MACHINEBUILD),optimussos3plus)
 MACHINE=dags3
 MACHINEBUILD=optimussos3plus
+else ifeq ($(MACHINEBUILD),force2plus)
+MACHINE=dags5
+MACHINEBUILD=force2plus
 else ifeq ($(MACHINEBUILD),force2)
 MACHINE=dags5
 MACHINEBUILD=force2
@@ -336,6 +343,9 @@ MACHINEBUILD=mutant1100
 else ifeq ($(MACHINEBUILD),mutant1200)
 MACHINE=hd1200
 MACHINEBUILD=mutant1200
+else ifeq ($(MACHINEBUILD),mutant500c)
+MACHINE=hd500c
+MACHINEBUILD=mutant500c
 
 else ifeq ($(MACHINEBUILD),amiko8900)
 MACHINE=spark
@@ -407,7 +417,9 @@ MACHINE=vg5000
 MACHINEBUILD=mago
 else ifeq ($(MACHINEBUILD),x1plus)
 MACHINE=vg5000
-MACHINEBUILD=x1plus
+else ifeq ($(MACHINEBUILD),sf108)
+MACHINE=vg5000
+MACHINEBUILD=sf108
 else ifeq ($(MACHINEBUILD),tyrant)
 MACHINE=vg1000
 MACHINEBUILD=tyrant
