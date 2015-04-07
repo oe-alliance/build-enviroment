@@ -47,6 +47,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-vuplus \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xp \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xtrend \
+	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xcore \
 	$(CURDIR)/meta-local \
 
 
@@ -136,9 +137,9 @@ MACHINEBUILD=tmnano3t
 else ifeq ($(MACHINEBUILD),tmnanose)
 MACHINE=dags5
 MACHINEBUILD=tmnanose
-else ifeq ($(MACHINEBUILD),tmnanocombo)
+else ifeq ($(MACHINEBUILD),tmnanosecombo)
 MACHINE=dags5
-MACHINEBUILD=tmnanocombo
+MACHINEBUILD=tmnanosecombo
 else ifeq ($(MACHINEBUILD),force1)
 MACHINE=dags3
 MACHINEBUILD=force1
@@ -417,6 +418,7 @@ MACHINE=vg5000
 MACHINEBUILD=mago
 else ifeq ($(MACHINEBUILD),x1plus)
 MACHINE=vg5000
+MACHINEBUILD=x1plus
 else ifeq ($(MACHINEBUILD),sf108)
 MACHINE=vg5000
 MACHINEBUILD=sf108
@@ -431,7 +433,7 @@ else ifeq ($(MACHINEBUILD),zgemmash1)
 MACHINE=sh1
 MACHINEBUILD=zgemmash1
 else ifeq ($(MACHINEBUILD),zgemmash2)
-MACHINE=sh1
+MACHINE=sh2
 MACHINEBUILD=zgemmash2
 else ifeq ($(MACHINEBUILD),zgemmas2s)
 MACHINE=sh1
@@ -453,6 +455,10 @@ MACHINEBUILD=broadmedia300
 else ifeq ($(MACHINEBUILD),sf3038)
 MACHINE=g300
 MACHINEBUILD=sf3038
+
+else ifeq ($(MACHINEBUILD),tomcat)
+MACHINE=xc7362
+MACHINEBUILD=tomcat
 
 endif
 
