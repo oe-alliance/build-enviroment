@@ -448,6 +448,9 @@ MACHINEBUILD=nano
 else ifeq ($(MACHINEBUILD),nanoc)
 MACHINE=7000s
 MACHINEBUILD=nanoc
+else ifeq ($(MACHINEBUILD),nanopro)
+MACHINE=7100s
+MACHINEBUILD=nanopro
 
 else ifeq ($(MACHINEBUILD),broadmedia300)
 MACHINE=g300
