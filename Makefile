@@ -254,6 +254,9 @@ MACHINEBUILD=atemio6200
 else ifeq ($(MACHINEBUILD),mbminiplus)
 MACHINE=inihde2
 MACHINEBUILD=mbminiplus
+else ifeq ($(MACHINEBUILD),mbhybrid)
+MACHINE=inihde2
+MACHINEBUILD=mbhybrid
 else ifeq ($(MACHINEBUILD),sezammarvel)
 MACHINE=inihdp
 MACHINEBUILD=sezammarvel
@@ -448,9 +451,9 @@ MACHINEBUILD=nano
 else ifeq ($(MACHINEBUILD),nanoc)
 MACHINE=7000s
 MACHINEBUILD=nanoc
-else ifeq ($(MACHINEBUILD),nanopro)
+else ifeq ($(MACHINEBUILD),twinboxlcd)
 MACHINE=7100s
-MACHINEBUILD=nanopro
+MACHINEBUILD=twinboxlcd
 
 else ifeq ($(MACHINEBUILD),broadmedia300)
 MACHINE=g300
