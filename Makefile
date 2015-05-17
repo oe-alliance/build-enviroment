@@ -7,8 +7,10 @@ BB_NUMBER_THREADS ?= $(NR_CPU)
 PARALLEL_MAKE ?= -j $(NR_CPU)
 
 XSUM ?= md5sum
+DISTRO_TYPE ?= release
+DISTRO ?= openatv
 
-BUILD_DIR = $(CURDIR)/builds/$(DISTRO)/$(MACHINE)
+BUILD_DIR = $(CURDIR)/builds/$(DISTRO)/$(DISTRO_TYPE)/$(MACHINE)
 TOPDIR = $(BUILD_DIR)
 DL_DIR = $(CURDIR)/sources
 SSTATE_DIR = $(CURDIR)/builds/$(DISTRO)/sstate-cache
@@ -77,7 +79,7 @@ all: init
 	@echo "Openembedded for the oe-alliance environment has been initialized"
 	@echo "properly. Now you can start building your image, by doing either:"
 	@echo
-	@echo "MACHINE=vuuno DISTRO=openvix make image"
+	@echo "MACHINE=mutant2400 DISTRO=openatv DISTRO_TYPE=release make image"
 	@echo "	or"
 	@echo "cd $(BUILD_DIR) ; source env.source ; bitbake $(DISTRO)-image"
 	@echo
@@ -344,6 +346,9 @@ MACHINEBUILD=quadbox2400
 else ifeq ($(MACHINEBUILD),mutant1100)
 MACHINE=hd1100
 MACHINEBUILD=mutant1100
+else ifeq ($(MACHINEBUILD),vizyonvita)
+MACHINE=hd1100
+MACHINEBUILD=vizyonvita
 else ifeq ($(MACHINEBUILD),mutant1200)
 MACHINE=hd1200
 MACHINEBUILD=mutant1200
@@ -525,6 +530,7 @@ $(DISTRO)_CONF_HASH := $(call hash, \
 $(TOPDIR)/conf/$(DISTRO).conf: $(DEPDIR)/.$(DISTRO).conf.$($(DISTRO)_CONF_HASH)
 	@echo 'Generating $@'
 	@test -d $(@D) || mkdir -p $(@D)
+	@echo 'DISTRO_TYPE = "$(DISTRO_TYPE)"' >> $@
 	@echo 'SSTATE_DIR = "$(SSTATE_DIR)"' >> $@
 	@echo 'TMPDIR = "$(TMPDIR)"' >> $@
 	@echo 'BB_GENERATE_MIRROR_TARBALLS = "1"' >> $@
@@ -548,7 +554,7 @@ $(TOPDIR)/conf/local.conf: $(DEPDIR)/.local.conf.$(LOCAL_CONF_HASH)
 	@echo 'require $(TOPDIR)/conf/$(DISTRO).conf' >> $@
 
 $(TOPDIR)/conf/site.conf: $(CURDIR)/site.conf
-	@ln -s ../../../../site.conf $@
+	@ln -s ../../../../../site.conf $@
 
 $(CURDIR)/site.conf:
 	@echo 'SCONF_VERSION = "1"' >> $@
