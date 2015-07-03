@@ -259,6 +259,12 @@ MACHINEBUILD=mbminiplus
 else ifeq ($(MACHINEBUILD),mbhybrid)
 MACHINE=inihde2
 MACHINEBUILD=mbhybrid
+else ifeq ($(MACHINEBUILD),bwidowx2)
+MACHINE=inihde2
+MACHINEBUILD=bwidowx2
+else ifeq ($(MACHINEBUILD),beyonwizt2)
+MACHINE=inihde2
+MACHINEBUILD=beyonwizt2
 else ifeq ($(MACHINEBUILD),sezammarvel)
 MACHINE=inihdp
 MACHINEBUILD=sezammarvel
@@ -441,7 +447,7 @@ else ifeq ($(MACHINEBUILD),zgemmash1)
 MACHINE=sh1
 MACHINEBUILD=zgemmash1
 else ifeq ($(MACHINEBUILD),zgemmash2)
-MACHINE=sh2
+MACHINE=sh1
 MACHINEBUILD=zgemmash2
 else ifeq ($(MACHINEBUILD),zgemmas2s)
 MACHINE=sh1
@@ -450,12 +456,9 @@ else ifeq ($(MACHINEBUILD),zgemmass)
 MACHINE=sh1
 MACHINEBUILD=zgemmass
 
-else ifeq ($(MACHINEBUILD),nano)
+else ifeq ($(MACHINEBUILD),mbmicro)
 MACHINE=7000s
-MACHINEBUILD=nano
-else ifeq ($(MACHINEBUILD),nanoc)
-MACHINE=7000s
-MACHINEBUILD=nanoc
+MACHINEBUILD=mbmicro
 else ifeq ($(MACHINEBUILD),twinboxlcd)
 MACHINE=7100s
 MACHINEBUILD=twinboxlcd
@@ -467,9 +470,21 @@ else ifeq ($(MACHINEBUILD),sf3038)
 MACHINE=g300
 MACHINEBUILD=sf3038
 
-else ifeq ($(MACHINEBUILD),tomcat)
+else ifeq ($(MACHINEBUILD),spycat)
 MACHINE=xc7362
-MACHINEBUILD=tomcat
+MACHINEBUILD=spycat
+else ifeq ($(MACHINEBUILD),spycatmini)
+MACHINE=xc7362
+MACHINEBUILD=spycatmini
+else ifeq ($(MACHINEBUILD),osmini)
+MACHINE=xc7362
+MACHINEBUILD=osmini
+else ifeq ($(MACHINEBUILD),bcm7358)
+MACHINE=xc7358
+MACHINEBUILD=bcm7358
+else ifeq ($(MACHINEBUILD),vp7358ci)
+MACHINE=xc7358ci
+MACHINEBUILD=vp7358ci
 
 endif
 
