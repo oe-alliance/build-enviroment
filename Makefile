@@ -470,6 +470,9 @@ MACHINEBUILD=zgemmass
 else ifeq ($(MACHINEBUILD),mbmicro)
 MACHINE=7000s
 MACHINEBUILD=mbmicro
+else ifeq ($(MACHINEBUILD),e4hd)
+MACHINE=7000s
+MACHINEBUILD=e4hd
 else ifeq ($(MACHINEBUILD),twinboxlcd)
 MACHINE=7100s
 MACHINEBUILD=twinboxlcd
@@ -477,9 +480,9 @@ else ifeq ($(MACHINEBUILD),odin2hybrid)
 MACHINE=7300s
 MACHINEBUILD=odin2hybrid
 
-else ifeq ($(MACHINEBUILD),broadmedia300)
+else ifeq ($(MACHINEBUILD),mbtwinplus)
 MACHINE=g300
-MACHINEBUILD=broadmedia300
+MACHINEBUILD=mbtwinplus
 else ifeq ($(MACHINEBUILD),sf3038)
 MACHINE=g300
 MACHINEBUILD=sf3038
