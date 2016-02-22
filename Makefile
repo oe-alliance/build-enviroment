@@ -451,6 +451,9 @@ else ifeq ($(MACHINEBUILD),dynaspark7162)
 MACHINE=spark7162
 MACHINEBUILD=dynaspark7162
 
+else ifeq ($(MACHINEBUILD),sf98)
+MACHINE=yh7362
+MACHINEBUILD=sf98
 else ifeq ($(MACHINEBUILD),t2cable)
 MACHINE=jj7362
 MACHINEBUILD=t2cable
