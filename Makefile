@@ -144,6 +144,9 @@ MACHINEBUILD=tmnano3t
 else ifeq ($(MACHINEBUILD),tmnanose)
 MACHINE=dags7362
 MACHINEBUILD=tmnanose
+else ifeq ($(MACHINEBUILD),tmnanoseplus)
+MACHINE=dags7362
+MACHINEBUILD=tmnanoseplus
 else ifeq ($(MACHINEBUILD),tmnanosem2)
 MACHINE=dags7362
 MACHINEBUILD=tmnanosem2
@@ -500,6 +503,12 @@ MACHINEBUILD=zgemmah2h
 else ifeq ($(MACHINEBUILD),zgemmaslc)
 MACHINE=lc
 MACHINEBUILD=zgemmaslc
+else ifeq ($(MACHINEBUILD),zgemmah5)
+MACHINE=h5
+MACHINEBUILD=zgemmah5
+else ifeq ($(MACHINEBUILD),zgemmai55)
+MACHINE=i55
+MACHINEBUILD=zgemmai55
 
 else ifeq ($(MACHINEBUILD),mbmicro)
 MACHINE=7000s
