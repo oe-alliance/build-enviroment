@@ -288,6 +288,9 @@ MACHINEBUILD=beyonwizt2
 else ifeq ($(MACHINEBUILD),opticumtt)
 MACHINE=inihde2
 MACHINEBUILD=opticumtt
+else ifeq ($(MACHINEBUILD),xpeedlxpro)
+MACHINE=inihde2
+MACHINEBUILD=xpeedlxpro
 else ifeq ($(MACHINEBUILD),sezammarvel)
 MACHINE=inihdp
 MACHINEBUILD=sezammarvel
