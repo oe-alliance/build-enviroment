@@ -198,6 +198,9 @@ MACHINEBUILD=fusionhd
 else ifeq ($(MACHINEBUILD),fusionhdse)
 MACHINE=dags7362
 MACHINEBUILD=fusionhdse
+else ifeq ($(MACHINEBUILD),purehd)
+MACHINE=dags7362
+MACHINEBUILD=purehd
 
 else ifeq ($(MACHINEBUILD),classm)
 MACHINE=odinm7
