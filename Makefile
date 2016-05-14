@@ -41,6 +41,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-entwopia \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-formuler \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-fulan \
+	$(CURDIR)/meta-oe-alliance/meta-brands/meta-gfutures \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-gigablue \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ini \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ixuss \
@@ -51,7 +52,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-tripledot \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ultramini \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-vuplus \
-    $(CURDIR)/meta-oe-alliance/meta-brands/meta-wetek \
+	$(CURDIR)/meta-oe-alliance/meta-brands/meta-wetek \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xp \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xtrend \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xcore \
@@ -198,6 +199,9 @@ MACHINEBUILD=fusionhd
 else ifeq ($(MACHINEBUILD),fusionhdse)
 MACHINE=dags7362
 MACHINEBUILD=fusionhdse
+else ifeq ($(MACHINEBUILD),purehd)
+MACHINE=dags7362
+MACHINEBUILD=purehd
 
 else ifeq ($(MACHINEBUILD),classm)
 MACHINE=odinm7
@@ -394,9 +398,6 @@ MACHINEBUILD=vizyonvita
 else ifeq ($(MACHINEBUILD),mutant1200)
 MACHINE=hd1200
 MACHINEBUILD=mutant1200
-else ifeq ($(MACHINEBUILD),mutant1265)
-MACHINE=hd1200
-MACHINEBUILD=mutant1265
 else ifeq ($(MACHINEBUILD),mutant500c)
 MACHINE=hd500c
 MACHINEBUILD=mutant500c
