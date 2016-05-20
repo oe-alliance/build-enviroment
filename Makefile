@@ -535,6 +535,12 @@ MACHINEBUILD=twinboxlcd
 else ifeq ($(MACHINEBUILD),singleboxlcd)
 MACHINE=7100s
 MACHINEBUILD=singleboxlcd
+else ifeq ($(MACHINEBUILD),sf208)
+MACHINE=7210s
+MACHINEBUILD=sf208
+else ifeq ($(MACHINEBUILD),sf228)
+MACHINE=7210s
+MACHINEBUILD=sf228
 else ifeq ($(MACHINEBUILD),odin2hybrid)
 MACHINE=7300s
 MACHINEBUILD=odin2hybrid
