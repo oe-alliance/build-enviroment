@@ -375,6 +375,9 @@ MACHINEBUILD=bre2ze
 else ifeq ($(MACHINEBUILD),evomini)
 MACHINE=ch62lc
 MACHINEBUILD=evomini
+else ifeq ($(MACHINEBUILD),evominiplus)
+MACHINE=ch625lc
+MACHINEBUILD=evominiplus
 
 
 else ifeq ($(MACHINEBUILD),mutant2400)
@@ -535,6 +538,12 @@ MACHINEBUILD=twinboxlcd
 else ifeq ($(MACHINEBUILD),singleboxlcd)
 MACHINE=7100s
 MACHINEBUILD=singleboxlcd
+else ifeq ($(MACHINEBUILD),sf208)
+MACHINE=7210s
+MACHINEBUILD=sf208
+else ifeq ($(MACHINEBUILD),sf228)
+MACHINE=7210s
+MACHINEBUILD=sf228
 else ifeq ($(MACHINEBUILD),odin2hybrid)
 MACHINE=7300s
 MACHINEBUILD=odin2hybrid
@@ -548,6 +557,13 @@ MACHINEBUILD=mbtwinplus
 else ifeq ($(MACHINEBUILD),sf3038)
 MACHINE=g300
 MACHINEBUILD=sf3038
+else ifeq ($(MACHINEBUILD),sf128)
+MACHINE=g100
+MACHINEBUILD=sf128
+else ifeq ($(MACHINEBUILD),sf138)
+MACHINE=g100
+MACHINEBUILD=sf138
+
 
 else ifeq ($(MACHINEBUILD),spycat)
 MACHINE=xc7362
