@@ -407,6 +407,12 @@ MACHINEBUILD=mutant1200
 else ifeq ($(MACHINEBUILD),mutant500c)
 MACHINE=hd500c
 MACHINEBUILD=mutant500c
+else ifeq ($(MACHINEBUILD),mutant51)
+MACHINE=hd51
+MACHINEBUILD=mutant51
+else ifeq ($(MACHINEBUILD),ax51)
+MACHINE=hd51
+MACHINEBUILD=ax51
 
 else ifeq ($(MACHINEBUILD),amiko8900)
 MACHINE=spark
