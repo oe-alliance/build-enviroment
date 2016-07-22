@@ -531,6 +531,16 @@ MACHINEBUILD=zgemmah5
 else ifeq ($(MACHINEBUILD),zgemmai55)
 MACHINE=i55
 MACHINEBUILD=zgemmai55
+else ifeq ($(MACHINEBUILD),novaip)
+MACHINE=i55
+MACHINEBUILD=novaip
+else ifeq ($(MACHINEBUILD),novacombo)
+MACHINE=h3
+MACHINEBUILD=novacombo
+else ifeq ($(MACHINEBUILD),novatwin)
+MACHINE=h3
+MACHINEBUILD=novatwin
+
 
 else ifeq ($(MACHINEBUILD),mbmicro)
 MACHINE=7000s
