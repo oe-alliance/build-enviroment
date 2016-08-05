@@ -572,6 +572,16 @@ MACHINEBUILD=odin2hybrid
 else ifeq ($(MACHINEBUILD),odinplus)
 MACHINE=7400s
 MACHINEBUILD=odinplus
+else ifeq ($(MACHINEBUILD),9915lx)
+MACHINE=7225s
+MACHINEBUILD=9915lx
+else ifeq ($(MACHINEBUILD),sf238)
+MACHINE=7215s
+MACHINEBUILD=sf238
+else ifeq ($(MACHINEBUILD),twinboxlcdci5)
+MACHINE=7105s
+MACHINEBUILD=twinboxlcdci5
+
 
 else ifeq ($(MACHINEBUILD),mbtwinplus)
 MACHINE=g300
