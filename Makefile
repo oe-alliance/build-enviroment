@@ -659,6 +659,9 @@ MACHINEBUILD=gbultrase
 else ifeq ($(MACHINEBUILD),gbultraue)
 MACHINE=gb7362
 MACHINEBUILD=gbultraue
+else ifeq ($(MACHINEBUILD),gbultraueh)
+MACHINE=gb7362
+MACHINEBUILD=gbultraueh
 else ifeq ($(MACHINEBUILD),gbx1)
 MACHINE=gb7362
 MACHINEBUILD=gbx1
@@ -668,6 +671,9 @@ MACHINEBUILD=gbx2
 else ifeq ($(MACHINEBUILD),gbx3)
 MACHINE=gb7362
 MACHINEBUILD=gbx3
+else ifeq ($(MACHINEBUILD),gbx3h)
+MACHINE=gb73625
+MACHINEBUILD=gbx3h
 else ifeq ($(MACHINEBUILD),gbquad)
 MACHINE=gb7356
 MACHINEBUILD=gbquad
