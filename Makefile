@@ -660,7 +660,7 @@ else ifeq ($(MACHINEBUILD),gbultraue)
 MACHINE=gb7362
 MACHINEBUILD=gbultraue
 else ifeq ($(MACHINEBUILD),gbultraueh)
-MACHINE=gb7362
+MACHINE=gb73625
 MACHINEBUILD=gbultraueh
 else ifeq ($(MACHINEBUILD),gbx1)
 MACHINE=gb7362
