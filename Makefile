@@ -556,6 +556,12 @@ MACHINEBUILD=novacombo
 else ifeq ($(MACHINEBUILD),novatwin)
 MACHINE=h3
 MACHINEBUILD=novatwin
+else ifeq ($(MACHINEBUILD),zgemmah3ac)
+MACHINE=h3
+MACHINEBUILD=zgemmah3ac
+else ifeq ($(MACHINEBUILD),zgemmah5ac)
+MACHINE=h5
+MACHINEBUILD=zgemmah5ac
 
 
 else ifeq ($(MACHINEBUILD),mbmicro)
@@ -614,6 +620,9 @@ MACHINEBUILD=sf128
 else ifeq ($(MACHINEBUILD),sf138)
 MACHINE=g100
 MACHINEBUILD=sf138
+else ifeq ($(MACHINEBUILD),bre2zet2c)
+MACHINE=g101
+MACHINEBUILD=bre2zet2c
 
 
 else ifeq ($(MACHINEBUILD),spycat)
