@@ -206,9 +206,15 @@ MACHINEBUILD=fusionhdse
 else ifeq ($(MACHINEBUILD),purehd)
 MACHINE=dags7362
 MACHINEBUILD=purehd
+else ifeq ($(MACHINEBUILD),force2nano)
+MACHINE=dags7362
+MACHINEBUILD=force2nano
 else ifeq ($(MACHINEBUILD),force2plushv)
 MACHINE=dags73625
 MACHINEBUILD=force2plushv
+else ifeq ($(MACHINEBUILD),force3uhdplus)
+MACHINE=dags7252
+MACHINEBUILD=force3uhdplus
 
 else ifeq ($(MACHINEBUILD),classm)
 MACHINE=odinm7
@@ -492,6 +498,9 @@ MACHINEBUILD=dynaspark7162
 else ifeq ($(MACHINEBUILD),sf98)
 MACHINE=yh7362
 MACHINEBUILD=sf98
+else ifeq ($(MACHINEBUILD),evoslim)
+MACHINE=yh7362
+MACHINEBUILD=evoslim
 else ifeq ($(MACHINEBUILD),t2cable)
 MACHINE=jj7362
 MACHINEBUILD=t2cable
@@ -692,6 +701,9 @@ MACHINEBUILD=gbquad
 else ifeq ($(MACHINEBUILD),gbquadplus)
 MACHINE=gb7356
 MACHINEBUILD=gbquadplus
+else ifeq ($(MACHINEBUILD),gbuhdquad)
+MACHINE=gb7252
+MACHINEBUILD=gbuhdquad
 
 else ifeq ($(MACHINEBUILD),xpeedlxcs2)
 MACHINE=ultramini
