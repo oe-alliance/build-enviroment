@@ -725,7 +725,7 @@ initialize: init
 init: setupmbuild $(BBLAYERS) $(CONFFILES)
 
 image: init
-	@. $(TOPDIR)/env.source && cd $(TOPDIR) && echo -n -e "Perfroming a clean \e[95mPlease wait... \e[0m" && bitbake -qqq -c clean $(DISTRO)-image && echo -n -e "Clean completed. \e[95mNow continuing with build... \e[0m" && bitbake $(DISTRO)-image
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && echo -n -e "Performing a clean \e[95mPlease wait... \e[0m" && bitbake -qqq -c clean $(DISTRO)-image && echo -n -e "Clean completed. \e[95mNow continuing with build... \e[0m" && bitbake $(DISTRO)-image
 
 update:
 	@echo 'Updating Git repositories...'
