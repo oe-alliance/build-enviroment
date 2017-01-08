@@ -829,7 +829,7 @@ $(CURDIR)/site.conf:
 	@echo 'INHERIT += "rm_work"' >> $@
 
 BBLAYERS_CONF_HASH := $(call hash, \
-	'BBLAYERS_CONF_VERSION = "0"' \
+	'BBLAYERS_CONF_VERSION = "5"' \
 	'CURDIR = "$(CURDIR)"' \
 	'BBLAYERS = "$(BBLAYERS)"' \
 	)
@@ -837,7 +837,7 @@ BBLAYERS_CONF_HASH := $(call hash, \
 $(TOPDIR)/conf/bblayers.conf: $(DEPDIR)/.bblayers.conf.$(BBLAYERS_CONF_HASH)
 	@echo 'Generating $@'
 	@test -d $(@D) || mkdir -p $(@D)
-	@echo 'LCONF_VERSION = "4"' >> $@
+	@echo 'LCONF_VERSION = "5"' > $@
 	@echo 'BBFILES = ""' >> $@
 	@echo 'BBLAYERS = "$(BBLAYERS)"' >> $@
 
