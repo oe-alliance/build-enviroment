@@ -47,6 +47,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ixuss \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-broadmedia \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-odin \
+	$(CURDIR)/meta-oe-alliance/meta-brands/meta-odroid \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-octagon \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-protek \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-skylake \
@@ -218,6 +219,9 @@ MACHINEBUILD=force3uhdplus
 else ifeq ($(MACHINEBUILD),force3uhd)
 MACHINE=dags7252
 MACHINEBUILD=force3uhd
+else ifeq ($(MACHINEBUILD),fusion4k)
+MACHINE=dags7252
+MACHINEBUILD=fusion4k
 
 else ifeq ($(MACHINEBUILD),classm)
 MACHINE=odinm7
@@ -725,7 +729,7 @@ initialize: init
 init: setupmbuild $(BBLAYERS) $(CONFFILES)
 
 image: init
-	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake $(DISTRO)-image
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && echo -n -e "Performing a clean \e[95mPlease wait... \e[0m" && bitbake -qqq -c clean $(DISTRO)-image && echo -n -e "Clean completed. \e[95mNow continuing with build... \e[0m" && bitbake $(DISTRO)-image
 
 update:
 	@echo 'Updating Git repositories...'
@@ -825,7 +829,7 @@ $(CURDIR)/site.conf:
 	@echo 'INHERIT += "rm_work"' >> $@
 
 BBLAYERS_CONF_HASH := $(call hash, \
-	'BBLAYERS_CONF_VERSION = "0"' \
+	'BBLAYERS_CONF_VERSION = "5"' \
 	'CURDIR = "$(CURDIR)"' \
 	'BBLAYERS = "$(BBLAYERS)"' \
 	)
@@ -833,7 +837,7 @@ BBLAYERS_CONF_HASH := $(call hash, \
 $(TOPDIR)/conf/bblayers.conf: $(DEPDIR)/.bblayers.conf.$(BBLAYERS_CONF_HASH)
 	@echo 'Generating $@'
 	@test -d $(@D) || mkdir -p $(@D)
-	@echo 'LCONF_VERSION = "4"' >> $@
+	@echo 'LCONF_VERSION = "5"' > $@
 	@echo 'BBFILES = ""' >> $@
 	@echo 'BBLAYERS = "$(BBLAYERS)"' >> $@
 
