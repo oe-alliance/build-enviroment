@@ -560,6 +560,9 @@ MACHINEBUILD=zgemmah5
 else ifeq ($(MACHINEBUILD),zgemmah52s)
 MACHINE=h5
 MACHINEBUILD=zgemmah52s
+else ifeq ($(MACHINEBUILD),zgemmah52tc)
+MACHINE=h5
+MACHINEBUILD=zgemmah52tc
 else ifeq ($(MACHINEBUILD),zgemmai55)
 MACHINE=i55
 MACHINEBUILD=zgemmai55
