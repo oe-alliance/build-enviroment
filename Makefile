@@ -219,9 +219,9 @@ MACHINEBUILD=force3uhdplus
 else ifeq ($(MACHINEBUILD),force3uhd)
 MACHINE=dags7252
 MACHINEBUILD=force3uhd
-else ifeq ($(MACHINEBUILD),fusion4k)
+else ifeq ($(MACHINEBUILD),revo4k)
 MACHINE=dags7252
-MACHINEBUILD=fusion4k
+MACHINEBUILD=revo4k
 
 else ifeq ($(MACHINEBUILD),classm)
 MACHINE=odinm7
@@ -560,6 +560,9 @@ MACHINEBUILD=zgemmah5
 else ifeq ($(MACHINEBUILD),zgemmah52s)
 MACHINE=h5
 MACHINEBUILD=zgemmah52s
+else ifeq ($(MACHINEBUILD),zgemmah52tc)
+MACHINE=h5
+MACHINEBUILD=zgemmah52tc
 else ifeq ($(MACHINEBUILD),zgemmai55)
 MACHINE=i55
 MACHINEBUILD=zgemmai55
