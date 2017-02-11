@@ -4,6 +4,7 @@
 !/meta-openpli/
 !/meta-local/
 !/meta-oe-alliance/
+!/meta-qt5/
 /openembedded-core/
 /sources/
 *.swp

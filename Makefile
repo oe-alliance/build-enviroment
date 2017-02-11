@@ -29,6 +29,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-filesystems \
 	$(CURDIR)/meta-openembedded/meta-python \
 	$(CURDIR)/meta-oe-alliance/meta-oe \
+	$(CURDIR)/meta-oe-alliance/meta-qt5 \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-airdigital \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-azbox \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ax \
