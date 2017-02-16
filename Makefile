@@ -670,6 +670,9 @@ MACHINEBUILD=spycatmini
 else ifeq ($(MACHINEBUILD),spycatminiplus)
 MACHINE=xc7362
 MACHINEBUILD=spycatminiplus
+else ifeq ($(MACHINEBUILD),spycat4kmini)
+MACHINE=xc7439
+MACHINEBUILD=spycat4kmini
 else ifeq ($(MACHINEBUILD),osmini)
 MACHINE=xc7362
 MACHINEBUILD=osmini
