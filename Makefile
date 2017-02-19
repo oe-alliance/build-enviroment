@@ -29,6 +29,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-filesystems \
 	$(CURDIR)/meta-openembedded/meta-python \
 	$(CURDIR)/meta-oe-alliance/meta-oe \
+	$(CURDIR)/meta-qt5 \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-airdigital \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-azbox \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ax \
@@ -226,6 +227,9 @@ MACHINEBUILD=force3uhd
 else ifeq ($(MACHINEBUILD),revo4k)
 MACHINE=dags7252
 MACHINEBUILD=revo4k
+else ifeq ($(MACHINEBUILD),tmtwin4k)
+MACHINE=dags7252
+MACHINEBUILD=tmtwin4k
 
 else ifeq ($(MACHINEBUILD),classm)
 MACHINE=odinm7
@@ -666,6 +670,9 @@ MACHINEBUILD=spycatmini
 else ifeq ($(MACHINEBUILD),spycatminiplus)
 MACHINE=xc7362
 MACHINEBUILD=spycatminiplus
+else ifeq ($(MACHINEBUILD),spycat4kmini)
+MACHINE=xc7439
+MACHINEBUILD=spycat4kmini
 else ifeq ($(MACHINEBUILD),osmini)
 MACHINE=xc7362
 MACHINEBUILD=osmini
