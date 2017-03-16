@@ -320,9 +320,9 @@ MACHINEBUILD=beyonwizt2
 else ifeq ($(MACHINEBUILD),opticumtt)
 MACHINE=inihde2
 MACHINEBUILD=opticumtt
-else ifeq ($(MACHINEBUILD),xpeedlxpro)
+else ifeq ($(MACHINEBUILD),evoslim)
 MACHINE=inihde2
-MACHINEBUILD=xpeedlxpro
+MACHINEBUILD=evoslim
 else ifeq ($(MACHINEBUILD),sezammarvel)
 MACHINE=inihdp
 MACHINEBUILD=sezammarvel
@@ -519,9 +519,9 @@ MACHINEBUILD=dynaspark7162
 else ifeq ($(MACHINEBUILD),sf98)
 MACHINE=yh7362
 MACHINEBUILD=sf98
-else ifeq ($(MACHINEBUILD),evoslim)
+else ifeq ($(MACHINEBUILD),evopanda)
 MACHINE=yh7362
-MACHINEBUILD=evoslim
+MACHINEBUILD=evopanda
 else ifeq ($(MACHINEBUILD),t2cable)
 MACHINE=jj7362
 MACHINEBUILD=t2cable
