@@ -598,6 +598,15 @@ MACHINEBUILD=zgemmah3ac
 else ifeq ($(MACHINEBUILD),zgemmah5ac)
 MACHINE=h5
 MACHINEBUILD=zgemmah5ac
+else ifeq ($(MACHINEBUILD),zgemmah52splus)
+MACHINE=h5
+MACHINEBUILD=zgemmah52splus
+else ifeq ($(MACHINEBUILD),zgemmah2splus)
+MACHINE=h3
+MACHINEBUILD=zgemmah2splus
+else ifeq ($(MACHINEBUILD),zgemmah7)
+MACHINE=h7
+MACHINEBUILD=zgemmah7
 
 
 else ifeq ($(MACHINEBUILD),mbmicro)
