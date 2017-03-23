@@ -320,9 +320,9 @@ MACHINEBUILD=beyonwizt2
 else ifeq ($(MACHINEBUILD),opticumtt)
 MACHINE=inihde2
 MACHINEBUILD=opticumtt
-else ifeq ($(MACHINEBUILD),xpeedlxpro)
+else ifeq ($(MACHINEBUILD),evoslim)
 MACHINE=inihde2
-MACHINEBUILD=xpeedlxpro
+MACHINEBUILD=evoslim
 else ifeq ($(MACHINEBUILD),sezammarvel)
 MACHINE=inihdp
 MACHINEBUILD=sezammarvel
@@ -519,9 +519,9 @@ MACHINEBUILD=dynaspark7162
 else ifeq ($(MACHINEBUILD),sf98)
 MACHINE=yh7362
 MACHINEBUILD=sf98
-else ifeq ($(MACHINEBUILD),evoslim)
+else ifeq ($(MACHINEBUILD),evopanda)
 MACHINE=yh7362
-MACHINEBUILD=evoslim
+MACHINEBUILD=evopanda
 else ifeq ($(MACHINEBUILD),t2cable)
 MACHINE=jj7362
 MACHINEBUILD=t2cable
@@ -565,6 +565,9 @@ MACHINEBUILD=zgemmah2s
 else ifeq ($(MACHINEBUILD),zgemmah2h)
 MACHINE=h3
 MACHINEBUILD=zgemmah2h
+else ifeq ($(MACHINEBUILD),zgemmah32tc)
+MACHINE=h3
+MACHINEBUILD=zgemmah32tc
 else ifeq ($(MACHINEBUILD),zgemmaslc)
 MACHINE=lc
 MACHINEBUILD=zgemmaslc
@@ -595,6 +598,15 @@ MACHINEBUILD=zgemmah3ac
 else ifeq ($(MACHINEBUILD),zgemmah5ac)
 MACHINE=h5
 MACHINEBUILD=zgemmah5ac
+else ifeq ($(MACHINEBUILD),zgemmah52splus)
+MACHINE=h5
+MACHINEBUILD=zgemmah52splus
+else ifeq ($(MACHINEBUILD),zgemmah2splus)
+MACHINE=h3
+MACHINEBUILD=zgemmah2splus
+else ifeq ($(MACHINEBUILD),zgemmah7)
+MACHINE=h7
+MACHINEBUILD=zgemmah7
 
 
 else ifeq ($(MACHINEBUILD),mbmicro)
@@ -731,9 +743,9 @@ MACHINEBUILD=gbquad
 else ifeq ($(MACHINEBUILD),gbquadplus)
 MACHINE=gb7356
 MACHINEBUILD=gbquadplus
-else ifeq ($(MACHINEBUILD),gbuhdquad)
+else ifeq ($(MACHINEBUILD),gbquad4k)
 MACHINE=gb7252
-MACHINEBUILD=gbuhdquad
+MACHINEBUILD=gbquad4k
 
 else ifeq ($(MACHINEBUILD),xpeedlxcs2)
 MACHINE=ultramini
@@ -744,6 +756,9 @@ MACHINEBUILD=xpeedlxcc
 else ifeq ($(MACHINEBUILD),et7x00mini)
 MACHINE=ultramini
 MACHINEBUILD=et7x00mini
+else ifeq ($(MACHINEBUILD),gi11000)
+MACHINE=et1x000
+MACHINEBUILD=gi11000
 
 endif
 
@@ -752,7 +767,10 @@ initialize: init
 init: setupmbuild $(BBLAYERS) $(CONFFILES)
 
 image: init
-	@. $(TOPDIR)/env.source && cd $(TOPDIR) && echo -n -e "Performing a clean \e[95mPlease wait... \e[0m" && bitbake -qqq -c clean $(DISTRO)-image && echo -n -e "Clean completed. \e[95mNow continuing with build... \e[0m" && bitbake $(DISTRO)-image
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake $(DISTRO)-image
+
+clean:
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && echo -n -e "Performing a clean \e[95mPlease wait... " && bitbake -qqq -c clean $(DISTRO)-image && echo -n -e "\e[93mClean completed.\e[0m"
 
 update:
 	@echo 'Updating Git repositories...'
