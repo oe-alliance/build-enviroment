@@ -233,6 +233,10 @@ MACHINEBUILD=tmtwin4k
 else ifeq ($(MACHINEBUILD),galaxy4k)
 MACHINE=dags7252
 MACHINEBUILD=galaxy4k
+else ifeq ($(MACHINEBUILD),tm4ksuper)
+MACHINE=dags7252
+MACHINEBUILD=tm4ksuper
+
 
 else ifeq ($(MACHINEBUILD),classm)
 MACHINE=odinm7
