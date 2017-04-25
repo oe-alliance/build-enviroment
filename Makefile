@@ -219,6 +219,9 @@ MACHINEBUILD=force2nano
 else ifeq ($(MACHINEBUILD),force2plushv)
 MACHINE=dags73625
 MACHINEBUILD=force2plushv
+else ifeq ($(MACHINEBUILD),purehdse)
+MACHINE=dags73625
+MACHINEBUILD=purehdse
 else ifeq ($(MACHINEBUILD),force3uhdplus)
 MACHINE=dags7252
 MACHINEBUILD=force3uhdplus
