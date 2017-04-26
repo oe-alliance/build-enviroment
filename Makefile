@@ -240,6 +240,9 @@ MACHINEBUILD=galaxy4k
 else ifeq ($(MACHINEBUILD),tm4ksuper)
 MACHINE=dags7252
 MACHINEBUILD=tm4ksuper
+else ifeq ($(MACHINEBUILD),valalinux)
+MACHINE=dags7362
+MACHINEBUILD=valalinux
 
 
 else ifeq ($(MACHINEBUILD),classm)
