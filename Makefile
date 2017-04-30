@@ -28,6 +28,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-networking \
 	$(CURDIR)/meta-openembedded/meta-filesystems \
 	$(CURDIR)/meta-openembedded/meta-python \
+	$(CURDIR)/meta-openembedded/meta-webserver \
 	$(CURDIR)/meta-oe-alliance/meta-oe \
 	$(CURDIR)/meta-qt5 \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-airdigital \
@@ -218,6 +219,9 @@ MACHINEBUILD=force2nano
 else ifeq ($(MACHINEBUILD),force2plushv)
 MACHINE=dags73625
 MACHINEBUILD=force2plushv
+else ifeq ($(MACHINEBUILD),purehdse)
+MACHINE=dags73625
+MACHINEBUILD=purehdse
 else ifeq ($(MACHINEBUILD),force3uhdplus)
 MACHINE=dags7252
 MACHINEBUILD=force3uhdplus
@@ -236,6 +240,9 @@ MACHINEBUILD=galaxy4k
 else ifeq ($(MACHINEBUILD),tm4ksuper)
 MACHINE=dags7252
 MACHINEBUILD=tm4ksuper
+else ifeq ($(MACHINEBUILD),valalinux)
+MACHINE=dags7362
+MACHINEBUILD=valalinux
 
 
 else ifeq ($(MACHINEBUILD),classm)
