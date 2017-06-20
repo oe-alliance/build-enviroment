@@ -671,6 +671,9 @@ MACHINEBUILD=sf238
 else ifeq ($(MACHINEBUILD),twinboxlcdci5)
 MACHINE=7105s
 MACHINEBUILD=twinboxlcdci5
+else ifeq ($(MACHINEBUILD),bcm7252)
+MACHINE=8100s
+MACHINEBUILD=bcm7252
 
 
 else ifeq ($(MACHINEBUILD),mbtwinplus)
