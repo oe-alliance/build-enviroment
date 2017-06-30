@@ -612,6 +612,9 @@ MACHINEBUILD=novatwin
 else ifeq ($(MACHINEBUILD),zgemmah3ac)
 MACHINE=h3
 MACHINEBUILD=zgemmah3ac
+else ifeq ($(MACHINEBUILD),zgemmah4)
+MACHINE=h4
+MACHINEBUILD=zgemmah4
 else ifeq ($(MACHINEBUILD),zgemmah5ac)
 MACHINE=h5
 MACHINEBUILD=zgemmah5ac
