@@ -794,6 +794,9 @@ MACHINEBUILD=et7x00mini
 else ifeq ($(MACHINEBUILD),gi11000)
 MACHINE=et1x000
 MACHINEBUILD=gi11000
+else ifeq ($(MACHINEBUILD),beyonwizu4)
+MACHINE=et13000
+MACHINEBUILD=beyonwizu4
 
 endif
 
