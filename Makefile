@@ -536,9 +536,12 @@ MACHINEBUILD=dynaspark7162
 else ifeq ($(MACHINEBUILD),sf98)
 MACHINE=yh7362
 MACHINEBUILD=sf98
-else ifeq ($(MACHINEBUILD),evopanda)
+else ifeq ($(MACHINEBUILD),evoslimse)
 MACHINE=yh7362
-MACHINEBUILD=evopanda
+MACHINEBUILD=evoslimse
+else ifeq ($(MACHINEBUILD),evoslimt2c)
+MACHINE=yh62tc
+MACHINEBUILD=evoslimt2c
 else ifeq ($(MACHINEBUILD),t2cable)
 MACHINE=jj7362
 MACHINEBUILD=t2cable
