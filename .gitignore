@@ -5,6 +5,7 @@
 !/meta-local/
 !/meta-oe-alliance/
 !/meta-qt5/
+!/meta-go/
 /openembedded-core/
 /sources/
 *.swp
