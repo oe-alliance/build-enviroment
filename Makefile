@@ -420,6 +420,15 @@ MACHINEBUILD=evomini
 else ifeq ($(MACHINEBUILD),evominiplus)
 MACHINE=ch625lc
 MACHINEBUILD=evominiplus
+else ifeq ($(MACHINEBUILD),vipert2c)
+MACHINE=yh625tc
+MACHINEBUILD=vipert2c
+else ifeq ($(MACHINEBUILD),vipercombo)
+MACHINE=yh625dt
+MACHINEBUILD=vipercombo
+else ifeq ($(MACHINEBUILD),vipercombohdd)
+MACHINE=ch625dt
+MACHINEBUILD=vipercombohdd
 
 
 else ifeq ($(MACHINEBUILD),mutant2400)
