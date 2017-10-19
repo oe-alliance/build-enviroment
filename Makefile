@@ -22,7 +22,6 @@ MACHINEBUILD = $(MACHINE)
 export MACHINEBUILD
 
 BBLAYERS ?= \
-	$(CURDIR)/meta-local \
 	$(CURDIR)/openembedded-core/meta \
 	$(CURDIR)/meta-openembedded/meta-oe \
 	$(CURDIR)/meta-openembedded/meta-multimedia \
@@ -63,6 +62,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xp \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xtrend \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xcore \
+	$(CURDIR)/meta-local \
 
 
 CONFFILES = \
@@ -244,6 +244,12 @@ MACHINEBUILD=tm4ksuper
 else ifeq ($(MACHINEBUILD),valalinux)
 MACHINE=dags7362
 MACHINEBUILD=valalinux
+else ifeq ($(MACHINEBUILD),lunix34k)
+MACHINE=dags7252
+MACHINEBUILD=lunix34k
+else ifeq ($(MACHINEBUILD),lunix)
+MACHINE=dags73625
+MACHINEBUILD=lunix
 
 
 else ifeq ($(MACHINEBUILD),classm)
@@ -690,9 +696,9 @@ MACHINEBUILD=sf238
 else ifeq ($(MACHINEBUILD),twinboxlcdci5)
 MACHINE=7105s
 MACHINEBUILD=twinboxlcdci5
-else ifeq ($(MACHINEBUILD),bcm7252)
+else ifeq ($(MACHINEBUILD),e4hdultra)
 MACHINE=8100s
-MACHINEBUILD=bcm7252
+MACHINEBUILD=e4hdultra
 
 
 else ifeq ($(MACHINEBUILD),mbtwinplus)
