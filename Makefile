@@ -38,6 +38,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ceryon \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-cube \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dags \
+	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dinobot \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dream \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ebox \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-edision \
@@ -819,6 +820,10 @@ MACHINEBUILD=gi11000
 else ifeq ($(MACHINEBUILD),beyonwizu4)
 MACHINE=et13000
 MACHINEBUILD=beyonwizu4
+
+else ifeq ($(MACHINEBUILD),dinobot4k)
+MACHINE=u5
+MACHINEBUILD=dinobot4k
 
 endif
 
