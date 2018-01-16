@@ -821,7 +821,9 @@ else ifeq ($(MACHINEBUILD),beyonwizu4)
 MACHINE=et13000
 MACHINEBUILD=beyonwizu4
 
-
+else ifeq ($(MACHINEBUILD),anadol4k)
+MACHINE=u5
+MACHINEBUILD=anadol4k
 else ifeq ($(MACHINEBUILD),dinobot4kl)
 MACHINE=u5
 MACHINEBUILD=dinobot4kl
