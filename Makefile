@@ -845,6 +845,9 @@ MACHINEBUILD=mediabox4k
 else ifeq ($(MACHINEBUILD),dinobot4kse)
 MACHINE=u5pvr
 MACHINEBUILD=dinobot4kse
+else ifeq ($(MACHINEBUILD),dinobot4kplus)
+MACHINE=u52
+MACHINEBUILD=dinobot4kplus
 
 endif
 
