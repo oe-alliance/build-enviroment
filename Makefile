@@ -833,6 +833,9 @@ MACHINEBUILD=beyonwizu4
 else ifeq ($(MACHINEBUILD),anadol4k)
 MACHINE=u5
 MACHINEBUILD=anadol4k
+else ifeq ($(MACHINEBUILD),axashis4kcombo)
+MACHINE=u5
+MACHINEBUILD=axashis4kcombo
 else ifeq ($(MACHINEBUILD),dinobot4kl)
 MACHINE=u5
 MACHINEBUILD=dinobot4kl
@@ -848,6 +851,9 @@ MACHINEBUILD=dinobot4kse
 else ifeq ($(MACHINEBUILD),dinobot4kplus)
 MACHINE=u52
 MACHINEBUILD=dinobot4kplus
+else ifeq ($(MACHINEBUILD),axashis4kcomboplus)
+MACHINE=u52
+MACHINEBUILD=axashis4kcomboplus
 
 endif
 
