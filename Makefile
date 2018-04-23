@@ -437,6 +437,9 @@ MACHINEBUILD=vipercombo
 else ifeq ($(MACHINEBUILD),vipercombohdd)
 MACHINE=ch625dt
 MACHINEBUILD=vipercombohdd
+else ifeq ($(MACHINEBUILD),viperslim)
+MACHINE=yh73625
+MACHINEBUILD=viperslim
 
 
 else ifeq ($(MACHINEBUILD),mutant2400)
