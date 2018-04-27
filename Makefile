@@ -857,6 +857,9 @@ MACHINEBUILD=dinobot4kplus
 else ifeq ($(MACHINEBUILD),axashis4kcomboplus)
 MACHINE=u52
 MACHINEBUILD=axashis4kcomboplus
+else ifeq ($(MACHINEBUILD),dinobot4kmini)
+MACHINE=u53
+MACHINEBUILD=dinobot4kmini
 
 endif
 
