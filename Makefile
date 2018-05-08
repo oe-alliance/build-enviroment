@@ -712,6 +712,9 @@ MACHINEBUILD=twinboxlcdci5
 else ifeq ($(MACHINEBUILD),e4hdultra)
 MACHINE=8100s
 MACHINEBUILD=e4hdultra
+else ifeq ($(MACHINEBUILD),protek4k)
+MACHINE=8100s
+MACHINEBUILD=protek4k
 
 
 else ifeq ($(MACHINEBUILD),mbtwinplus)
