@@ -36,6 +36,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ax \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-blackbox \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ceryon \
+	$(CURDIR)/meta-oe-alliance/meta-brands/meta-clap \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-cube \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dags \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dinobot \
@@ -867,6 +868,10 @@ MACHINEBUILD=axashis4kcomboplus
 else ifeq ($(MACHINEBUILD),dinobot4kmini)
 MACHINE=u53
 MACHINEBUILD=dinobot4kmini
+
+else ifeq ($(MACHINEBUILD),clap4k)
+MACHINE=cc1
+MACHINEBUILD=clap4k
 
 endif
 
