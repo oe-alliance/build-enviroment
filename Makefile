@@ -883,6 +883,12 @@ initialize: init
 init: setupmbuild $(BBLAYERS) $(CONFFILES)
 
 image: init
+	@if grep "#temporary OE-core rootfs fix" openembedded-core/meta/lib/oe/package_manager.py > /dev/null; \
+	then \
+	echo 'OE-core already patched, skipping ...'; \
+	else \
+	patch -p1 < oe-core-package_manager-temp.patch; \
+	fi
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake $(DISTRO)-image
 
 clean:
