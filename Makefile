@@ -863,6 +863,12 @@ MACHINEBUILD=beyonwizu4
 else ifeq ($(MACHINEBUILD),anadol4k)
 MACHINE=u5
 MACHINEBUILD=anadol4k
+else ifeq ($(MACHINEBUILD),anadol4kv2)
+MACHINE=u51
+MACHINEBUILD=anadol4kv2
+else ifeq ($(MACHINEBUILD),anadol4kcombo)
+MACHINE=u51
+MACHINEBUILD=anadol4kcombo
 else ifeq ($(MACHINEBUILD),axashis4kcombo)
 MACHINE=u51
 MACHINEBUILD=axashis4kcombo
