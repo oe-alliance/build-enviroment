@@ -95,7 +95,7 @@ all: init
 	@echo "Openembedded for the oe-alliance environment has been initialized"
 	@echo "properly. Now you can start building your image, by doing either:"
 	@echo
-	@echo "MACHINE=mutant2400 DISTRO=openatv DISTRO_TYPE=release make image"
+	@echo "MACHINE=gbquad4k DISTRO=openatv DISTRO_TYPE=release make image"
 	@echo "	or"
 	@echo "cd $(BUILD_DIR) ; source env.source ; bitbake $(DISTRO)-image"
 	@echo
@@ -674,12 +674,21 @@ MACHINEBUILD=zgemmah9s
 else ifeq ($(MACHINEBUILD),zgemmah9t)
 MACHINE=h9
 MACHINEBUILD=zgemmah9t
+else ifeq ($(MACHINEBUILD),zgemmah92s)
+MACHINE=h9
+MACHINEBUILD=zgemmah92s
+else ifeq ($(MACHINEBUILD),zgemmah92h)
+MACHINE=h9
+MACHINEBUILD=zgemmah92h
 else ifeq ($(MACHINEBUILD),zgemmah9splus)
 MACHINE=h9
 MACHINEBUILD=zgemmah9splus
 else ifeq ($(MACHINEBUILD),zgemmai55plus)
 MACHINE=i55plus
 MACHINEBUILD=zgemmai55plus
+else ifeq ($(MACHINEBUILD),zgemmah9combo)
+MACHINE=h9combo
+MACHINEBUILD=zgemmah9combo
 
 
 else ifeq ($(MACHINEBUILD),mbmicro)
@@ -718,6 +727,9 @@ MACHINEBUILD=odinplus
 else ifeq ($(MACHINEBUILD),9911lx)
 MACHINE=7225s
 MACHINEBUILD=9911lx
+else ifeq ($(MACHINEBUILD),9920lx)
+MACHINE=7225s
+MACHINEBUILD=9920lx
 else ifeq ($(MACHINEBUILD),e4hdcombo)
 MACHINE=7225s
 MACHINEBUILD=e4hdcombo
@@ -857,6 +869,12 @@ MACHINEBUILD=beyonwizu4
 else ifeq ($(MACHINEBUILD),anadol4k)
 MACHINE=u5
 MACHINEBUILD=anadol4k
+else ifeq ($(MACHINEBUILD),anadol4kv2)
+MACHINE=u51
+MACHINEBUILD=anadol4kv2
+else ifeq ($(MACHINEBUILD),anadol4kcombo)
+MACHINE=u51
+MACHINEBUILD=anadol4kcombo
 else ifeq ($(MACHINEBUILD),axashis4kcombo)
 MACHINE=u51
 MACHINEBUILD=axashis4kcombo
