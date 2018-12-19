@@ -902,6 +902,9 @@ MACHINEBUILD=axashis4kcomboplus
 else ifeq ($(MACHINEBUILD),dinobot4kmini)
 MACHINE=u53
 MACHINEBUILD=dinobot4kmini
+else ifeq ($(MACHINEBUILD),dinobot4kpro)
+MACHINE=u54
+MACHINEBUILD=dinobot4kpro
 
 else ifeq ($(MACHINEBUILD),clap4k)
 MACHINE=cc1
