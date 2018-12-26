@@ -257,9 +257,9 @@ MACHINEBUILD=lunix
 else ifeq ($(MACHINEBUILD),force4)
 MACHINE=dags72604
 MACHINEBUILD=force4
-else ifeq ($(MACHINEBUILD),lunix24k)
+else ifeq ($(MACHINEBUILD),lunix4k)
 MACHINE=dags72604
-MACHINEBUILD=lunix24k
+MACHINEBUILD=lunix4k
 
 
 else ifeq ($(MACHINEBUILD),classm)
@@ -902,6 +902,9 @@ MACHINEBUILD=axashis4kcomboplus
 else ifeq ($(MACHINEBUILD),dinobot4kmini)
 MACHINE=u53
 MACHINEBUILD=dinobot4kmini
+else ifeq ($(MACHINEBUILD),dinobot4kpro)
+MACHINE=u54
+MACHINEBUILD=dinobot4kpro
 
 else ifeq ($(MACHINEBUILD),clap4k)
 MACHINE=cc1
