@@ -51,6 +51,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ini \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ixuss \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-linkdroid \
+	$(CURDIR)/meta-oe-alliance/meta-brands/meta-maxytec \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-broadmedia \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-odin \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-odroid \
@@ -95,7 +96,7 @@ all: init
 	@echo "Openembedded for the oe-alliance environment has been initialized"
 	@echo "properly. Now you can start building your image, by doing either:"
 	@echo
-	@echo "MACHINE=gbquad4k DISTRO=openatv DISTRO_TYPE=release make image"
+	@echo "MACHINE=mutant2400 DISTRO=openatv DISTRO_TYPE=release make image"
 	@echo "	or"
 	@echo "cd $(BUILD_DIR) ; source env.source ; bitbake $(DISTRO)-image"
 	@echo
@@ -915,6 +916,16 @@ MACHINEBUILD=dinobotu55
 else ifeq ($(MACHINEBUILD),clap4k)
 MACHINE=cc1
 MACHINEBUILD=clap4k
+
+else ifeq ($(MACHINEBUILD),ultrav8plus)
+MACHINE=v8plus
+MACHINEBUILD=ultrav8plus
+else ifeq ($(MACHINEBUILD),maxytecmulti)
+MACHINE=multibox
+MACHINEBUILD=maxytecmulti
+else ifeq ($(MACHINEBUILD),anadolmulti)
+MACHINE=multibox
+MACHINEBUILD=anadolmulti
 
 endif
 
