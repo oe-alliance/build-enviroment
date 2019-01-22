@@ -51,6 +51,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ini \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ixuss \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-linkdroid \
+	$(CURDIR)/meta-oe-alliance/meta-brands/meta-maxytec \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-broadmedia \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-odin \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-odroid \
@@ -257,9 +258,9 @@ MACHINEBUILD=lunix
 else ifeq ($(MACHINEBUILD),force4)
 MACHINE=dags72604
 MACHINEBUILD=force4
-else ifeq ($(MACHINEBUILD),lunix24k)
+else ifeq ($(MACHINEBUILD),lunix4k)
 MACHINE=dags72604
-MACHINEBUILD=lunix24k
+MACHINEBUILD=lunix4k
 
 
 else ifeq ($(MACHINEBUILD),classm)
@@ -487,6 +488,9 @@ MACHINEBUILD=mutant51
 else ifeq ($(MACHINEBUILD),mutant60)
 MACHINE=hd60
 MACHINEBUILD=mutant60
+else ifeq ($(MACHINEBUILD),mutant61)
+MACHINE=hd61
+MACHINEBUILD=mutant61
 else ifeq ($(MACHINEBUILD),ax51)
 MACHINE=hd51
 MACHINEBUILD=ax51
@@ -686,6 +690,9 @@ MACHINEBUILD=zgemmah9splus
 else ifeq ($(MACHINEBUILD),zgemmai55plus)
 MACHINE=i55plus
 MACHINEBUILD=zgemmai55plus
+else ifeq ($(MACHINEBUILD),zgemmah9combo)
+MACHINE=h9combo
+MACHINEBUILD=zgemmah9combo
 
 
 else ifeq ($(MACHINEBUILD),mbmicro)
@@ -899,10 +906,26 @@ MACHINEBUILD=axashis4kcomboplus
 else ifeq ($(MACHINEBUILD),dinobot4kmini)
 MACHINE=u53
 MACHINEBUILD=dinobot4kmini
+else ifeq ($(MACHINEBUILD),dinobot4kpro)
+MACHINE=u54
+MACHINEBUILD=dinobot4kpro
+else ifeq ($(MACHINEBUILD),dinobotu55)
+MACHINE=u55
+MACHINEBUILD=dinobotu55
 
 else ifeq ($(MACHINEBUILD),clap4k)
 MACHINE=cc1
 MACHINEBUILD=clap4k
+
+else ifeq ($(MACHINEBUILD),ultrav8plus)
+MACHINE=v8plus
+MACHINEBUILD=ultrav8plus
+else ifeq ($(MACHINEBUILD),maxytecmulti)
+MACHINE=multibox
+MACHINEBUILD=maxytecmulti
+else ifeq ($(MACHINEBUILD),anadolmulti)
+MACHINE=multibox
+MACHINEBUILD=anadolmulti
 
 endif
 
