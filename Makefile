@@ -28,21 +28,16 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-networking \
 	$(CURDIR)/meta-openembedded/meta-filesystems \
 	$(CURDIR)/meta-openembedded/meta-python \
-	$(CURDIR)/meta-openembedded/meta-webserver \
 	$(CURDIR)/meta-oe-alliance/meta-oe \
-	$(CURDIR)/meta-qt5 \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-airdigital \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-azbox \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ax \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-blackbox \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ceryon \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-clap \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-cube \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dags \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dinobot \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dream \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ebox \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-edision \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-entwopia \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-formuler \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-fulan \
@@ -50,17 +45,11 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-gigablue \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ini \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ixuss \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-linkdroid \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-maxytec \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-broadmedia \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-odin \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-odroid \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-octagon \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-protek \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-skylake \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-tiviar \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-tripledot \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-uclan \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ultramini \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-vuplus \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-wetek \
@@ -162,12 +151,6 @@ MACHINEBUILD=tmnanoseplus
 else ifeq ($(MACHINEBUILD),tmnanosem2)
 MACHINE=dags7362
 MACHINEBUILD=tmnanosem2
-else ifeq ($(MACHINEBUILD),tmnanom3)
-MACHINE=dags7362
-MACHINEBUILD=tmnanom3
-else ifeq ($(MACHINEBUILD),tmnanosem2plus)
-MACHINE=dags7362
-MACHINEBUILD=tmnanosem2plus
 else ifeq ($(MACHINEBUILD),tmnanosecombo)
 MACHINE=dags7362
 MACHINEBUILD=tmnanosecombo
@@ -219,49 +202,9 @@ MACHINEBUILD=fusionhdse
 else ifeq ($(MACHINEBUILD),purehd)
 MACHINE=dags7362
 MACHINEBUILD=purehd
-else ifeq ($(MACHINEBUILD),force2nano)
-MACHINE=dags7362
-MACHINEBUILD=force2nano
 else ifeq ($(MACHINEBUILD),force2plushv)
 MACHINE=dags73625
 MACHINEBUILD=force2plushv
-else ifeq ($(MACHINEBUILD),purehdse)
-MACHINE=dags73625
-MACHINEBUILD=purehdse
-else ifeq ($(MACHINEBUILD),force3uhdplus)
-MACHINE=dags7252
-MACHINEBUILD=force3uhdplus
-else ifeq ($(MACHINEBUILD),force3uhd)
-MACHINE=dags7252
-MACHINEBUILD=force3uhd
-else ifeq ($(MACHINEBUILD),revo4k)
-MACHINE=dags7252
-MACHINEBUILD=revo4k
-else ifeq ($(MACHINEBUILD),tmtwin4k)
-MACHINE=dags7252
-MACHINEBUILD=tmtwin4k
-else ifeq ($(MACHINEBUILD),galaxy4k)
-MACHINE=dags7252
-MACHINEBUILD=galaxy4k
-else ifeq ($(MACHINEBUILD),tm4ksuper)
-MACHINE=dags7252
-MACHINEBUILD=tm4ksuper
-else ifeq ($(MACHINEBUILD),valalinux)
-MACHINE=dags7362
-MACHINEBUILD=valalinux
-else ifeq ($(MACHINEBUILD),lunix34k)
-MACHINE=dags7252
-MACHINEBUILD=lunix34k
-else ifeq ($(MACHINEBUILD),lunix)
-MACHINE=dags73625
-MACHINEBUILD=lunix
-else ifeq ($(MACHINEBUILD),force4)
-MACHINE=dags72604
-MACHINEBUILD=force4
-else ifeq ($(MACHINEBUILD),lunix4k)
-MACHINE=dags72604
-MACHINEBUILD=lunix4k
-
 
 else ifeq ($(MACHINEBUILD),classm)
 MACHINE=odinm7
@@ -352,9 +295,9 @@ MACHINEBUILD=beyonwizt2
 else ifeq ($(MACHINEBUILD),opticumtt)
 MACHINE=inihde2
 MACHINEBUILD=opticumtt
-else ifeq ($(MACHINEBUILD),evoslim)
+else ifeq ($(MACHINEBUILD),xpeedlxpro)
 MACHINE=inihde2
-MACHINEBUILD=evoslim
+MACHINEBUILD=xpeedlxpro
 else ifeq ($(MACHINEBUILD),sezammarvel)
 MACHINE=inihdp
 MACHINEBUILD=sezammarvel
@@ -438,18 +381,6 @@ MACHINEBUILD=evomini
 else ifeq ($(MACHINEBUILD),evominiplus)
 MACHINE=ch625lc
 MACHINEBUILD=evominiplus
-else ifeq ($(MACHINEBUILD),vipert2c)
-MACHINE=yh625tc
-MACHINEBUILD=vipert2c
-else ifeq ($(MACHINEBUILD),vipercombo)
-MACHINE=yh625dt
-MACHINEBUILD=vipercombo
-else ifeq ($(MACHINEBUILD),vipercombohdd)
-MACHINE=ch625dt
-MACHINEBUILD=vipercombohdd
-else ifeq ($(MACHINEBUILD),viperslim)
-MACHINE=yh73625
-MACHINEBUILD=viperslim
 
 
 else ifeq ($(MACHINEBUILD),mutant2400)
@@ -485,30 +416,9 @@ MACHINEBUILD=mutant530c
 else ifeq ($(MACHINEBUILD),mutant51)
 MACHINE=hd51
 MACHINEBUILD=mutant51
-else ifeq ($(MACHINEBUILD),mutant60)
-MACHINE=hd60
-MACHINEBUILD=mutant60
-else ifeq ($(MACHINEBUILD),mutant61)
-MACHINE=hd61
-MACHINEBUILD=mutant61
 else ifeq ($(MACHINEBUILD),ax51)
 MACHINE=hd51
 MACHINEBUILD=ax51
-else ifeq ($(MACHINEBUILD),ax60)
-MACHINE=hd60
-MACHINEBUILD=ax60
-else ifeq ($(MACHINEBUILD),axultra)
-MACHINE=hd51
-MACHINEBUILD=axultra
-else ifeq ($(MACHINEBUILD),bre2ze4k)
-MACHINE=hd51
-MACHINEBUILD=bre2ze4k
-else ifeq ($(MACHINEBUILD),vimastec1500)
-MACHINE=vs1500
-MACHINEBUILD=vimastec1500
-else ifeq ($(MACHINEBUILD),vimastec1000)
-MACHINE=vs1000
-MACHINEBUILD=vimastec1000
 
 else ifeq ($(MACHINEBUILD),amiko8900)
 MACHINE=spark
@@ -575,12 +485,6 @@ MACHINEBUILD=dynaspark7162
 else ifeq ($(MACHINEBUILD),sf98)
 MACHINE=yh7362
 MACHINEBUILD=sf98
-else ifeq ($(MACHINEBUILD),evoslimse)
-MACHINE=yh7362
-MACHINEBUILD=evoslimse
-else ifeq ($(MACHINEBUILD),evoslimt2c)
-MACHINE=yh62tc
-MACHINEBUILD=evoslimt2c
 else ifeq ($(MACHINEBUILD),t2cable)
 MACHINE=jj7362
 MACHINEBUILD=t2cable
@@ -624,21 +528,12 @@ MACHINEBUILD=zgemmah2s
 else ifeq ($(MACHINEBUILD),zgemmah2h)
 MACHINE=h3
 MACHINEBUILD=zgemmah2h
-else ifeq ($(MACHINEBUILD),zgemmah32tc)
-MACHINE=h3
-MACHINEBUILD=zgemmah32tc
 else ifeq ($(MACHINEBUILD),zgemmaslc)
 MACHINE=lc
 MACHINEBUILD=zgemmaslc
 else ifeq ($(MACHINEBUILD),zgemmah5)
 MACHINE=h5
 MACHINEBUILD=zgemmah5
-else ifeq ($(MACHINEBUILD),zgemmah52s)
-MACHINE=h5
-MACHINEBUILD=zgemmah52s
-else ifeq ($(MACHINEBUILD),zgemmah52tc)
-MACHINE=h5
-MACHINEBUILD=zgemmah52tc
 else ifeq ($(MACHINEBUILD),zgemmai55)
 MACHINE=i55
 MACHINEBUILD=zgemmai55
@@ -651,56 +546,11 @@ MACHINEBUILD=novacombo
 else ifeq ($(MACHINEBUILD),novatwin)
 MACHINE=h3
 MACHINEBUILD=novatwin
-else ifeq ($(MACHINEBUILD),zgemmah3ac)
-MACHINE=h3
-MACHINEBUILD=zgemmah3ac
-else ifeq ($(MACHINEBUILD),zgemmah4)
-MACHINE=h4
-MACHINEBUILD=zgemmah4
-else ifeq ($(MACHINEBUILD),zgemmah5ac)
-MACHINE=h5
-MACHINEBUILD=zgemmah5ac
-else ifeq ($(MACHINEBUILD),zgemmah52splus)
-MACHINE=h5
-MACHINEBUILD=zgemmah52splus
-else ifeq ($(MACHINEBUILD),zgemmah2splus)
-MACHINE=h3
-MACHINEBUILD=zgemmah2splus
-else ifeq ($(MACHINEBUILD),zgemmah7)
-MACHINE=h7
-MACHINEBUILD=zgemmah7
-else ifeq ($(MACHINEBUILD),zgemmah6)
-MACHINE=h6
-MACHINEBUILD=zgemmah6
-else ifeq ($(MACHINEBUILD),zgemmah9s)
-MACHINE=h9
-MACHINEBUILD=zgemmah9s
-else ifeq ($(MACHINEBUILD),zgemmah9t)
-MACHINE=h9
-MACHINEBUILD=zgemmah9t
-else ifeq ($(MACHINEBUILD),zgemmah92s)
-MACHINE=h9
-MACHINEBUILD=zgemmah92s
-else ifeq ($(MACHINEBUILD),zgemmah92h)
-MACHINE=h9
-MACHINEBUILD=zgemmah92h
-else ifeq ($(MACHINEBUILD),zgemmah9splus)
-MACHINE=h9
-MACHINEBUILD=zgemmah9splus
-else ifeq ($(MACHINEBUILD),zgemmai55plus)
-MACHINE=i55plus
-MACHINEBUILD=zgemmai55plus
-else ifeq ($(MACHINEBUILD),zgemmah9combo)
-MACHINE=h9combo
-MACHINEBUILD=zgemmah9combo
 
 
 else ifeq ($(MACHINEBUILD),mbmicro)
 MACHINE=7000s
 MACHINEBUILD=mbmicro
-else ifeq ($(MACHINEBUILD),mbmicrov2)
-MACHINE=7005s
-MACHINEBUILD=mbmicrov2
 else ifeq ($(MACHINEBUILD),e4hd)
 MACHINE=7000s
 MACHINEBUILD=e4hd
@@ -731,24 +581,12 @@ MACHINEBUILD=odinplus
 else ifeq ($(MACHINEBUILD),9911lx)
 MACHINE=7225s
 MACHINEBUILD=9911lx
-else ifeq ($(MACHINEBUILD),9920lx)
-MACHINE=7225s
-MACHINEBUILD=9920lx
-else ifeq ($(MACHINEBUILD),e4hdcombo)
-MACHINE=7225s
-MACHINEBUILD=e4hdcombo
 else ifeq ($(MACHINEBUILD),sf238)
 MACHINE=7215s
 MACHINEBUILD=sf238
 else ifeq ($(MACHINEBUILD),twinboxlcdci5)
 MACHINE=7105s
 MACHINEBUILD=twinboxlcdci5
-else ifeq ($(MACHINEBUILD),e4hdultra)
-MACHINE=8100s
-MACHINEBUILD=e4hdultra
-else ifeq ($(MACHINEBUILD),protek4k)
-MACHINE=8100s
-MACHINEBUILD=protek4k
 
 
 else ifeq ($(MACHINEBUILD),mbtwinplus)
@@ -757,18 +595,12 @@ MACHINEBUILD=mbtwinplus
 else ifeq ($(MACHINEBUILD),sf3038)
 MACHINE=g300
 MACHINEBUILD=sf3038
-else ifeq ($(MACHINEBUILD),alphatriple)
-MACHINE=g300
-MACHINEBUILD=alphatriple
 else ifeq ($(MACHINEBUILD),sf128)
 MACHINE=g100
 MACHINEBUILD=sf128
 else ifeq ($(MACHINEBUILD),sf138)
 MACHINE=g100
 MACHINEBUILD=sf138
-else ifeq ($(MACHINEBUILD),bre2zet2c)
-MACHINE=g101
-MACHINEBUILD=bre2zet2c
 
 
 else ifeq ($(MACHINEBUILD),spycat)
@@ -777,18 +609,6 @@ MACHINEBUILD=spycat
 else ifeq ($(MACHINEBUILD),spycatmini)
 MACHINE=xc7362
 MACHINEBUILD=spycatmini
-else ifeq ($(MACHINEBUILD),spycatminiplus)
-MACHINE=xc7362
-MACHINEBUILD=spycatminiplus
-else ifeq ($(MACHINEBUILD),spycat4kmini)
-MACHINE=xc7439
-MACHINEBUILD=spycat4kmini
-else ifeq ($(MACHINEBUILD),spycat4k)
-MACHINE=xc7439
-MACHINEBUILD=spycat4k
-else ifeq ($(MACHINEBUILD),spycat4kcombo)
-MACHINE=xc7439
-MACHINEBUILD=spycat4kcombo
 else ifeq ($(MACHINEBUILD),osmini)
 MACHINE=xc7362
 MACHINEBUILD=osmini
@@ -801,9 +621,6 @@ MACHINEBUILD=bcm7358
 else ifeq ($(MACHINEBUILD),vp7358ci)
 MACHINE=xc7358ci
 MACHINEBUILD=vp7358ci
-else ifeq ($(MACHINEBUILD),osmega)
-MACHINE=xc7346
-MACHINEBUILD=osmega
 
 else ifeq ($(MACHINEBUILD),gb800se)
 MACHINE=gb7325
@@ -826,9 +643,6 @@ MACHINEBUILD=gbultrase
 else ifeq ($(MACHINEBUILD),gbultraue)
 MACHINE=gb7362
 MACHINEBUILD=gbultraue
-else ifeq ($(MACHINEBUILD),gbultraueh)
-MACHINE=gb73625
-MACHINEBUILD=gbultraueh
 else ifeq ($(MACHINEBUILD),gbx1)
 MACHINE=gb7362
 MACHINEBUILD=gbx1
@@ -838,21 +652,12 @@ MACHINEBUILD=gbx2
 else ifeq ($(MACHINEBUILD),gbx3)
 MACHINE=gb7362
 MACHINEBUILD=gbx3
-else ifeq ($(MACHINEBUILD),gbx3h)
-MACHINE=gb73625
-MACHINEBUILD=gbx3h
 else ifeq ($(MACHINEBUILD),gbquad)
 MACHINE=gb7356
 MACHINEBUILD=gbquad
 else ifeq ($(MACHINEBUILD),gbquadplus)
 MACHINE=gb7356
 MACHINEBUILD=gbquadplus
-else ifeq ($(MACHINEBUILD),gbquad4k)
-MACHINE=gb7252
-MACHINEBUILD=gbquad4k
-else ifeq ($(MACHINEBUILD),gbue4k)
-MACHINE=gb7252
-MACHINEBUILD=gbue4k
 
 else ifeq ($(MACHINEBUILD),xpeedlxcs2)
 MACHINE=ultramini
@@ -863,72 +668,6 @@ MACHINEBUILD=xpeedlxcc
 else ifeq ($(MACHINEBUILD),et7x00mini)
 MACHINE=ultramini
 MACHINEBUILD=et7x00mini
-else ifeq ($(MACHINEBUILD),gi11000)
-MACHINE=et1x000
-MACHINEBUILD=gi11000
-else ifeq ($(MACHINEBUILD),beyonwizu4)
-MACHINE=et13000
-MACHINEBUILD=beyonwizu4
-
-else ifeq ($(MACHINEBUILD),anadol4k)
-MACHINE=u5
-MACHINEBUILD=anadol4k
-else ifeq ($(MACHINEBUILD),anadol4kv2)
-MACHINE=u51
-MACHINEBUILD=anadol4kv2
-else ifeq ($(MACHINEBUILD),anadol4kcombo)
-MACHINE=u51
-MACHINEBUILD=anadol4kcombo
-else ifeq ($(MACHINEBUILD),axashis4kcombo)
-MACHINE=u51
-MACHINEBUILD=axashis4kcombo
-else ifeq ($(MACHINEBUILD),dinobot4kl)
-MACHINE=u51
-MACHINEBUILD=dinobot4kl
-else ifeq ($(MACHINEBUILD),dinobot4k)
-MACHINE=u5
-MACHINEBUILD=dinobot4k
-else ifeq ($(MACHINEBUILD),mediabox4k)
-MACHINE=u5
-MACHINEBUILD=mediabox4k
-else ifeq ($(MACHINEBUILD),dinobot4kse)
-MACHINE=u5pvr
-MACHINEBUILD=dinobot4kse
-else ifeq ($(MACHINEBUILD),ferguson4k)
-MACHINE=u5pvr
-MACHINEBUILD=ferguson4k
-else ifeq ($(MACHINEBUILD),dinobot4kplus)
-MACHINE=u52
-MACHINEBUILD=dinobot4kplus
-else ifeq ($(MACHINEBUILD),axashis4kcomboplus)
-MACHINE=u52
-MACHINEBUILD=axashis4kcomboplus
-else ifeq ($(MACHINEBUILD),dinobot4kmini)
-MACHINE=u53
-MACHINEBUILD=dinobot4kmini
-else ifeq ($(MACHINEBUILD),dinobot4kpro)
-MACHINE=u54
-MACHINEBUILD=dinobot4kpro
-else ifeq ($(MACHINEBUILD),dinobotu55)
-MACHINE=u55
-MACHINEBUILD=dinobotu55
-else ifeq ($(MACHINEBUILD),dinoboth265)
-MACHINE=u41
-MACHINEBUILD=dinoboth265
-
-else ifeq ($(MACHINEBUILD),clap4k)
-MACHINE=cc1
-MACHINEBUILD=clap4k
-
-else ifeq ($(MACHINEBUILD),ultrav8plus)
-MACHINE=v8plus
-MACHINEBUILD=ultrav8plus
-else ifeq ($(MACHINEBUILD),maxytecmulti)
-MACHINE=multibox
-MACHINEBUILD=maxytecmulti
-else ifeq ($(MACHINEBUILD),anadolmulti)
-MACHINE=multibox
-MACHINEBUILD=anadolmulti
 
 endif
 
@@ -938,9 +677,6 @@ init: setupmbuild $(BBLAYERS) $(CONFFILES)
 
 image: init
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake $(DISTRO)-image
-
-clean:
-	@. $(TOPDIR)/env.source && cd $(TOPDIR) && echo -n -e "Performing a clean \e[95mPlease wait... " && bitbake -qqq -c clean $(DISTRO)-image && echo -n -e "\e[93mClean completed.\e[0m"
 
 update:
 	@echo 'Updating Git repositories...'
@@ -1031,17 +767,16 @@ $(TOPDIR)/conf/local.conf: $(DEPDIR)/.local.conf.$(LOCAL_CONF_HASH)
 $(TOPDIR)/conf/site.conf: $(CURDIR)/site.conf
 	@ln -s ../../../../../site.conf $@
 
-OPT_ARCH=native         # Overrideable on the command-line
 $(CURDIR)/site.conf:
 	@echo 'SCONF_VERSION = "1"' >> $@
 	@echo 'BB_NUMBER_THREADS = "$(BB_NUMBER_THREADS)"' >> $@
 	@echo 'PARALLEL_MAKE = "$(PARALLEL_MAKE)"' >> $@
-	@echo 'BUILD_OPTIMIZATION = "-march=$(OPT_ARCH) -O2 -pipe"' >> $@
+	@echo 'BUILD_OPTIMIZATION = "-march=native -O2 -pipe"' >> $@
 	@echo 'DL_DIR = "$(DL_DIR)"' >> $@
 	@echo 'INHERIT += "rm_work"' >> $@
 
 BBLAYERS_CONF_HASH := $(call hash, \
-	'BBLAYERS_CONF_VERSION = "5"' \
+	'BBLAYERS_CONF_VERSION = "0"' \
 	'CURDIR = "$(CURDIR)"' \
 	'BBLAYERS = "$(BBLAYERS)"' \
 	)
@@ -1049,7 +784,7 @@ BBLAYERS_CONF_HASH := $(call hash, \
 $(TOPDIR)/conf/bblayers.conf: $(DEPDIR)/.bblayers.conf.$(BBLAYERS_CONF_HASH)
 	@echo 'Generating $@'
 	@test -d $(@D) || mkdir -p $(@D)
-	@echo 'LCONF_VERSION = "4"' > $@
+	@echo 'LCONF_VERSION = "4"' >> $@
 	@echo 'BBFILES = ""' >> $@
 	@echo 'BBLAYERS = "$(BBLAYERS)"' >> $@
 
