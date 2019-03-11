@@ -988,16 +988,16 @@ $(TOPDIR)/env.source: $(DEPDIR)/.env.source.$(BITBAKE_ENV_HASH)
 	@echo 'export DISTRO=$(DISTRO)' >> $@
 	@echo 'export MACHINEBUILD=$(MACHINEBUILD)' >> $@
 	@echo 'export PATH=$(CURDIR)/openembedded-core/scripts:$(CURDIR)/bitbake/bin:$${PATH}' >> $@
-	@echo 'if [[ $$BB_NO_NETWORK -eq 1 ]]; then' >> $@
+	@echo 'if [ "$$BB_NO_NETWORK" = "1" ]; then' >> $@
 	@echo ' export BB_SRCREV_POLICY="cache"' >> $@
-	@echo ' echo -e "\e[95mforced offline mode\e[0m"' >> $@
+	@echo ' echo "\e[95mforced offline mode\e[0m"' >> $@
 	@echo 'else' >> $@
-	@echo ' echo -n -e "check internet connection: \e[93mWaiting ...\e[0m"' >> $@
+	@echo ' echo -n "check internet connection: \e[93mWaiting ...\e[0m"' >> $@
 	@echo ' wget -q --tries=10 --timeout=$(ONLINECHECK_TIMEOUT) --spider $(ONLINECHECK_URL)' >> $@
-	@echo ' if [[ $$? -eq 0 ]]; then' >> $@
-	@echo '  echo -e "\b\b\b\b\b\b\b\b\b\b\b\e[32mOnline      \e[0m"' >> $@
+	@echo ' if [ $$? -eq 0 ]; then' >> $@
+	@echo '  echo "\b\b\b\b\b\b\b\b\b\b\b\e[32mOnline      \e[0m"' >> $@
 	@echo ' else' >> $@
-	@echo '  echo -e "\b\b\b\b\b\b\b\b\b\b\b\e[31mOffline     \e[0m"' >> $@
+	@echo '  echo "\b\b\b\b\b\b\b\b\b\b\b\e[31mOffline     \e[0m"' >> $@
 	@echo '  export BB_SRCREV_POLICY="cache"' >> $@
 	@echo ' fi' >> $@
 	@echo 'fi' >> $@
