@@ -922,9 +922,15 @@ MACHINEBUILD=iziboxone4k
 else ifeq ($(MACHINEBUILD),hitube4k)
 MACHINE=u55
 MACHINEBUILD=hitube4k
+else ifeq ($(MACHINEBUILD),axashisc4k)
+MACHINE=u56
+MACHINEBUILD=axashisc4k
 else ifeq ($(MACHINEBUILD),dinoboth265)
 MACHINE=u41
 MACHINEBUILD=dinoboth265
+else ifeq ($(MACHINEBUILD),axashistwin)
+MACHINE=u41
+MACHINEBUILD=axashistwin
 
 else ifeq ($(MACHINEBUILD),clap4k)
 MACHINE=cc1
