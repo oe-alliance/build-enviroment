@@ -935,6 +935,9 @@ MACHINEBUILD=dinoboth265
 else ifeq ($(MACHINEBUILD),axashistwin)
 MACHINE=u41
 MACHINEBUILD=axashistwin
+else ifeq ($(MACHINEBUILD),anadolprohd5)
+MACHINE=u42
+MACHINEBUILD=anadolprohd5
 
 else ifeq ($(MACHINEBUILD),clap4k)
 MACHINE=cc1
