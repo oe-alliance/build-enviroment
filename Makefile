@@ -938,6 +938,9 @@ MACHINEBUILD=axashistwin
 else ifeq ($(MACHINEBUILD),anadolprohd5)
 MACHINE=u42
 MACHINEBUILD=anadolprohd5
+else ifeq ($(MACHINEBUILD),spycatminiv2)
+MACHINE=u42
+MACHINEBUILD=spycatminiv2
 
 
 else ifeq ($(MACHINEBUILD),clap4k)
