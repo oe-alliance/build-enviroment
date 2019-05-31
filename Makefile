@@ -695,6 +695,9 @@ MACHINEBUILD=zgemmai55plus
 else ifeq ($(MACHINEBUILD),zgemmah9combo)
 MACHINE=h9combo
 MACHINEBUILD=zgemmah9combo
+else ifeq ($(MACHINEBUILD),zgemmah9twin)
+MACHINE=h9combo
+MACHINEBUILD=zgemmah9twin
 
 
 else ifeq ($(MACHINEBUILD),mbmicro)
