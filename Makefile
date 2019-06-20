@@ -950,6 +950,12 @@ MACHINEBUILD=spycatminiv2
 else ifeq ($(MACHINEBUILD),iziboxecohd)
 MACHINE=u42
 MACHINEBUILD=iziboxecohd
+else ifeq ($(MACHINEBUILD),jdhdduo)
+MACHINE=u42
+MACHINEBUILD=jdhdduo
+else ifeq ($(MACHINEBUILD),turing)
+MACHINE=u43
+MACHINEBUILD=turing
 
 
 else ifeq ($(MACHINEBUILD),clap4k)
