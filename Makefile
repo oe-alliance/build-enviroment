@@ -935,6 +935,10 @@ MACHINEBUILD=hitube4k
 else ifeq ($(MACHINEBUILD),axashisc4k)
 MACHINE=u56
 MACHINEBUILD=axashisc4k
+else ifeq ($(MACHINEBUILD),dinobot4kelite)
+MACHINE=u56
+MACHINEBUILD=dinobot4kelite
+
 else ifeq ($(MACHINEBUILD),dinoboth265)
 MACHINE=u41
 MACHINEBUILD=dinoboth265
