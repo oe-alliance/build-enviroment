@@ -920,6 +920,12 @@ MACHINEBUILD=axashis4kcomboplus
 else ifeq ($(MACHINEBUILD),dinobot4kmini)
 MACHINE=u53
 MACHINEBUILD=dinobot4kmini
+else ifeq ($(MACHINEBUILD),arivacombo)
+MACHINE=u532
+MACHINEBUILD=arivacombo
+else ifeq ($(MACHINEBUILD),arivatwin)
+MACHINE=u533
+MACHINEBUILD=arivatwin
 else ifeq ($(MACHINEBUILD),dinobot4kpro)
 MACHINE=u54
 MACHINEBUILD=dinobot4kpro
