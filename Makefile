@@ -938,6 +938,9 @@ MACHINEBUILD=iziboxone4k
 else ifeq ($(MACHINEBUILD),hitube4k)
 MACHINE=u55
 MACHINEBUILD=hitube4k
+else ifeq ($(MACHINEBUILD),iziboxx3)
+MACHINE=u55
+MACHINEBUILD=iziboxx3
 else ifeq ($(MACHINEBUILD),axashisc4k)
 MACHINE=u56
 MACHINEBUILD=axashisc4k
