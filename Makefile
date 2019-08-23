@@ -864,6 +864,9 @@ MACHINEBUILD=gbue4k
 else ifeq ($(MACHINEBUILD),gbtrio4k)
 MACHINE=gbmv200
 MACHINEBUILD=gbtrio4k
+else ifeq ($(MACHINEBUILD),gbip4k)
+MACHINE=gbmv200
+MACHINEBUILD=gbip4k
 
 else ifeq ($(MACHINEBUILD),xpeedlxcs2)
 MACHINE=ultramini
