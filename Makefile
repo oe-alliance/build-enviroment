@@ -33,17 +33,14 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-qt5 \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-airdigital \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-amiko \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-azbox \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ax \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-blackbox \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-beyonwiz \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ceryon \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-clap \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-cube \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dags \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dinobot \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dream \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ebox \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-edision \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-entwopia \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-formuler \
@@ -52,11 +49,9 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-gigablue \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ini \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ixuss \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-linkdroid \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-maxytec \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-broadmedia \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-odin \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-odroid \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-octagon \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-protek \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-skylake \
@@ -65,7 +60,6 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-uclan \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ultramini \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-vuplus \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-wetek \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xp \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xtrend \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xcore \
@@ -372,25 +366,6 @@ MACHINEBUILD=mbultra
 else ifeq ($(MACHINEBUILD),beyonwizt4)
 MACHINE=inihdp
 MACHINEBUILD=beyonwizt4
-
-else ifeq ($(MACHINEBUILD),mixosf5)
-MACHINE=ebox5000
-MACHINEBUILD=mixosf5
-else ifeq ($(MACHINEBUILD),gi9196m)
-MACHINE=ebox5000
-MACHINEBUILD=gi9196m
-else ifeq ($(MACHINEBUILD),mixosf5mini)
-MACHINE=ebox5100
-MACHINEBUILD=mixosf5mini
-else ifeq ($(MACHINEBUILD),gi9196lite)
-MACHINE=ebox5100
-MACHINEBUILD=gi9196lite
-else ifeq ($(MACHINEBUILD),mixosf7)
-MACHINE=ebox7358
-MACHINEBUILD=mixosf7
-else ifeq ($(MACHINEBUILD),mixoslumi)
-MACHINE=eboxlumi
-MACHINEBUILD=mixoslumi
 
 else ifeq ($(MACHINEBUILD),dcube)
 MACHINE=cube
@@ -788,27 +763,12 @@ MACHINEBUILD=spycatmini
 else ifeq ($(MACHINEBUILD),spycatminiplus)
 MACHINE=xc7362
 MACHINEBUILD=spycatminiplus
-else ifeq ($(MACHINEBUILD),spycat4kmini)
-MACHINE=xc7439
-MACHINEBUILD=spycat4kmini
-else ifeq ($(MACHINEBUILD),spycat4k)
-MACHINE=xc7439
-MACHINEBUILD=spycat4k
-else ifeq ($(MACHINEBUILD),spycat4kcombo)
-MACHINE=xc7439
-MACHINEBUILD=spycat4kcombo
 else ifeq ($(MACHINEBUILD),osmini)
 MACHINE=xc7362
 MACHINEBUILD=osmini
 else ifeq ($(MACHINEBUILD),osminiplus)
 MACHINE=xc7362
 MACHINEBUILD=osminiplus
-else ifeq ($(MACHINEBUILD),bcm7358)
-MACHINE=xc7358
-MACHINEBUILD=bcm7358
-else ifeq ($(MACHINEBUILD),vp7358ci)
-MACHINE=xc7358ci
-MACHINEBUILD=vp7358ci
 else ifeq ($(MACHINEBUILD),osmega)
 MACHINE=xc7346
 MACHINEBUILD=osmega
