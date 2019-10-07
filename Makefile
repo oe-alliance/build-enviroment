@@ -941,9 +941,6 @@ else ifeq ($(MACHINEBUILD),clap4k)
 MACHINE=cc1
 MACHINEBUILD=clap4k
 
-else ifeq ($(MACHINEBUILD),ultrav8plus)
-MACHINE=v8plus
-MACHINEBUILD=ultrav8plus
 else ifeq ($(MACHINEBUILD),maxytecmulti)
 MACHINE=multibox
 MACHINEBUILD=maxytecmulti
