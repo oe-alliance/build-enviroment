@@ -9,6 +9,21 @@ This sets-up the oe-alliance build environment.
 
 > Ubuntu 16.04.1 LTS (GNU/Linux 3.14.32-xxxx-grs-ipv6-64 x86_64)
 
+building on newer host systems
+==============================
+
+If you want to build this EOL branch on newer host systems, e.g. Ubuntu 18.04,
+you have to perform some additional steps after the very FIRST "make update"
+(The third patch is optional, but strongly recommended):
+
+```
+patch -p1 < ./fix-openembedded-core-gcc8-mimimi.patch
+patch -p1 < ./fix-shitquake-git-and-svn-fetch.patch
+patch -p1 < ./fix-shitquake-basehash-terror.patch
+cd ./meta-oe-alliance/
+git pull origin 4.0
+cd ..
+```
 
 # Building Instructions #
 
