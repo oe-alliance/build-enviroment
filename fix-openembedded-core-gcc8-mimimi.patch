@@ -1,0 +1,15 @@
+diff --git a/openembedded-core/meta/conf/bitbake.conf b/openembedded-core/meta/conf/bitbake.conf
+index e3db5041f3..dadd54ed0f 100644
+--- a/openembedded-core/meta/conf/bitbake.conf
++++ b/openembedded-core/meta/conf/bitbake.conf
+@@ -500,8 +500,8 @@ export CPPFLAGS = "${TARGET_CPPFLAGS}"
+ export TARGET_CPPFLAGS = ""
+ #export TARGET_CPPFLAGS = "-isystem${STAGING_DIR_TARGET}${includedir}"
+ 
+-export BUILD_CFLAGS = "${BUILD_CPPFLAGS} ${BUILD_OPTIMIZATION}"
+-BUILDSDK_CFLAGS = "${BUILDSDK_CPPFLAGS} ${BUILD_OPTIMIZATION}"
++export BUILD_CFLAGS = "${BUILD_CPPFLAGS} ${BUILD_OPTIMIZATION} -Wno-error -Wno-error=format-nonliteral"
++BUILDSDK_CFLAGS = "${BUILDSDK_CPPFLAGS} ${BUILD_OPTIMIZATION} -Wno-error -Wno-error=format-nonliteral"
+ export CFLAGS = "${TARGET_CFLAGS}"
+ export TARGET_CFLAGS = "${TARGET_CPPFLAGS} ${SELECTED_OPTIMIZATION}"
+ 
