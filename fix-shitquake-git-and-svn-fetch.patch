@@ -1,8 +1,8 @@
 diff --git a/bitbake/lib/bb/fetch2/git.py b/bitbake/lib/bb/fetch2/git.py
-index f7a0c018..e8a162d6 100644
+index 2550bde8..1c417788 100644
 --- a/bitbake/lib/bb/fetch2/git.py
 +++ b/bitbake/lib/bb/fetch2/git.py
-@@ -327,7 +327,7 @@ class Git(FetchMethod):
+@@ -326,7 +326,7 @@ class Git(FetchMethod):
                  branchname =  ud.branches[ud.names[0]]
                  runfetchcmd("%s checkout -B %s %s" % (ud.basecmd, branchname, \
                              ud.revisions[ud.names[0]]), d, workdir=destdir)
@@ -12,20 +12,20 @@ index f7a0c018..e8a162d6 100644
              else:
                  runfetchcmd("%s checkout %s" % (ud.basecmd, ud.revisions[ud.names[0]]), d, workdir=destdir)
 diff --git a/bitbake/lib/bb/fetch2/svn.py b/bitbake/lib/bb/fetch2/svn.py
-index d6feeb22..a895307a 100644
+index 3f172eec..0afb7d4a 100644
 --- a/bitbake/lib/bb/fetch2/svn.py
 +++ b/bitbake/lib/bb/fetch2/svn.py
-@@ -63,6 +63,9 @@ class Svn(FetchMethod):
+@@ -62,6 +62,9 @@ class Svn(FetchMethod):
          relpath = self._strip_leading_slashes(ud.path)
-         ud.pkgdir = os.path.join(data.expand('${SVNDIR}', d), ud.host, relpath)
+         ud.pkgdir = os.path.join(d.expand('${SVNDIR}'), ud.host, relpath)
          ud.moddir = os.path.join(ud.pkgdir, ud.module)
 +        # Protects the repository from concurrent updates, e.g. from two
 +        # recipes fetching different revisions at the same time
 +        ud.svnlock = os.path.join(ud.pkgdir, "svn.lock")
  
-         ud.setup_revisons(d)
+         ud.setup_revisions(d)
  
-@@ -123,35 +126,44 @@ class Svn(FetchMethod):
+@@ -122,35 +125,44 @@ class Svn(FetchMethod):
  
          logger.debug(2, "Fetch: checking for module directory '" + ud.moddir + "'")
  

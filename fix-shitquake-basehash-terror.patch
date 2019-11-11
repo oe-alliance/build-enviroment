@@ -1,5 +1,5 @@
 diff --git a/bitbake/lib/bb/siggen.py b/bitbake/lib/bb/siggen.py
-index 4226c80..941e64c 100644
+index 3ceeef1c..7de3c942 100644
 --- a/bitbake/lib/bb/siggen.py
 +++ b/bitbake/lib/bb/siggen.py
 @@ -136,8 +136,6 @@ class SignatureGeneratorBasic(SignatureGenerator):
@@ -11,7 +11,7 @@ index 4226c80..941e64c 100644
              self.basehash[k] = datahash
              taskdeps[task] = alldeps
  
-@@ -285,12 +285,9 @@ class SignatureGeneratorBasic(SignatureGenerator):
+@@ -285,12 +283,9 @@ class SignatureGeneratorBasic(SignatureGenerator):
                  data['taint'] = self.taints[k]
  
          computed_basehash = calc_basehash(data)

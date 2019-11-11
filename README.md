@@ -21,7 +21,7 @@ patch -p1 < ./fix-openembedded-core-gcc8-mimimi.patch
 patch -p1 < ./fix-shitquake-git-and-svn-fetch.patch
 patch -p1 < ./fix-shitquake-basehash-terror.patch
 cd ./meta-oe-alliance/
-git pull origin 4.0
+git pull origin 4.1
 cd ..
 ```
 

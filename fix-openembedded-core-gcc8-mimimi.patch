@@ -1,8 +1,8 @@
 diff --git a/openembedded-core/meta/conf/bitbake.conf b/openembedded-core/meta/conf/bitbake.conf
-index 40efb959e6..633f1c83f3 100644
+index 5e98d4511f..8ec32a8a4f 100644
 --- a/openembedded-core/meta/conf/bitbake.conf
 +++ b/openembedded-core/meta/conf/bitbake.conf
-@@ -512,8 +512,8 @@ BUILDSDK_CPPFLAGS = ""
+@@ -533,8 +533,8 @@ BUILDSDK_CPPFLAGS = ""
  export CPPFLAGS = "${TARGET_CPPFLAGS}"
  export TARGET_CPPFLAGS = ""
  
