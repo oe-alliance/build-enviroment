@@ -30,7 +30,7 @@ endif
 ifeq ($(MACHINEBUILD),gbue4k)
 METAQT=meta-qt5.8
 endif
-ifeq ($(MACHINEBUILD),gbip4k)
+ifeq ($(MACHINEBUILD),gbx34k)
 METAQT=meta-qt5.8
 endif
 
