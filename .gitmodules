@@ -6,6 +6,9 @@
 	path = meta-openembedded
 	url = git://git.openembedded.org/meta-openembedded
 	ignore = dirty
+[submodule "meta-python2"]
+	path = meta-python2
+	url = git://git.openembedded.org/meta-python2
 [submodule "bitbake"]
 	path = bitbake
 	url = git://git.openembedded.org/bitbake
