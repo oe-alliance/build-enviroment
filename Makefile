@@ -937,6 +937,9 @@ MACHINEBUILD=axashisc4k
 else ifeq ($(MACHINEBUILD),dinobot4kelite)
 MACHINE=u56
 MACHINEBUILD=dinobot4kelite
+else ifeq ($(MACHINEBUILD),viper4kv20)
+MACHINE=u57
+MACHINEBUILD=viper4kv20
 
 else ifeq ($(MACHINEBUILD),dinoboth265)
 MACHINE=u41
@@ -959,6 +962,9 @@ MACHINEBUILD=jdhdduo
 else ifeq ($(MACHINEBUILD),vipertwin)
 MACHINE=u42
 MACHINEBUILD=vipertwin
+else ifeq ($(MACHINEBUILD),vipers)
+MACHINE=u42
+MACHINEBUILD=vipers
 else ifeq ($(MACHINEBUILD),turing)
 MACHINE=u43
 MACHINEBUILD=turing
