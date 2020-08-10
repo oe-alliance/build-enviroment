@@ -979,6 +979,10 @@ else ifeq ($(MACHINEBUILD),anadolmulti)
 MACHINE=multibox
 MACHINEBUILD=anadolmulti
 
+else ifeq ($(MACHINEBUILD),maxytecmultiplus)
+MACHINE=plus
+MACHINEBUILD=maxytecmultiplus
+
 endif
 
 initialize: init
