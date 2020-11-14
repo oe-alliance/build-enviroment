@@ -943,6 +943,9 @@ MACHINEBUILD=dinobot4kelite
 else ifeq ($(MACHINEBUILD),viper4kv20)
 MACHINE=u57
 MACHINEBUILD=viper4kv20
+else ifeq ($(MACHINEBUILD),protek4kx2)
+MACHINE=u57
+MACHINEBUILD=protek4kx2
 
 else ifeq ($(MACHINEBUILD),dinoboth265)
 MACHINE=u41
