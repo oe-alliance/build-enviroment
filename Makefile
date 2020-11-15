@@ -969,6 +969,9 @@ MACHINEBUILD=iziboxecohd
 else ifeq ($(MACHINEBUILD),jdhdduo)
 MACHINE=u42
 MACHINEBUILD=jdhdduo
+else ifeq ($(MACHINEBUILD),vipertwin)
+MACHINE=u42
+MACHINEBUILD=vipertwin
 else ifeq ($(MACHINEBUILD),vipers)
 MACHINE=u42
 MACHINEBUILD=vipers
