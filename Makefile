@@ -980,9 +980,9 @@ MACHINEBUILD=jdhdduo
 else ifeq ($(MACHINEBUILD),vipertwin)
 MACHINE=u42
 MACHINEBUILD=vipertwin
-else ifeq ($(MACHINEBUILD),vipers)
+else ifeq ($(MACHINEBUILD),vipersingle)
 MACHINE=u42
-MACHINEBUILD=vipers
+MACHINEBUILD=vipersingle
 else ifeq ($(MACHINEBUILD),turing)
 MACHINE=u43
 MACHINEBUILD=turing
