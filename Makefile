@@ -732,9 +732,9 @@ MACHINEBUILD=zgemmahzeros
 else ifeq ($(MACHINEBUILD),zgemmah9combose)
 MACHINE=h9combose
 MACHINEBUILD=zgemmah9combose
-else ifeq ($(MACHINEBUILD),zgemmah9se)
+else ifeq ($(MACHINEBUILD),zgemmah92hse)
 MACHINE=h9se
-MACHINEBUILD=zgemmah9se
+MACHINEBUILD=zgemmah92hse
 else ifeq ($(MACHINEBUILD),zgemmai55se)
 MACHINE=i55se
 MACHINEBUILD=zgemmai55se
