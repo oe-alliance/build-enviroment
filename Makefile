@@ -999,6 +999,9 @@ MACHINEBUILD=viper4kv20
 else ifeq ($(MACHINEBUILD),protek4kx2)
 MACHINE=u57
 MACHINEBUILD=protek4kx2
+else ifeq ($(MACHINEBUILD),iziboxelite4k)
+MACHINE=u57
+MACHINEBUILD=iziboxelite4k
 
 else ifeq ($(MACHINEBUILD),dinoboth265)
 MACHINE=u41
