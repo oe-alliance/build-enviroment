@@ -35,6 +35,12 @@ endif
 ifeq ($(MACHINEBUILD),osmini4k)
 METAQT=meta-qt5.14
 endif
+ifeq ($(MACHINEBUILD),osmio4k)
+METAQT=meta-qt5.14
+endif
+ifeq ($(MACHINEBUILD),osmio4kplus)
+METAQT=meta-qt5.14
+endif
 
 BBLAYERS ?= \
 	$(CURDIR)/openembedded-core/meta \
