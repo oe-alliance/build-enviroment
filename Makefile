@@ -35,6 +35,12 @@ endif
 ifeq ($(MACHINEBUILD),osmini4k)
 METAQT=meta-qt5.14
 endif
+ifeq ($(MACHINEBUILD),osmio4k)
+METAQT=meta-qt5.14
+endif
+ifeq ($(MACHINEBUILD),osmio4kplus)
+METAQT=meta-qt5.14
+endif
 
 BBLAYERS ?= \
 	$(CURDIR)/openembedded-core/meta \
@@ -713,6 +719,9 @@ MACHINEBUILD=zgemmah9combose
 else ifeq ($(MACHINEBUILD),zgemmah92hse)
 MACHINE=h9se
 MACHINEBUILD=zgemmah92hse
+else ifeq ($(MACHINEBUILD),zgemmah9sse)
+MACHINE=h9se
+MACHINEBUILD=zgemmah9sse
 else ifeq ($(MACHINEBUILD),zgemmai55se)
 MACHINE=i55se
 MACHINEBUILD=zgemmai55se
@@ -962,6 +971,9 @@ MACHINEBUILD=viper4kv20
 else ifeq ($(MACHINEBUILD),protek4kx2)
 MACHINE=u57
 MACHINEBUILD=protek4kx2
+else ifeq ($(MACHINEBUILD),iziboxelite4k)
+MACHINE=u57
+MACHINEBUILD=iziboxelite4k
 
 else ifeq ($(MACHINEBUILD),dinoboth265)
 MACHINE=u41
