@@ -1024,9 +1024,9 @@ else ifeq ($(MACHINEBUILD),axmultitwin)
 MACHINE=multibox
 MACHINEBUILD=axmultitwin
 
-else ifeq ($(MACHINEBUILD),maxytecmultiplus)
-MACHINE=plus
-MACHINEBUILD=maxytecmultiplus
+else ifeq ($(MACHINEBUILD),maxytecmultise)
+MACHINE=multiboxse
+MACHINEBUILD=maxytecmultise
 
 endif
 
