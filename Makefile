@@ -278,7 +278,9 @@ MACHINEBUILD=force4
 else ifeq ($(MACHINEBUILD),lunix4k)
 MACHINE=dags72604
 MACHINEBUILD=lunix4k
-
+else ifeq ($(MACHINEBUILD),dual)
+MACHINE=dagsmv200
+MACHINEBUILD=dual
 
 else ifeq ($(MACHINEBUILD),classm)
 MACHINE=odinm7
