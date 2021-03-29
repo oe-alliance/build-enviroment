@@ -1013,6 +1013,9 @@ MACHINEBUILD=vipersingle
 else ifeq ($(MACHINEBUILD),turing)
 MACHINE=u43
 MACHINEBUILD=turing
+else ifeq ($(MACHINEBUILD),axashistwinplus)
+MACHINE=u45
+MACHINEBUILD=axashistwinplus
 
 
 else ifeq ($(MACHINEBUILD),clap4k)
@@ -1034,6 +1037,9 @@ MACHINEBUILD=axmulticombo
 else ifeq ($(MACHINEBUILD),axmultitwin)
 MACHINE=multibox
 MACHINEBUILD=axmultitwin
+else ifeq ($(MACHINEBUILD),novaler4k)
+MACHINE=multibox
+MACHINEBUILD=novaler4k
 
 else ifeq ($(MACHINEBUILD),maxytecmultise)
 MACHINE=multiboxse
