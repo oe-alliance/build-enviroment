@@ -713,9 +713,9 @@ MACHINEBUILD=zgemmah102h
 else ifeq ($(MACHINEBUILD),zgemmah102s)
 MACHINE=h10
 MACHINEBUILD=zgemmah102s
-else ifeq ($(MACHINEBUILD),zgemmah112s)
+else ifeq ($(MACHINEBUILD),zgemmah11)
 MACHINE=h11
-MACHINEBUILD=zgemmah112s			   
+MACHINEBUILD=zgemmah11			   
 else ifeq ($(MACHINEBUILD),zgemmahzeros)
 MACHINE=hzero
 MACHINEBUILD=zgemmahzeros
