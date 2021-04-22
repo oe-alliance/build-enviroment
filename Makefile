@@ -53,6 +53,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-python2 \
 	$(CURDIR)/meta-oe-alliance/meta-oe \
 	$(CURDIR)/$(METAQT) \
+	$(CURDIR)/meta-oe-alliance/meta-brands/meta-abcom \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-airdigital \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-amiko \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ax \
@@ -712,6 +713,12 @@ MACHINEBUILD=zgemmah102h
 else ifeq ($(MACHINEBUILD),zgemmah102s)
 MACHINE=h10
 MACHINEBUILD=zgemmah102s
+else ifeq ($(MACHINEBUILD),zgemmah11s)
+MACHINE=h11
+MACHINEBUILD=zgemmah11s
+else ifeq ($(MACHINEBUILD),zgemmah112h)
+MACHINE=h11
+MACHINEBUILD=zgemmah112h
 else ifeq ($(MACHINEBUILD),zgemmahzeros)
 MACHINE=hzero
 MACHINEBUILD=zgemmahzeros
@@ -1016,6 +1023,9 @@ MACHINEBUILD=vipersingle
 else ifeq ($(MACHINEBUILD),turing)
 MACHINE=u43
 MACHINEBUILD=turing
+else ifeq ($(MACHINEBUILD),axashistwinplus)
+MACHINE=u45
+MACHINEBUILD=axashistwinplus
 
 
 else ifeq ($(MACHINEBUILD),clap4k)
@@ -1037,6 +1047,9 @@ MACHINEBUILD=axmulticombo
 else ifeq ($(MACHINEBUILD),axmultitwin)
 MACHINE=multibox
 MACHINEBUILD=axmultitwin
+else ifeq ($(MACHINEBUILD),novaler4k)
+MACHINE=multibox
+MACHINEBUILD=novaler4k
 
 else ifeq ($(MACHINEBUILD),maxytecmultise)
 MACHINE=multiboxse
@@ -1150,6 +1163,8 @@ $(CURDIR)/site.conf:
 	@echo 'BUILD_OPTIMIZATION = "-O2 -pipe"' >> $@
 	@echo 'DL_DIR = "$(DL_DIR)"' >> $@
 	@echo 'INHERIT += "rm_work"' >> $@
+	@echo 'BB_GIT_SHALLOW_DEPTH = "1"' >> $@
+	@echo 'BB_GIT_SHALLOW = "1"' >> $@
 
 BBLAYERS_CONF_HASH := $(call hash, \
 	'BBLAYERS_CONF_VERSION = "5"' \
