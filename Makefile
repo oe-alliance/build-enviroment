@@ -1055,6 +1055,13 @@ else ifeq ($(MACHINEBUILD),maxytecmultise)
 MACHINE=multiboxse
 MACHINEBUILD=maxytecmultise
 
+else ifeq ($(MACHINEBUILD),abpulse4k)
+MACHINE=pulse4k
+MACHINEBUILD=abpulse4k
+else ifeq ($(MACHINEBUILD),abpulse4kmini)
+MACHINE=pulse4k
+MACHINEBUILD=abpulse4kmini
+
 endif
 
 initialize: init
