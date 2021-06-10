@@ -22,15 +22,14 @@ MACHINEBUILD = $(MACHINE)
 export MACHINEBUILD
 
 METAQT=meta-qt5
-# Use old QT 5.8.0
 ifeq ($(MACHINEBUILD),gbquad4k)
-METAQT=meta-qt5.8
+METAQT=meta-qt5.15
 endif
 ifeq ($(MACHINEBUILD),gbue4k)
-METAQT=meta-qt5.8
+METAQT=meta-qt5.15
 endif
 ifeq ($(MACHINEBUILD),gbx34k)
-METAQT=meta-qt5.8
+METAQT=meta-qt5.15
 endif
 ifeq ($(MACHINEBUILD),osmini4k)
 METAQT=meta-qt5.14

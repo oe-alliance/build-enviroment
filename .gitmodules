@@ -26,3 +26,6 @@
 [submodule "meta-qt5.14"]
 	path = meta-qt5.14
 	url = git://github.com/oe-mirrors/meta-qt5.14
+[submodule "meta-qt5.15"]
+	path = meta-qt5.15
+	url = https://github.com/oe-mirrors/meta-qt5.15.git
