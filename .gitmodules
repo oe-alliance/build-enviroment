@@ -17,15 +17,6 @@
 [submodule "meta-oe-alliance"]
 	path = meta-oe-alliance
 	url = git://github.com/oe-alliance/oe-alliance-core.git
-[submodule "meta-qt5"]
-	path = meta-qt5
-	url = git://github.com/oe-mirrors/meta-qt5
-[submodule "meta-qt5.8"]
-	path = meta-qt5.8
-	url = git://github.com/atvcaptain/meta-qt5
-[submodule "meta-qt5.14"]
-	path = meta-qt5.14
-	url = git://github.com/oe-mirrors/meta-qt5.14
 [submodule "meta-qt5.15"]
 	path = meta-qt5.15
 	url = https://github.com/oe-mirrors/meta-qt5.15.git
