@@ -1125,7 +1125,7 @@ $(TOPDIR)/conf/$(DISTRO).conf: $(DEPDIR)/.$(DISTRO).conf.$($(DISTRO)_CONF_HASH)
 	@echo 'TMPDIR = "$(TMPDIR)"' >> $@
 	@echo 'BB_GENERATE_MIRROR_TARBALLS = "1"' >> $@
 	@echo 'BBINCLUDELOGS = "yes"' >> $@
-	@echo 'CONF_VERSION = "1"' >> $@
+	@echo 'CONF_VERSION = "2"' >> $@
 	@echo 'EXTRA_IMAGE_FEATURES = "debug-tweaks"' >> $@
 	@echo 'USER_CLASSES = "buildstats"' >> $@
 	@echo '#PRSERV_HOST = "localhost:0"' >> $@
