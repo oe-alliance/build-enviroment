@@ -103,6 +103,11 @@ all: init
 	@echo "	or"
 	@echo "cd $(BUILD_DIR) ; source env.source ; bitbake $(DISTRO)-image"
 	@echo
+	@echo "To download all sources for image build:"
+	@echo "MACHINE=mutant2400 DISTRO=openatv DISTRO_TYPE=release make download"
+	@echo " or"
+	@echo "cd $(BUILD_DIR) ; source env.source ; bitbake $(DISTRO)-image --runall=fetch"
+	@echo
 	@echo "To build image without feed:"
 	@echo "MACHINE=mutant2400 DISTRO=openatv DISTRO_TYPE=release make enigma2-image"
 	@echo " or"
@@ -1076,6 +1081,10 @@ feeds: init
 
 clean:
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && echo -n -e "Performing a clean \e[95mPlease wait... " && bitbake -qqq -c clean $(DISTRO)-image && echo -n -e "\e[93mClean completed.\e[0m"
+
+download: init
+	@echo 'Downloading sources'
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake $(DISTRO)-image --runall=fetch
 
 update:
 	@echo 'Updating Git repositories...'
