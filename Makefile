@@ -1150,7 +1150,6 @@ $(TOPDIR)/conf/$(DISTRO).conf: $(DEPDIR)/.$(DISTRO).conf.$($(DISTRO)_CONF_HASH)
 	@echo 'Generating $@'
 	@test -d $(@D) || mkdir -p $(@D)
 	@echo 'DISTRO_TYPE = "$(DISTRO_TYPE)"' >> $@
-	@echo 'SSTATE_DIR = "$(SSTATE_DIR)"' >> $@
 	@echo 'TMPDIR = "$(TMPDIR)"' >> $@
 	@echo 'BB_GENERATE_MIRROR_TARBALLS = "1"' >> $@
 	@echo 'BBINCLUDELOGS = "yes"' >> $@
@@ -1181,6 +1180,7 @@ $(CURDIR)/site.conf:
 	@echo 'PARALLEL_MAKE = "$(PARALLEL_MAKE)"' >> $@
 	@echo 'BUILD_OPTIMIZATION = "-O2 -pipe"' >> $@
 	@echo 'DL_DIR = "$(DL_DIR)"' >> $@
+	@echo 'SSTATE_DIR = "$(SSTATE_DIR)"' >> $@
 	@echo 'INHERIT += "rm_work"' >> $@
 	@echo 'BB_GIT_SHALLOW_DEPTH = "1"' >> $@
 	@echo 'BB_GIT_SHALLOW = "1"' >> $@
