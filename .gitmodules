@@ -12,11 +12,11 @@
 	ignore = dirty
 [submodule "meta-oe-alliance/recipes-oe-alliance/e2openplugins"]
 	path = meta-oe-alliance/recipes-oe-alliance/e2openplugins
-	url = git://github.com/E2OpenPlugins/e2openplugins.git
+	url = https://github.com/E2OpenPlugins/e2openplugins.git
 	ignore = dirty
 [submodule "meta-oe-alliance"]
 	path = meta-oe-alliance
-	url = git://github.com/oe-alliance/oe-alliance-core.git
+	url = https://github.com/oe-alliance/oe-alliance-core.git
 [submodule "meta-qt5.15"]
 	path = meta-qt5.15
 	url = https://github.com/oe-mirrors/meta-qt5.15.git
