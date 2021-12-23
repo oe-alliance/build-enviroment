@@ -25,7 +25,7 @@ METAQT=meta-qt5.15
 #ifeq ($(MACHINEBUILD),gbquad4k)
 #METAQT=meta-qt5.15
 #endif
-#	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dream
+
 
 BBLAYERS ?= \
 	$(CURDIR)/openembedded-core/meta \
@@ -47,6 +47,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-cube \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dags \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dinobot \
+	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dream \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-edision \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-entwopia \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-formuler \
