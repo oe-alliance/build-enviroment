@@ -1063,6 +1063,12 @@ MACHINEBUILD=novaler4k
 else ifeq ($(MACHINEBUILD),maxytecmultise)
 MACHINE=multiboxse
 MACHINEBUILD=maxytecmultise
+else ifeq ($(MACHINEBUILD),anadolmultiboxse)
+MACHINE=multiboxse
+MACHINEBUILD=anadolmultiboxse
+else ifeq ($(MACHINEBUILD),axmultiboxse)
+MACHINE=multiboxse
+MACHINEBUILD=axmultiboxse
 
 endif
 
