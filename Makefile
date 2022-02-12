@@ -61,6 +61,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-odin \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-octagon \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-protek \
+    $(CURDIR)/meta-oe-alliance/meta-brands/meta-qviart \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-skylake \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-tiviar \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-tripledot \
@@ -492,6 +493,9 @@ MACHINEBUILD=mutant51
 else ifeq ($(MACHINEBUILD),mutant60)
 MACHINE=hd60
 MACHINEBUILD=mutant60
+else ifeq ($(MACHINEBUILD),mutant66se)
+MACHINE=hd66se
+MACHINEBUILD=mutant66se
 else ifeq ($(MACHINEBUILD),ax61)
 MACHINE=hd61
 MACHINEBUILD=ax61
