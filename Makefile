@@ -1069,6 +1069,9 @@ MACHINEBUILD=anadolmultiboxse
 else ifeq ($(MACHINEBUILD),axmultiboxse)
 MACHINE=multiboxse
 MACHINEBUILD=axmultiboxse
+else ifeq ($(MACHINEBUILD),novaler4kse)
+MACHINE=multiboxse
+MACHINEBUILD=novaler4kse
 
 endif
 
