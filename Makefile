@@ -53,7 +53,6 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-edision \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-entwopia \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-formuler \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-fulan \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-gfutures \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-gigablue \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ini \
@@ -517,68 +516,6 @@ MACHINEBUILD=vimastec1500
 else ifeq ($(MACHINEBUILD),vimastec1000)
 MACHINE=vs1000
 MACHINEBUILD=vimastec1000
-
-else ifeq ($(MACHINEBUILD),amiko8900)
-MACHINE=spark
-MACHINEBUILD=amiko8900
-else ifeq ($(MACHINEBUILD),amikomini)
-MACHINE=spark
-MACHINEBUILD=amikomini
-else ifeq ($(MACHINEBUILD),sognorevolution)
-MACHINE=spark
-MACHINEBUILD=sognorevolution
-else ifeq ($(MACHINEBUILD),arguspingulux)
-MACHINE=spark
-MACHINEBUILD=arguspingulux
-else ifeq ($(MACHINEBUILD),arguspinguluxmini)
-MACHINE=spark
-MACHINEBUILD=arguspinguluxmini
-else ifeq ($(MACHINEBUILD),arguspinguluxplus)
-MACHINE=spark
-MACHINEBUILD=arguspinguluxplus
-else ifeq ($(MACHINEBUILD),sparkreloaded)
-MACHINE=spark
-MACHINEBUILD=sparkreloaded
-else ifeq ($(MACHINEBUILD),fulanspark1)
-MACHINE=spark
-MACHINEBUILD=fulanspark1
-else ifeq ($(MACHINEBUILD),sabsolo)
-MACHINE=spark
-MACHINEBUILD=sabsolo
-else ifeq ($(MACHINEBUILD),sparklx)
-MACHINE=spark
-MACHINEBUILD=sparklx
-else ifeq ($(MACHINEBUILD),gis8120)
-MACHINE=spark
-MACHINEBUILD=gis8120
-else ifeq ($(MACHINEBUILD),dynaspark)
-MACHINE=spark
-MACHINEBUILD=dynaspark
-else ifeq ($(MACHINEBUILD),dynasparkplus)
-MACHINE=spark
-MACHINEBUILD=dynasparkplus
-
-else ifeq ($(MACHINEBUILD),amikoalien)
-MACHINE=spark7162
-MACHINEBUILD=amikoalien
-else ifeq ($(MACHINEBUILD),sognotriple)
-MACHINE=spark7162
-MACHINEBUILD=sognotriple
-else ifeq ($(MACHINEBUILD),sparktriplex)
-MACHINE=spark7162
-MACHINEBUILD=sparktriplex
-else ifeq ($(MACHINEBUILD),sabtriple)
-MACHINE=spark7162
-MACHINEBUILD=sabtriple
-else ifeq ($(MACHINEBUILD),giavatar)
-MACHINE=spark7162
-MACHINEBUILD=giavatar
-else ifeq ($(MACHINEBUILD),sparkone)
-MACHINE=spark7162
-MACHINEBUILD=sparkone
-else ifeq ($(MACHINEBUILD),dynaspark7162)
-MACHINE=spark7162
-MACHINEBUILD=dynaspark7162
 
 else ifeq ($(MACHINEBUILD),sf98)
 MACHINE=yh7362
