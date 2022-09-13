@@ -46,7 +46,6 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-blackbox \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-beyonwiz \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ceryon \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-cube \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dags \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dinobot \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dream \
@@ -393,16 +392,6 @@ MACHINEBUILD=mbultra
 else ifeq ($(MACHINEBUILD),beyonwizt4)
 MACHINE=inihdp
 MACHINEBUILD=beyonwizt4
-
-else ifeq ($(MACHINEBUILD),dcube)
-MACHINE=cube
-MACHINEBUILD=dcube
-else ifeq ($(MACHINEBUILD),mkcube)
-MACHINE=cube
-MACHINEBUILD=mkcube
-else ifeq ($(MACHINEBUILD),ultima)
-MACHINE=cube
-MACHINEBUILD=ultima
 
 else ifeq ($(MACHINEBUILD),xp1000mk)
 MACHINE=xp1000
