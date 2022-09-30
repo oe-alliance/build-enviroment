@@ -891,6 +891,9 @@ MACHINEBUILD=gbx34k
 else ifeq ($(MACHINEBUILD),gbtrio4k)
 MACHINE=gbmv200
 MACHINEBUILD=gbtrio4k
+else ifeq ($(MACHINEBUILD),gbtrio4kplus)
+MACHINE=gbmv200
+MACHINEBUILD=gbtrio4kplus
 else ifeq ($(MACHINEBUILD),gbip4k)
 MACHINE=gbmv200
 MACHINEBUILD=gbip4k
