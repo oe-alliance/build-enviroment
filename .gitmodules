@@ -20,3 +20,6 @@
 [submodule "meta-qt5.15"]
 	path = meta-qt5.15
 	url = https://github.com/oe-mirrors/meta-qt5.15.git
+[submodule "meta-clang"]
+	path = meta-clang
+	url = https://github.com/kraj/meta-clang
