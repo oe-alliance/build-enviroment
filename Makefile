@@ -818,6 +818,9 @@ MACHINEBUILD=gbx34k
 else ifeq ($(MACHINEBUILD),gbtrio4k)
 MACHINE=gbmv200
 MACHINEBUILD=gbtrio4k
+else ifeq ($(MACHINEBUILD),gbtrio4kplus)
+MACHINE=gbmv200
+MACHINEBUILD=gbtrio4kplus
 else ifeq ($(MACHINEBUILD),gbip4k)
 MACHINE=gbmv200
 MACHINEBUILD=gbip4k
@@ -934,6 +937,12 @@ MACHINEBUILD=viper4kv40
 else ifeq ($(MACHINEBUILD),iziboxone4kplus)
 MACHINE=u571
 MACHINEBUILD=iziboxone4kplus
+else ifeq ($(MACHINEBUILD),axas4kcombo)
+MACHINE=u571
+MACHINEBUILD=axas4kcombo
+else ifeq ($(MACHINEBUILD),axas4ktwin)
+MACHINE=u571
+MACHINEBUILD=axas4ktwin
 
 else ifeq ($(MACHINEBUILD),dinoboth265)
 MACHINE=u41
