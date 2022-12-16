@@ -339,9 +339,12 @@ MACHINEBUILD=beyonwizt3
 else ifeq ($(MACHINEBUILD),sezam1000hd)
 MACHINE=inihde
 MACHINEBUILD=sezam1000hd
-else ifeq ($(MACHINEBUILD),xpeedlx)
+else ifeq ($(MACHINEBUILD),xpeedlx1)
 MACHINE=inihde
-MACHINEBUILD=xpeedlx
+MACHINEBUILD=xpeedlx1
+else ifeq ($(MACHINEBUILD),xpeedlx2)
+MACHINE=inihde
+MACHINEBUILD=xpeedlx2
 else ifeq ($(MACHINEBUILD),mbmini)
 MACHINE=inihde
 MACHINEBUILD=mbmini
