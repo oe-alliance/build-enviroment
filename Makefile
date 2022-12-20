@@ -56,7 +56,6 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-gfutures \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-gigablue \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ini \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ixuss \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-maxytec \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-broadmedia \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-odin \
