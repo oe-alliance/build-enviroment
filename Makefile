@@ -1033,6 +1033,9 @@ feeds: init
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake $(DISTRO)-feeds
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake package-index
 
+devel: init
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake $(DISTRO)-devel
+
 clean:
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && echo -n -e "Performing a clean \e[95mPlease wait... " && bitbake -qqq -c clean $(DISTRO)-image && echo -n -e "\e[93mClean completed.\e[0m"
 
@@ -1061,7 +1064,7 @@ update:
 		cd .. ; \
 	fi
 
-.PHONY: all image enigma2-image feed init initialize update usage machinebuild
+.PHONY: all image enigma2-image feed devel init initialize update usage machinebuild
 
 BITBAKE_ENV_HASH := $(call hash, \
 	'BITBAKE_ENV_VERSION = "0"' \
