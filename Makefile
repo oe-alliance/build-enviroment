@@ -9,7 +9,7 @@ PARALLEL_MAKE ?= -j $(NR_CPU)
 XSUM ?= md5sum
 DISTRO_TYPE ?= release
 DISTRO ?= openatv
-ONLINECHECK_URL ?= "http://google.com"
+ONLINECHECK_URL ?= "https://github.com/"
 ONLINECHECK_TIMEOUT ?= 2
 
 BUILD_DIR = $(CURDIR)/builds/$(DISTRO)/$(DISTRO_TYPE)/$(MACHINE)
