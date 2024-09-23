@@ -815,6 +815,9 @@ MACHINEBUILD=gbquadplus
 else ifeq ($(MACHINEBUILD),gbquad4k)
 MACHINE=gb7252
 MACHINEBUILD=gbquad4k
+else ifeq ($(MACHINEBUILD),gbquad4kpro)
+MACHINE=gb7252
+MACHINEBUILD=gbquad4kpro
 else ifeq ($(MACHINEBUILD),gbue4k)
 MACHINE=gb7252
 MACHINEBUILD=gbue4k
