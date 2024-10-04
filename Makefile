@@ -1149,6 +1149,7 @@ $(CURDIR)/site.conf:
 	@echo 'DL_DIR = "$(DL_DIR)"' >> $@
 	@echo 'SSTATE_DIR = "$(SSTATE_DIR)"' >> $@
 	@echo 'INHERIT += "rm_work"' >> $@
+	@echo 'INHERIT:remove = "create-spdx"' >> $@
 	@echo 'BB_GIT_SHALLOW_DEPTH = "1"' >> $@
 	@echo 'BB_GIT_SHALLOW = "1"' >> $@
 
