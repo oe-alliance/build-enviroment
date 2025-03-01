@@ -10,10 +10,6 @@
 	path = bitbake
 	url = https://github.com/openembedded/bitbake
 	ignore = dirty
-[submodule "meta-oe-alliance/recipes-oe-alliance/e2openplugins"]
-	path = meta-oe-alliance/recipes-oe-alliance/e2openplugins
-	url = https://github.com/E2OpenPlugins/e2openplugins.git
-	ignore = dirty
 [submodule "meta-oe-alliance"]
 	path = meta-oe-alliance
 	url = https://github.com/oe-alliance/oe-alliance-core.git
