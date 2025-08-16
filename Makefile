@@ -1148,8 +1148,8 @@ $(CURDIR)/site.conf:
 	@echo 'SSTATE_DIR = "$(SSTATE_DIR)"' >> $@
 	@echo 'INHERIT += "rm_work"' >> $@
 	@echo 'INHERIT:remove = "create-spdx"' >> $@
-	@echo 'BB_GIT_SHALLOW_DEPTH = "1"' >> $@
-	@echo 'BB_GIT_SHALLOW = "1"' >> $@
+	@echo '#BB_GIT_SHALLOW_DEPTH = "1"' >> $@
+	@echo 'BB_GIT_SHALLOW = "0"' >> $@
 
 BBLAYERS_CONF_HASH := $(call hash, \
 	'BBLAYERS_CONF_VERSION = "5"' \
