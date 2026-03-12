@@ -1115,6 +1115,7 @@ $(DISTRO)_CONF_HASH := $(call hash, \
 	'PARALLEL_MAKE = "$(PARALLEL_MAKE)"' \
 	'DL_DIR = "$(DL_DIR)"' \
 	'SSTATE_DIR = "$(SSTATE_DIR)"' \
+	'BB_HASHSERVE_DB_DIR = "$(SSTATE_DIR)"' \
 	'TMPDIR = "$(TMPDIR)"' \
 	)
 
