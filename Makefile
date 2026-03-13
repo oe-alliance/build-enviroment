@@ -1153,6 +1153,7 @@ $(CURDIR)/site.conf:
 	@echo 'BUILD_OPTIMIZATION = "-O2 -pipe"' >> $@
 	@echo 'DL_DIR = "$(DL_DIR)"' >> $@
 	@echo 'SSTATE_DIR = "$(SSTATE_DIR)"' >> $@
+	@echo 'BB_HASHSERVE_DB_DIR = "$(SSTATE_DIR)"' >> $@
 	@echo 'INHERIT += "rm_work"' >> $@
 	@echo 'INHERIT:remove = "create-spdx"' >> $@
 	@echo '#BB_GIT_SHALLOW_DEPTH = "1"' >> $@
