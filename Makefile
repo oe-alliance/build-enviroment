@@ -100,22 +100,27 @@ all: init
 	@echo
 	@echo "MACHINE=mutant2400 DISTRO=openatv DISTRO_TYPE=release make image"
 	@echo "	or"
-	@echo "cd $(BUILD_DIR) ; source env.source ; bitbake $(DISTRO)-image"
+	@echo "cd $(BUILD_DIR) ; source env.source ; bitbake oea-image"
 	@echo
 	@echo "To download all sources for image build:"
 	@echo "MACHINE=mutant2400 DISTRO=openatv DISTRO_TYPE=release make download"
 	@echo " or"
-	@echo "cd $(BUILD_DIR) ; source env.source ; bitbake $(DISTRO)-image --runall=fetch"
+	@echo "cd $(BUILD_DIR) ; source env.source ; bitbake oea-image --runall=fetch"
 	@echo
 	@echo "To build image without feed:"
 	@echo "MACHINE=mutant2400 DISTRO=openatv DISTRO_TYPE=release make enigma2-image"
 	@echo " or"
-	@echo "cd $(BUILD_DIR) ; source env.source ; bitbake $(DISTRO)-enigma2-image"
+	@echo "cd $(BUILD_DIR) ; source env.source ; bitbake oea-enigma2-image"
 	@echo
 	@echo "To build feeds:"
 	@echo "MACHINE=mutant2400 DISTRO=openatv DISTRO_TYPE=release make feeds"
 	@echo " or"
-	@echo "cd $(BUILD_DIR) ; source env.source ; bitbake $(DISTRO)-feeds"
+	@echo "cd $(BUILD_DIR) ; source env.source ; bitbake packagegroup-oea-feed-$(DISTRO)"
+	@echo
+	@echo "To build minimal images (no distro, no feed):"
+	@echo "make shell-image    - bootable Linux with shell only"
+	@echo "make server-image   - headless STB with networking"
+	@echo "make base-image     - Enigma2 without distro skin"
 	@echo
 
 $(BBLAYERS):
@@ -146,20 +151,29 @@ initialize: init
 init: setupmbuild $(BBLAYERS) $(CONFFILES)
 
 image: init
-	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake $(DISTRO)-image
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake oea-image
 
 enigma2-image: init
-	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake $(DISTRO)-enigma2-image
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake oea-enigma2-image
 
 feeds: init
-	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake $(DISTRO)-feeds
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake packagegroup-oea-feed-$(DISTRO)
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake package-index
+
+shell-image: init
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake oea-shell-image
+
+server-image: init
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake oea-server-image
+
+base-image: init
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake oea-base-image
 
 devel: init
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake $(DISTRO)-devel
 
 clean:
-	@. $(TOPDIR)/env.source && cd $(TOPDIR) && echo -n -e "Performing a clean \e[95mPlease wait... " && bitbake -qqq -c clean $(DISTRO)-image && echo -n -e "\e[93mClean completed.\e[0m"
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && echo -n -e "Performing a clean \e[95mPlease wait... " && bitbake -qqq -c clean oea-image && echo -n -e "\e[93mClean completed.\e[0m"
 
 download: init
 	@echo 'Downloading sources'
@@ -186,7 +200,7 @@ update:
 		cd .. ; \
 	fi
 
-.PHONY: all image enigma2-image feed devel init initialize update usage machinebuild list
+.PHONY: all image enigma2-image shell-image server-image base-image feed devel init initialize update usage machinebuild list
 
 BITBAKE_ENV_HASH := $(call hash, \
 	'BITBAKE_ENV_VERSION = "0"' \
