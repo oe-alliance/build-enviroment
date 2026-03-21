@@ -39,38 +39,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-webserver \
 	$(CURDIR)/meta-python2 \
 	$(CURDIR)/$(METAQT) \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-abcom \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-airdigital \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-amiko \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-anadol \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ax \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-blackbox \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-beyonwiz \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ceryon \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dags \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dinobot \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-dream \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-edision \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-entwopia \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-formuler \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-gfutures \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-gigablue \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ini \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-maxytec \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-broadmedia \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-odin \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-octagon \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-protek \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-qviart \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-skylake \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-tiviar \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-tripledot \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-uclan \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ultramini \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-vuplus \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xp \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xtrend \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xcore \
+	$(CURDIR)/meta-oe-alliance/meta-brands/$(BRAND_LAYER) \
 
 CONFFILES = \
 	$(TOPDIR)/env.source \
@@ -133,6 +102,10 @@ _FOUND_CONF := $(shell grep -rl "^\# MACHINEBUILDS:.*\b$(MACHINEBUILD)\b" $(META
 ifneq ($(_FOUND_CONF),)
   override MACHINE := $(basename $(notdir $(_FOUND_CONF)))
 endif
+
+# Resolve brand layer: extract meta-BRAND from the machine config path
+BRAND_LAYER := $(shell conf=$$(ls $(METADIR)/*/conf/machine/$(MACHINE).conf 2>/dev/null | head -1); \
+	if [ -n "$$conf" ]; then basename $$(dirname $$(dirname $$(dirname "$$conf"))); fi)
 
 setupmbuild:
 	@conf=$$(ls $(METADIR)/*/conf/machine/$(MACHINE).conf 2>/dev/null | head -1); \
