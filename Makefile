@@ -130,9 +130,14 @@ ifneq ($(_FOUND_CONF),)
 endif
 
 setupmbuild:
-	@if [ ! -f "$(METADIR)/*/conf/machine/$(MACHINE).conf" ] && \
-	    ! ls $(METADIR)/*/conf/machine/$(MACHINE).conf >/dev/null 2>&1; then \
+	@conf=$$(ls $(METADIR)/*/conf/machine/$(MACHINE).conf 2>/dev/null | head -1); \
+	if [ -z "$$conf" ]; then \
 		echo "ERROR: No machine config found for MACHINE=$(MACHINE) (MACHINEBUILD=$(MACHINEBUILD))"; \
+		exit 1; \
+	fi; \
+	if grep -q "^# MACHINEBUILDS:" "$$conf" && [ "$(MACHINE)" = "$(MACHINEBUILD)" ]; then \
+		echo "ERROR: $(MACHINE) is a platform, not a buildable machine. Use one of:"; \
+		grep "^# MACHINEBUILDS:" "$$conf" | sed "s/^# MACHINEBUILDS: */  /"; \
 		exit 1; \
 	fi
 
