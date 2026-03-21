@@ -18,7 +18,7 @@ DL_DIR = $(CURDIR)/sources
 SSTATE_DIR = $(CURDIR)/builds/$(DISTRO)/sstate-cache
 TMPDIR = $(TOPDIR)/tmp
 DEPDIR = $(TOPDIR)/.deps
-MACHINEBUILD = $(MACHINE)
+MACHINEBUILD := $(MACHINE)
 export MACHINEBUILD
 
 METAQT=meta-qt5.15
@@ -121,918 +121,20 @@ all: init
 $(BBLAYERS):
 	[ -d $@ ] || $(MAKE) $(MFLAGS) update
 
-setupmbuild:
-ifeq ($(MACHINEBUILD),tm2t)
-MACHINE=dags7335
-MACHINEBUILD=tm2t
-else ifeq ($(MACHINEBUILD),tmnano)
-MACHINE=dags7335
-MACHINEBUILD=tmnano
-else ifeq ($(MACHINEBUILD),tmnano2t)
-MACHINE=dags7335
-MACHINEBUILD=tmnano2t
-else ifeq ($(MACHINEBUILD),tmsingle)
-MACHINE=dags7335
-MACHINEBUILD=tmsingle
-else ifeq ($(MACHINEBUILD),tmtwin)
-MACHINE=dags7335
-MACHINEBUILD=tmtwin
-else ifeq ($(MACHINEBUILD),iqonios100hd)
-MACHINE=dags7335
-MACHINEBUILD=iqonios100hd
-else ifeq ($(MACHINEBUILD),iqonios300hd)
-MACHINE=dags7335
-MACHINEBUILD=iqonios300hd
-else ifeq ($(MACHINEBUILD),iqonios300hdv2)
-MACHINE=dags7335
-MACHINEBUILD=iqonios300hdv2
-else ifeq ($(MACHINEBUILD),optimussos1)
-MACHINE=dags7335
-MACHINEBUILD=optimussos1
-else ifeq ($(MACHINEBUILD),mediabox)
-MACHINE=dags7335
-MACHINEBUILD=mediabox
-else ifeq ($(MACHINEBUILD),iqonios200hd)
-MACHINE=dags7335
-MACHINEBUILD=iqonios200hd
-else ifeq ($(MACHINEBUILD),roxxs200hd)
-MACHINE=dags7335
-MACHINEBUILD=roxxs200hd
-else ifeq ($(MACHINEBUILD),mediaart200hd)
-MACHINE=dags7335
-MACHINEBUILD=mediaart200hd
-else ifeq ($(MACHINEBUILD),optimussos2)
-MACHINE=dags7335
-MACHINEBUILD=optimussos2
-else ifeq ($(MACHINEBUILD),tmnano2super)
-MACHINE=dags7356
-MACHINEBUILD=tmnano2super
-else ifeq ($(MACHINEBUILD),tmnano3t)
-MACHINE=dags7356
-MACHINEBUILD=tmnano3t
-else ifeq ($(MACHINEBUILD),tmnanose)
-MACHINE=dags7362
-MACHINEBUILD=tmnanose
-else ifeq ($(MACHINEBUILD),tmnanoseplus)
-MACHINE=dags7362
-MACHINEBUILD=tmnanoseplus
-else ifeq ($(MACHINEBUILD),tmnanosem2)
-MACHINE=dags7362
-MACHINEBUILD=tmnanosem2
-else ifeq ($(MACHINEBUILD),tmnanom3)
-MACHINE=dags7362
-MACHINEBUILD=tmnanom3
-else ifeq ($(MACHINEBUILD),tmnanosem2plus)
-MACHINE=dags7362
-MACHINEBUILD=tmnanosem2plus
-else ifeq ($(MACHINEBUILD),tmnanosecombo)
-MACHINE=dags7362
-MACHINEBUILD=tmnanosecombo
-else ifeq ($(MACHINEBUILD),force1)
-MACHINE=dags7356
-MACHINEBUILD=force1
-else ifeq ($(MACHINEBUILD),force1plus)
-MACHINE=dags7356
-MACHINEBUILD=force1plus
-else ifeq ($(MACHINEBUILD),megaforce1plus)
-MACHINE=dags7356
-MACHINEBUILD=megaforce1plus
-else ifeq ($(MACHINEBUILD),worldvisionf1)
-MACHINE=dags7356
-MACHINEBUILD=worldvisionf1
-else ifeq ($(MACHINEBUILD),worldvisionf1plus)
-MACHINE=dags7356
-MACHINEBUILD=worldvisionf1plus
-else ifeq ($(MACHINEBUILD),optimussos1plus)
-MACHINE=dags7356
-MACHINEBUILD=optimussos1plus
-else ifeq ($(MACHINEBUILD),optimussos2plus)
-MACHINE=dags7356
-MACHINEBUILD=optimussos2plus
-else ifeq ($(MACHINEBUILD),optimussos3plus)
-MACHINE=dags7356
-MACHINEBUILD=optimussos3plus
-else ifeq ($(MACHINEBUILD),force2plus)
-MACHINE=dags7362
-MACHINEBUILD=force2plus
-else ifeq ($(MACHINEBUILD),force2)
-MACHINE=dags7362
-MACHINEBUILD=force2
-else ifeq ($(MACHINEBUILD),force2se)
-MACHINE=dags7362
-MACHINEBUILD=force2se
-else ifeq ($(MACHINEBUILD),megaforce2)
-MACHINE=dags7362
-MACHINEBUILD=megaforce2
-else ifeq ($(MACHINEBUILD),optimussos)
-MACHINE=dags7362
-MACHINEBUILD=optimussos
-else ifeq ($(MACHINEBUILD),fusionhd)
-MACHINE=dags7362
-MACHINEBUILD=fusionhd
-else ifeq ($(MACHINEBUILD),fusionhdse)
-MACHINE=dags7362
-MACHINEBUILD=fusionhdse
-else ifeq ($(MACHINEBUILD),purehd)
-MACHINE=dags7362
-MACHINEBUILD=purehd
-else ifeq ($(MACHINEBUILD),force2nano)
-MACHINE=dags7362
-MACHINEBUILD=force2nano
-else ifeq ($(MACHINEBUILD),force2plushv)
-MACHINE=dags73625
-MACHINEBUILD=force2plushv
-else ifeq ($(MACHINEBUILD),purehdse)
-MACHINE=dags73625
-MACHINEBUILD=purehdse
-else ifeq ($(MACHINEBUILD),force3uhdplus)
-MACHINE=dags7252
-MACHINEBUILD=force3uhdplus
-else ifeq ($(MACHINEBUILD),force3uhd)
-MACHINE=dags7252
-MACHINEBUILD=force3uhd
-else ifeq ($(MACHINEBUILD),revo4k)
-MACHINE=dags7252
-MACHINEBUILD=revo4k
-else ifeq ($(MACHINEBUILD),tmtwin4k)
-MACHINE=dags7252
-MACHINEBUILD=tmtwin4k
-else ifeq ($(MACHINEBUILD),galaxy4k)
-MACHINE=dags7252
-MACHINEBUILD=galaxy4k
-else ifeq ($(MACHINEBUILD),tm4ksuper)
-MACHINE=dags7252
-MACHINEBUILD=tm4ksuper
-else ifeq ($(MACHINEBUILD),valalinux)
-MACHINE=dags7362
-MACHINEBUILD=valalinux
-else ifeq ($(MACHINEBUILD),lunix34k)
-MACHINE=dags7252
-MACHINEBUILD=lunix34k
-else ifeq ($(MACHINEBUILD),lunix)
-MACHINE=dags73625
-MACHINEBUILD=lunix
-else ifeq ($(MACHINEBUILD),lunixco)
-MACHINE=dags73625
-MACHINEBUILD=lunixco
-else ifeq ($(MACHINEBUILD),force4)
-MACHINE=dags72604
-MACHINEBUILD=force4
-else ifeq ($(MACHINEBUILD),lunix4k)
-MACHINE=dags72604
-MACHINEBUILD=lunix4k
-else ifeq ($(MACHINEBUILD),dual)
-MACHINE=dagsmv200
-MACHINEBUILD=dual
+METADIR = $(CURDIR)/meta-oe-alliance/meta-brands
 
-else ifeq ($(MACHINEBUILD),classm)
-MACHINE=odinm7
-MACHINEBUILD=classm
-else ifeq ($(MACHINEBUILD),axodin)
-MACHINE=odinm7
-MACHINEBUILD=axodin
-else ifeq ($(MACHINEBUILD),axodinc)
-MACHINE=odinm7
-MACHINEBUILD=axodinc
-else ifeq ($(MACHINEBUILD),starsatlx)
-MACHINE=odinm7
-MACHINEBUILD=starsatlx
-else ifeq ($(MACHINEBUILD),genius)
-MACHINE=odinm7
-MACHINEBUILD=genius
-else ifeq ($(MACHINEBUILD),evo)
-MACHINE=odinm7
-MACHINEBUILD=evo
-else ifeq ($(MACHINEBUILD),galaxym6)
-MACHINE=odinm7
-MACHINEBUILD=galaxym6
-else ifeq ($(MACHINEBUILD),maram9)
-MACHINE=odinm9
-MACHINEBUILD=maram9
-
-else ifeq ($(MACHINEBUILD),geniuse3hd)
-MACHINE=e3hd
-MACHINEBUILD=geniuse3hd
-else ifeq ($(MACHINEBUILD),evoe3hd)
-MACHINE=e3hd
-MACHINEBUILD=evoe3hd
-else ifeq ($(MACHINEBUILD),axase3)
-MACHINE=e3hd
-MACHINEBUILD=axase3
-else ifeq ($(MACHINEBUILD),axase3c)
-MACHINE=e3hd
-MACHINEBUILD=axase3c
-
-else ifeq ($(MACHINEBUILD),ventonhdx)
-MACHINE=inihdx
-MACHINEBUILD=ventonhdx
-else ifeq ($(MACHINEBUILD),sezam5000hd)
-MACHINE=inihdx
-MACHINEBUILD=sezam5000hd
-else ifeq ($(MACHINEBUILD),mbtwin)
-MACHINE=inihdx
-MACHINEBUILD=mbtwin
-else ifeq ($(MACHINEBUILD),beyonwizt3)
-MACHINE=inihdx
-MACHINEBUILD=beyonwizt3
-else ifeq ($(MACHINEBUILD),sezam1000hd)
-MACHINE=inihde
-MACHINEBUILD=sezam1000hd
-else ifeq ($(MACHINEBUILD),xpeedlx1)
-MACHINE=inihde
-MACHINEBUILD=xpeedlx1
-else ifeq ($(MACHINEBUILD),xpeedlx2)
-MACHINE=inihde
-MACHINEBUILD=xpeedlx2
-else ifeq ($(MACHINEBUILD),mbmini)
-MACHINE=inihde
-MACHINEBUILD=mbmini
-else ifeq ($(MACHINEBUILD),atemio5x00)
-MACHINE=inihde
-MACHINEBUILD=atemio5x00
-else ifeq ($(MACHINEBUILD),bwidowx)
-MACHINE=inihde
-MACHINEBUILD=bwidowx
-else ifeq ($(MACHINEBUILD),atemio6000)
-MACHINE=inihde2
-MACHINEBUILD=atemio6000
-else ifeq ($(MACHINEBUILD),atemio6100)
-MACHINE=inihde2
-MACHINEBUILD=atemio6100
-else ifeq ($(MACHINEBUILD),atemio6200)
-MACHINE=inihde2
-MACHINEBUILD=atemio6200
-else ifeq ($(MACHINEBUILD),mbminiplus)
-MACHINE=inihde2
-MACHINEBUILD=mbminiplus
-else ifeq ($(MACHINEBUILD),mbhybrid)
-MACHINE=inihde2
-MACHINEBUILD=mbhybrid
-else ifeq ($(MACHINEBUILD),bwidowx2)
-MACHINE=inihde2
-MACHINEBUILD=bwidowx2
-else ifeq ($(MACHINEBUILD),beyonwizt2)
-MACHINE=inihde2
-MACHINEBUILD=beyonwizt2
-else ifeq ($(MACHINEBUILD),opticumtt)
-MACHINE=inihde2
-MACHINEBUILD=opticumtt
-else ifeq ($(MACHINEBUILD),evoslim)
-MACHINE=inihde2
-MACHINEBUILD=evoslim
-else ifeq ($(MACHINEBUILD),sezammarvel)
-MACHINE=inihdp
-MACHINEBUILD=sezammarvel
-else ifeq ($(MACHINEBUILD),xpeedlx3)
-MACHINE=inihdp
-MACHINEBUILD=xpeedlx3
-else ifeq ($(MACHINEBUILD),atemionemesis)
-MACHINE=inihdp
-MACHINEBUILD=atemionemesis
-else ifeq ($(MACHINEBUILD),mbultra)
-MACHINE=inihdp
-MACHINEBUILD=mbultra
-else ifeq ($(MACHINEBUILD),beyonwizt4)
-MACHINE=inihdp
-MACHINEBUILD=beyonwizt4
-
-else ifeq ($(MACHINEBUILD),xp1000mk)
-MACHINE=xp1000
-MACHINEBUILD=xp1000mk
-else ifeq ($(MACHINEBUILD),xp1000max)
-MACHINE=xp1000
-MACHINEBUILD=xp1000max
-else ifeq ($(MACHINEBUILD),sf8)
-MACHINE=xp1000
-MACHINEBUILD=sf8
-else ifeq ($(MACHINEBUILD),xp1000plus)
-MACHINE=xp1000
-MACHINEBUILD=xp1000plus
-
-else ifeq ($(MACHINEBUILD),sogno8800hd)
-MACHINE=blackbox7405
-MACHINEBUILD=sogno8800hd
-else ifeq ($(MACHINEBUILD),uniboxhde)
-MACHINE=blackbox7405
-MACHINEBUILD=uniboxhde
-
-else ifeq ($(MACHINEBUILD),enfinity)
-MACHINE=ew7358
-MACHINEBUILD=enfinity
-else ifeq ($(MACHINEBUILD),marvel1)
-MACHINE=ew7358
-MACHINEBUILD=marvel1
-else ifeq ($(MACHINEBUILD),x2plus)
-MACHINE=ew7356
-MACHINEBUILD=x2plus
-else ifeq ($(MACHINEBUILD),bre2ze)
-MACHINE=ew7362
-MACHINEBUILD=bre2ze
-else ifeq ($(MACHINEBUILD),evomini)
-MACHINE=ch62lc
-MACHINEBUILD=evomini
-else ifeq ($(MACHINEBUILD),evominiplus)
-MACHINE=ch625lc
-MACHINEBUILD=evominiplus
-else ifeq ($(MACHINEBUILD),vipert2c)
-MACHINE=yh625tc
-MACHINEBUILD=vipert2c
-else ifeq ($(MACHINEBUILD),vipercombo)
-MACHINE=yh625dt
-MACHINEBUILD=vipercombo
-else ifeq ($(MACHINEBUILD),vipercombohdd)
-MACHINE=ch625dt
-MACHINEBUILD=vipercombohdd
-else ifeq ($(MACHINEBUILD),viperslim)
-MACHINE=yh73625
-MACHINEBUILD=viperslim
-
-
-else ifeq ($(MACHINEBUILD),mutant2400)
-MACHINE=hd2400
-MACHINEBUILD=mutant2400
-else ifeq ($(MACHINEBUILD),quadbox2400)
-MACHINE=hd2400
-MACHINEBUILD=quadbox2400
-else ifeq ($(MACHINEBUILD),mutant11)
-MACHINE=hd11
-MACHINEBUILD=mutant11
-else ifeq ($(MACHINEBUILD),mutant1100)
-MACHINE=hd1100
-MACHINEBUILD=mutant1100
-else ifeq ($(MACHINEBUILD),mutant1265)
-MACHINE=hd1265
-MACHINEBUILD=mutant1265
-else ifeq ($(MACHINEBUILD),mutant1500)
-MACHINE=hd1500
-MACHINEBUILD=mutant1500
-else ifeq ($(MACHINEBUILD),vizyonvita)
-MACHINE=hd1100
-MACHINEBUILD=vizyonvita
-else ifeq ($(MACHINEBUILD),mutant1200)
-MACHINE=hd1200
-MACHINEBUILD=mutant1200
-else ifeq ($(MACHINEBUILD),mutant500c)
-MACHINE=hd500c
-MACHINEBUILD=mutant500c
-else ifeq ($(MACHINEBUILD),mutant530c)
-MACHINE=hd530c
-MACHINEBUILD=mutant530c
-else ifeq ($(MACHINEBUILD),mutant51)
-MACHINE=hd51
-MACHINEBUILD=mutant51
-else ifeq ($(MACHINEBUILD),mutant60)
-MACHINE=hd60
-MACHINEBUILD=mutant60
-else ifeq ($(MACHINEBUILD),mutant66se)
-MACHINE=hd66se
-MACHINEBUILD=mutant66se
-else ifeq ($(MACHINEBUILD),ax61)
-MACHINE=hd61
-MACHINEBUILD=ax61
-else ifeq ($(MACHINEBUILD),ax51)
-MACHINE=hd51
-MACHINEBUILD=ax51
-else ifeq ($(MACHINEBUILD),ax60)
-MACHINE=hd60
-MACHINEBUILD=ax60
-else ifeq ($(MACHINEBUILD),axultra)
-MACHINE=hd51
-MACHINEBUILD=axultra
-else ifeq ($(MACHINEBUILD),bre2ze4k)
-MACHINE=hd51
-MACHINEBUILD=bre2ze4k
-else ifeq ($(MACHINEBUILD),vimastec1500)
-MACHINE=vs1500
-MACHINEBUILD=vimastec1500
-else ifeq ($(MACHINEBUILD),vimastec1000)
-MACHINE=vs1000
-MACHINEBUILD=vimastec1000
-
-else ifeq ($(MACHINEBUILD),sf98)
-MACHINE=yh7362
-MACHINEBUILD=sf98
-else ifeq ($(MACHINEBUILD),evoslimse)
-MACHINE=yh7362
-MACHINEBUILD=evoslimse
-else ifeq ($(MACHINEBUILD),evoslimt2c)
-MACHINE=yh62tc
-MACHINEBUILD=evoslimt2c
-else ifeq ($(MACHINEBUILD),t2cable)
-MACHINE=jj7362
-MACHINEBUILD=t2cable
-else ifeq ($(MACHINEBUILD),enibox)
-MACHINE=vg5000
-MACHINEBUILD=enibox
-else ifeq ($(MACHINEBUILD),mago)
-MACHINE=vg5000
-MACHINEBUILD=mago
-else ifeq ($(MACHINEBUILD),x1plus)
-MACHINE=vg5000
-MACHINEBUILD=x1plus
-else ifeq ($(MACHINEBUILD),sf108)
-MACHINE=vg5000
-MACHINEBUILD=sf108
-else ifeq ($(MACHINEBUILD),tyrant)
-MACHINE=vg1000
-MACHINEBUILD=tyrant
-else ifeq ($(MACHINEBUILD),xcombo)
-MACHINE=vg2000
-MACHINEBUILD=xcombo
-
-else ifeq ($(MACHINEBUILD),zgemmash1)
-MACHINE=sh1
-MACHINEBUILD=zgemmash1
-else ifeq ($(MACHINEBUILD),zgemmash2)
-MACHINE=sh1
-MACHINEBUILD=zgemmash2
-else ifeq ($(MACHINEBUILD),zgemmas2s)
-MACHINE=sh1
-MACHINEBUILD=zgemmas2s
-else ifeq ($(MACHINEBUILD),zgemmass)
-MACHINE=sh1
-MACHINEBUILD=zgemmass
-else ifeq ($(MACHINEBUILD),zgemmahs)
-MACHINE=h3
-MACHINEBUILD=zgemmahs
-else ifeq ($(MACHINEBUILD),zgemmah2s)
-MACHINE=h3
-MACHINEBUILD=zgemmah2s
-else ifeq ($(MACHINEBUILD),zgemmah2h)
-MACHINE=h3
-MACHINEBUILD=zgemmah2h
-else ifeq ($(MACHINEBUILD),zgemmah32tc)
-MACHINE=h3
-MACHINEBUILD=zgemmah32tc
-else ifeq ($(MACHINEBUILD),zgemmaslc)
-MACHINE=lc
-MACHINEBUILD=zgemmaslc
-else ifeq ($(MACHINEBUILD),zgemmah5)
-MACHINE=h5
-MACHINEBUILD=zgemmah5
-else ifeq ($(MACHINEBUILD),zgemmah52s)
-MACHINE=h5
-MACHINEBUILD=zgemmah52s
-else ifeq ($(MACHINEBUILD),zgemmah52tc)
-MACHINE=h5
-MACHINEBUILD=zgemmah52tc
-else ifeq ($(MACHINEBUILD),zgemmai55)
-MACHINE=i55
-MACHINEBUILD=zgemmai55
-else ifeq ($(MACHINEBUILD),novaip)
-MACHINE=i55
-MACHINEBUILD=novaip
-else ifeq ($(MACHINEBUILD),novacombo)
-MACHINE=h3
-MACHINEBUILD=novacombo
-else ifeq ($(MACHINEBUILD),novatwin)
-MACHINE=h3
-MACHINEBUILD=novatwin
-else ifeq ($(MACHINEBUILD),zgemmah3ac)
-MACHINE=h3
-MACHINEBUILD=zgemmah3ac
-else ifeq ($(MACHINEBUILD),zgemmah4)
-MACHINE=h4
-MACHINEBUILD=zgemmah4
-else ifeq ($(MACHINEBUILD),zgemmah5ac)
-MACHINE=h5
-MACHINEBUILD=zgemmah5ac
-else ifeq ($(MACHINEBUILD),zgemmah52splus)
-MACHINE=h5
-MACHINEBUILD=zgemmah52splus
-else ifeq ($(MACHINEBUILD),zgemmah2splus)
-MACHINE=h3
-MACHINEBUILD=zgemmah2splus
-else ifeq ($(MACHINEBUILD),zgemmah7)
-MACHINE=h7
-MACHINEBUILD=zgemmah7
-else ifeq ($(MACHINEBUILD),zgemmah17combo)
-MACHINE=h17
-MACHINEBUILD=zgemmah17combo
-else ifeq ($(MACHINEBUILD),zgemmah17twin)
-MACHINE=h17
-MACHINEBUILD=zgemmah17twin
-else ifeq ($(MACHINEBUILD),zgemmah6)
-MACHINE=h6
-MACHINEBUILD=zgemmah6
-else ifeq ($(MACHINEBUILD),zgemmah82h)
-MACHINE=h8
-MACHINEBUILD=zgemmah82h
-else ifeq ($(MACHINEBUILD),zgemmah82hplus)
-MACHINE=h8
-MACHINEBUILD=zgemmah82hplus
-else ifeq ($(MACHINEBUILD),zgemmah9s)
-MACHINE=h9
-MACHINEBUILD=zgemmah9s
-else ifeq ($(MACHINEBUILD),zgemmah9t)
-MACHINE=h9
-MACHINEBUILD=zgemmah9t
-else ifeq ($(MACHINEBUILD),zgemmah92s)
-MACHINE=h9
-MACHINEBUILD=zgemmah92s
-else ifeq ($(MACHINEBUILD),zgemmah92h)
-MACHINE=h9
-MACHINEBUILD=zgemmah92h
-else ifeq ($(MACHINEBUILD),zgemmah9splus)
-MACHINE=h9
-MACHINEBUILD=zgemmah9splus
-else ifeq ($(MACHINEBUILD),zgemmai55plus)
-MACHINE=i55plus
-MACHINEBUILD=zgemmai55plus
-else ifeq ($(MACHINEBUILD),zgemmah9combo)
-MACHINE=h9combo
-MACHINEBUILD=zgemmah9combo
-else ifeq ($(MACHINEBUILD),zgemmah9twin)
-MACHINE=h9combo
-MACHINEBUILD=zgemmah9twin
-else ifeq ($(MACHINEBUILD),zgemmah10combo)
-MACHINE=h10
-MACHINEBUILD=zgemmah10combo
-else ifeq ($(MACHINEBUILD),zgemmah102h)
-MACHINE=h10
-MACHINEBUILD=zgemmah102h
-else ifeq ($(MACHINEBUILD),zgemmah102s)
-MACHINE=h10
-MACHINEBUILD=zgemmah102s
-else ifeq ($(MACHINEBUILD),zgemmah11s)
-MACHINE=h11
-MACHINEBUILD=zgemmah11s
-else ifeq ($(MACHINEBUILD),zgemmah112h)
-MACHINE=h11
-MACHINEBUILD=zgemmah112h
-else ifeq ($(MACHINEBUILD),zgemmahzeros)
-MACHINE=hzero
-MACHINEBUILD=zgemmahzeros
-else ifeq ($(MACHINEBUILD),zgemmah9combose)
-MACHINE=h9combose
-MACHINEBUILD=zgemmah9combose
-else ifeq ($(MACHINEBUILD),zgemmah9twinse)
-MACHINE=h9combose
-MACHINEBUILD=zgemmah9twinse
-else ifeq ($(MACHINEBUILD),zgemmah92hse)
-MACHINE=h9se
-MACHINEBUILD=zgemmah92hse
-else ifeq ($(MACHINEBUILD),zgemmah9sse)
-MACHINE=h9se
-MACHINEBUILD=zgemmah9sse
-else ifeq ($(MACHINEBUILD),zgemmai55se)
-MACHINE=i55se
-MACHINEBUILD=zgemmai55se
-
-
-else ifeq ($(MACHINEBUILD),mbmicro)
-MACHINE=7000s
-MACHINEBUILD=mbmicro
-else ifeq ($(MACHINEBUILD),mbmicrov2)
-MACHINE=7005s
-MACHINEBUILD=mbmicrov2
-else ifeq ($(MACHINEBUILD),e4hd)
-MACHINE=7000s
-MACHINEBUILD=e4hd
-else ifeq ($(MACHINEBUILD),e4hdhybrid)
-MACHINE=7000s
-MACHINEBUILD=e4hdhybrid
-else ifeq ($(MACHINEBUILD),twinboxlcd)
-MACHINE=7100s
-MACHINEBUILD=twinboxlcd
-else ifeq ($(MACHINEBUILD),singleboxlcd)
-MACHINE=7100s
-MACHINEBUILD=singleboxlcd
-else ifeq ($(MACHINEBUILD),sf208)
-MACHINE=7210s
-MACHINEBUILD=sf208
-else ifeq ($(MACHINEBUILD),sf228)
-MACHINE=7210s
-MACHINEBUILD=sf228
-else ifeq ($(MACHINEBUILD),9910lx)
-MACHINE=7220s
-MACHINEBUILD=9910lx
-else ifeq ($(MACHINEBUILD),odin2hybrid)
-MACHINE=7300s
-MACHINEBUILD=odin2hybrid
-else ifeq ($(MACHINEBUILD),odinplus)
-MACHINE=7400s
-MACHINEBUILD=odinplus
-else ifeq ($(MACHINEBUILD),9911lx)
-MACHINE=7225s
-MACHINEBUILD=9911lx
-else ifeq ($(MACHINEBUILD),9920lx)
-MACHINE=7225s
-MACHINEBUILD=9920lx
-else ifeq ($(MACHINEBUILD),e4hdcombo)
-MACHINE=7225s
-MACHINEBUILD=e4hdcombo
-else ifeq ($(MACHINEBUILD),sf238)
-MACHINE=7215s
-MACHINEBUILD=sf238
-else ifeq ($(MACHINEBUILD),twinboxlcdci5)
-MACHINE=7105s
-MACHINEBUILD=twinboxlcdci5
-else ifeq ($(MACHINEBUILD),e4hdultra)
-MACHINE=8100s
-MACHINEBUILD=e4hdultra
-else ifeq ($(MACHINEBUILD),protek4k)
-MACHINE=8100s
-MACHINEBUILD=protek4k
-
-
-else ifeq ($(MACHINEBUILD),mbtwinplus)
-MACHINE=g300
-MACHINEBUILD=mbtwinplus
-else ifeq ($(MACHINEBUILD),sf3038)
-MACHINE=g300
-MACHINEBUILD=sf3038
-else ifeq ($(MACHINEBUILD),alphatriple)
-MACHINE=g300
-MACHINEBUILD=alphatriple
-else ifeq ($(MACHINEBUILD),sf128)
-MACHINE=g100
-MACHINEBUILD=sf128
-else ifeq ($(MACHINEBUILD),sf138)
-MACHINE=g100
-MACHINEBUILD=sf138
-else ifeq ($(MACHINEBUILD),bre2zet2c)
-MACHINE=g101
-MACHINEBUILD=bre2zet2c
-
-
-else ifeq ($(MACHINEBUILD),spycat)
-MACHINE=xc7362
-MACHINEBUILD=spycat
-else ifeq ($(MACHINEBUILD),spycatmini)
-MACHINE=xc7362
-MACHINEBUILD=spycatmini
-else ifeq ($(MACHINEBUILD),spycatminiplus)
-MACHINE=xc7362
-MACHINEBUILD=spycatminiplus
-else ifeq ($(MACHINEBUILD),osmini)
-MACHINE=xc7362
-MACHINEBUILD=osmini
-else ifeq ($(MACHINEBUILD),osminiplus)
-MACHINE=xc7362
-MACHINEBUILD=osminiplus
-else ifeq ($(MACHINEBUILD),osmega)
-MACHINE=xc7346
-MACHINEBUILD=osmega
-
-else ifeq ($(MACHINEBUILD),gb800se)
-MACHINE=gb7325
-MACHINEBUILD=gb800se
-else ifeq ($(MACHINEBUILD),gb800ue)
-MACHINE=gb7325
-MACHINEBUILD=gb800ue
-else ifeq ($(MACHINEBUILD),gb800seplus)
-MACHINE=gb7358
-MACHINEBUILD=gb800seplus
-else ifeq ($(MACHINEBUILD),gb800ueplus)
-MACHINE=gb7358
-MACHINEBUILD=gb800ueplus
-else ifeq ($(MACHINEBUILD),gbipbox)
-MACHINE=gb7358
-MACHINEBUILD=gbipbox
-else ifeq ($(MACHINEBUILD),gbultrase)
-MACHINE=gb7362
-MACHINEBUILD=gbultrase
-else ifeq ($(MACHINEBUILD),gbultraue)
-MACHINE=gb7362
-MACHINEBUILD=gbultraue
-else ifeq ($(MACHINEBUILD),gbultraueh)
-MACHINE=gb73625
-MACHINEBUILD=gbultraueh
-else ifeq ($(MACHINEBUILD),gbx1)
-MACHINE=gb7362
-MACHINEBUILD=gbx1
-else ifeq ($(MACHINEBUILD),gbx2)
-MACHINE=gb73625
-MACHINEBUILD=gbx2
-else ifeq ($(MACHINEBUILD),gbx3)
-MACHINE=gb7362
-MACHINEBUILD=gbx3
-else ifeq ($(MACHINEBUILD),gbx3h)
-MACHINE=gb73625
-MACHINEBUILD=gbx3h
-else ifeq ($(MACHINEBUILD),gbquad)
-MACHINE=gb7356
-MACHINEBUILD=gbquad
-else ifeq ($(MACHINEBUILD),gbquadplus)
-MACHINE=gb7356
-MACHINEBUILD=gbquadplus
-else ifeq ($(MACHINEBUILD),gbquad4k)
-MACHINE=gb7252
-MACHINEBUILD=gbquad4k
-else ifeq ($(MACHINEBUILD),gbquad4kpro)
-MACHINE=gb7252
-MACHINEBUILD=gbquad4kpro
-else ifeq ($(MACHINEBUILD),gbue4k)
-MACHINE=gb7252
-MACHINEBUILD=gbue4k
-else ifeq ($(MACHINEBUILD),gbx34k)
-MACHINE=gb72604
-MACHINEBUILD=gbx34k
-else ifeq ($(MACHINEBUILD),gbtrio4k)
-MACHINE=gbmv200
-MACHINEBUILD=gbtrio4k
-else ifeq ($(MACHINEBUILD),gbtrio4kpro)
-MACHINE=gbmv200
-MACHINEBUILD=gbtrio4kpro
-else ifeq ($(MACHINEBUILD),gbip4k)
-MACHINE=gbmv200
-MACHINEBUILD=gbip4k
-
-else ifeq ($(MACHINEBUILD),xpeedlxcs2)
-MACHINE=ultramini
-MACHINEBUILD=xpeedlxcs2
-else ifeq ($(MACHINEBUILD),xpeedlxcc)
-MACHINE=ultramini
-MACHINEBUILD=xpeedlxcc
-else ifeq ($(MACHINEBUILD),et7x00mini)
-MACHINE=ultramini
-MACHINEBUILD=et7x00mini
-else ifeq ($(MACHINEBUILD),gi11000)
-MACHINE=et1x000
-MACHINEBUILD=gi11000
-else ifeq ($(MACHINEBUILD),viper4k51)
-MACHINE=et1x000
-MACHINEBUILD=viper4k51
-else ifeq ($(MACHINEBUILD),beyonwizu4)
-MACHINE=et13000
-MACHINEBUILD=beyonwizu4
-
-else ifeq ($(MACHINEBUILD),anadol4k)
-MACHINE=u5
-MACHINEBUILD=anadol4k
-else ifeq ($(MACHINEBUILD),anadol4kv2)
-MACHINE=u51
-MACHINEBUILD=anadol4kv2
-else ifeq ($(MACHINEBUILD),anadol4kcombo)
-MACHINE=u51
-MACHINEBUILD=anadol4kcombo
-else ifeq ($(MACHINEBUILD),axashis4kcombo)
-MACHINE=u51
-MACHINEBUILD=axashis4kcombo
-else ifeq ($(MACHINEBUILD),dinobot4kl)
-MACHINE=u51
-MACHINEBUILD=dinobot4kl
-else ifeq ($(MACHINEBUILD),protek4kx1)
-MACHINE=u51
-MACHINEBUILD=protek4kx1
-else ifeq ($(MACHINEBUILD),dinobot4k)
-MACHINE=u5
-MACHINEBUILD=dinobot4k
-else ifeq ($(MACHINEBUILD),mediabox4k)
-MACHINE=u5
-MACHINEBUILD=mediabox4k
-else ifeq ($(MACHINEBUILD),dinobot4kse)
-MACHINE=u5pvr
-MACHINEBUILD=dinobot4kse
-else ifeq ($(MACHINEBUILD),ferguson4k)
-MACHINE=u5pvr
-MACHINEBUILD=ferguson4k
-else ifeq ($(MACHINEBUILD),dinobot4kplus)
-MACHINE=u52
-MACHINEBUILD=dinobot4kplus
-else ifeq ($(MACHINEBUILD),axashis4kcomboplus)
-MACHINE=u52
-MACHINEBUILD=axashis4kcomboplus
-else ifeq ($(MACHINEBUILD),dinobot4kmini)
-MACHINE=u53
-MACHINEBUILD=dinobot4kmini
-else ifeq ($(MACHINEBUILD),arivacombo)
-MACHINE=u532
-MACHINEBUILD=arivacombo
-else ifeq ($(MACHINEBUILD),arivatwin)
-MACHINE=u533
-MACHINEBUILD=arivatwin
-else ifeq ($(MACHINEBUILD),dinobot4kpro)
-MACHINE=u54
-MACHINEBUILD=dinobot4kpro
-else ifeq ($(MACHINEBUILD),dinobotu55)
-MACHINE=u55
-MACHINEBUILD=dinobotu55
-else ifeq ($(MACHINEBUILD),iziboxone4k)
-MACHINE=u55
-MACHINEBUILD=iziboxone4k
-else ifeq ($(MACHINEBUILD),hitube4k)
-MACHINE=u55
-MACHINEBUILD=hitube4k
-else ifeq ($(MACHINEBUILD),iziboxx3)
-MACHINE=u55
-MACHINEBUILD=iziboxx3
-else ifeq ($(MACHINEBUILD),axashisc4k)
-MACHINE=u56
-MACHINEBUILD=axashisc4k
-else ifeq ($(MACHINEBUILD),dinobot4kelite)
-MACHINE=u56
-MACHINEBUILD=dinobot4kelite
-else ifeq ($(MACHINEBUILD),iziboxx4)
-MACHINE=u57
-MACHINEBUILD=iziboxx4
-else ifeq ($(MACHINEBUILD),viper4kv20)
-MACHINE=u57
-MACHINEBUILD=viper4kv20
-else ifeq ($(MACHINEBUILD),viper4kv30)
-MACHINE=u57
-MACHINEBUILD=viper4kv30
-else ifeq ($(MACHINEBUILD),protek4kx2)
-MACHINE=u57
-MACHINEBUILD=protek4kx2
-else ifeq ($(MACHINEBUILD),iziboxelite4k)
-MACHINE=u57
-MACHINEBUILD=iziboxelite4k
-else ifeq ($(MACHINEBUILD),dinobot4ktwin)
-MACHINE=u57
-MACHINEBUILD=dinobot4ktwin
-else ifeq ($(MACHINEBUILD),hitube4kpro)
-MACHINE=u57
-MACHINEBUILD=hitube4kpro
-else ifeq ($(MACHINEBUILD),hitube4kplus)
-MACHINE=u57
-MACHINEBUILD=hitube4kplus
-else ifeq ($(MACHINEBUILD),viper4kv40)
-MACHINE=u571
-MACHINEBUILD=viper4kv40
-else ifeq ($(MACHINEBUILD),iziboxone4kplus)
-MACHINE=u571
-MACHINEBUILD=iziboxone4kplus
-else ifeq ($(MACHINEBUILD),axas4kcombo)
-MACHINE=u571
-MACHINEBUILD=axas4kcombo
-else ifeq ($(MACHINEBUILD),axas4ktwin)
-MACHINE=u571
-MACHINEBUILD=axas4ktwin
-
-else ifeq ($(MACHINEBUILD),dinoboth265)
-MACHINE=u41
-MACHINEBUILD=dinoboth265
-else ifeq ($(MACHINEBUILD),axashistwin)
-MACHINE=u41
-MACHINEBUILD=axashistwin
-else ifeq ($(MACHINEBUILD),anadolprohd5)
-MACHINE=u42
-MACHINEBUILD=anadolprohd5
-else ifeq ($(MACHINEBUILD),spycatminiv2)
-MACHINE=u42
-MACHINEBUILD=spycatminiv2
-else ifeq ($(MACHINEBUILD),iziboxecohd)
-MACHINE=u42
-MACHINEBUILD=iziboxecohd
-else ifeq ($(MACHINEBUILD),jdhdduo)
-MACHINE=u42
-MACHINEBUILD=jdhdduo
-else ifeq ($(MACHINEBUILD),vipertwin)
-MACHINE=u42
-MACHINEBUILD=vipertwin
-else ifeq ($(MACHINEBUILD),vipersingle)
-MACHINE=u42
-MACHINEBUILD=vipersingle
-else ifeq ($(MACHINEBUILD),turing)
-MACHINE=u43
-MACHINEBUILD=turing
-else ifeq ($(MACHINEBUILD),axashistwinplus)
-MACHINE=u45
-MACHINEBUILD=axashistwinplus
-
-
-else ifeq ($(MACHINEBUILD),clap4k)
-MACHINE=cc1
-MACHINEBUILD=clap4k
-
-else ifeq ($(MACHINEBUILD),maxytecmulti)
-MACHINE=multibox
-MACHINEBUILD=maxytecmulti
-else ifeq ($(MACHINEBUILD),anadolmulti)
-MACHINE=multibox
-MACHINEBUILD=anadolmulti
-else ifeq ($(MACHINEBUILD),anadolmultitwin)
-MACHINE=multibox
-MACHINEBUILD=anadolmultitwin
-else ifeq ($(MACHINEBUILD),axmulticombo)
-MACHINE=multibox
-MACHINEBUILD=axmulticombo
-else ifeq ($(MACHINEBUILD),axmultitwin)
-MACHINE=multibox
-MACHINEBUILD=axmultitwin
-else ifeq ($(MACHINEBUILD),novaler4k)
-MACHINE=multibox
-MACHINEBUILD=novaler4k
-
-else ifeq ($(MACHINEBUILD),maxytecmultise)
-MACHINE=multiboxse
-MACHINEBUILD=maxytecmultise
-else ifeq ($(MACHINEBUILD),anadolmultiboxse)
-MACHINE=multiboxse
-MACHINEBUILD=anadolmultiboxse
-else ifeq ($(MACHINEBUILD),axmultiboxse)
-MACHINE=multiboxse
-MACHINEBUILD=axmultiboxse
-else ifeq ($(MACHINEBUILD),novaler4kse)
-MACHINE=multiboxse
-MACHINEBUILD=novaler4kse
-else ifeq ($(MACHINEBUILD),novaler4kpro)
-MACHINE=multiboxpro
-MACHINEBUILD=novaler4kpro
-
+# Dynamic setupmbuild: resolve MACHINEBUILD -> MACHINE via conf annotations
+_FOUND_CONF := $(shell grep -rl "^\# MACHINEBUILDS:.*\b$(MACHINEBUILD)\b" $(METADIR)/*/conf/machine/*.conf 2>/dev/null | head -1)
+ifneq ($(_FOUND_CONF),)
+  override MACHINE := $(basename $(notdir $(_FOUND_CONF)))
 endif
+
+setupmbuild:
+	@if [ ! -f "$(METADIR)/*/conf/machine/$(MACHINE).conf" ] && \
+	    ! ls $(METADIR)/*/conf/machine/$(MACHINE).conf >/dev/null 2>&1; then \
+		echo "ERROR: No machine config found for MACHINE=$(MACHINE) (MACHINEBUILD=$(MACHINEBUILD))"; \
+		exit 1; \
+	fi
 
 initialize: init
 
@@ -1079,7 +181,7 @@ update:
 		cd .. ; \
 	fi
 
-.PHONY: all image enigma2-image feed devel init initialize update usage machinebuild
+.PHONY: all image enigma2-image feed devel init initialize update usage machinebuild list
 
 BITBAKE_ENV_HASH := $(call hash, \
 	'BITBAKE_ENV_VERSION = "0"' \
@@ -1176,3 +278,88 @@ $(CONFDEPS):
 	@test -d $(@D) || mkdir -p $(@D)
 	@$(RM) $(basename $@).*
 	@touch $@
+
+
+
+# Extract filter arguments: make list gbq arm -> FILTERS="gbq arm"
+ifneq ($(filter list,$(MAKECMDGOALS)),)
+  FILTERS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+  ifneq ($(FILTERS),)
+    $(foreach f,$(FILTERS),$(eval $(f):;@:))
+  endif
+endif
+
+define LIST_SCRIPT
+import os, re, sys, glob
+
+confdir, filters = sys.argv[1], sys.argv[2:]
+
+tunes = {}
+for r, _, fs in os.walk(confdir):
+	for f in fs:
+		if f.endswith(('.conf', '.inc')):
+			p = os.path.join(r, f)
+			for l in open(p):
+				m = re.match(r'^DEFAULTTUNE\s*=\s*"([^"]+)"', l)
+				if m:
+					tunes[p] = m.group(1)
+					break
+
+def get_incs(path):
+	try:
+		return [re.sub(r'^(include|require)\s+', '', l.strip()) for l in open(path) if re.match(r'^(include|require)\s', l)]
+	except:
+		return []
+
+def to_arch(t):
+	if not t: return 'unknown'
+	if t.startswith('aarch64'): return 'aarch64'
+	if t.startswith(('cortexa', 'arm')): return 'arm'
+	if t.startswith('mips'): return 'mipsel'
+	return 'unknown'
+
+def get_arch(conf, br):
+	if conf in tunes: return to_arch(tunes[conf])
+	for i in get_incs(conf):
+		p = os.path.join(br, i)
+		if p in tunes: return to_arch(tunes[p])
+		for i2 in get_incs(p):
+			p2 = os.path.join(br, i2)
+			if p2 in tunes: return to_arch(tunes[p2])
+	return 'unknown'
+
+def matches(machine, oem, arch, meta):
+	for f in filters:
+		if f in ('aarch64', 'arm', 'mips', 'mipsel'):
+			af = 'mipsel' if f == 'mips' else f
+			if arch != af: return False
+		elif f.lower() not in f'{machine} {oem} {meta}'.lower():
+			return False
+	return True
+
+n = 0
+print(f"{'#':>4} {'MACHINE':<20} {'OEM':<20} {'META':<18} ARCH")
+print(f"{'----':>4} {'--------------------':<20} {'--------------------':<20} {'------------------':<18} --------")
+
+for conf in sorted(glob.glob(os.path.join(confdir, '*/conf/machine/*.conf'))):
+	machine = os.path.basename(conf)[:-5]
+	meta = 'meta-' + re.search(r'meta-brands/meta-([^/]+)/', conf).group(1)
+	br = conf.rsplit('/conf/machine/', 1)[0]
+	arch = get_arch(conf, br)
+	builds = ''
+	for l in open(conf):
+		if l.startswith('# MACHINEBUILDS:'):
+			builds = l.replace('# MACHINEBUILDS:', '').strip()
+			break
+	if builds:
+		for oem in builds.split():
+			if matches(oem, machine, arch, meta):
+				n += 1; print(f'{n:4d} {oem:<20} {machine:<20} {meta:<18} {arch}'); sys.stdout.flush()
+	elif matches(machine, machine, arch, meta):
+		n += 1; print(f'{n:4d} {machine:<20} {machine:<20} {meta:<18} {arch}'); sys.stdout.flush()
+endef
+
+export LIST_SCRIPT
+
+list:
+	@python3 -c "$$LIST_SCRIPT" "$(METADIR)" $(FILTERS)
