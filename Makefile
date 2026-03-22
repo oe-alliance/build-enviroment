@@ -11,6 +11,8 @@ DISTRO_TYPE ?= release
 DISTRO ?= openatv
 ONLINECHECK_URL ?= "https://github.com/"
 ONLINECHECK_TIMEOUT ?= 2
+DISTRO_VERSIONS_REPO ?= https://github.com/oe-alliance/distro-versions.git
+DISTRO_VERSIONS_DIR = $(TOPDIR)/conf/distro-versions
 
 BUILD_DIR = $(CURDIR)/builds/$(DISTRO)/$(DISTRO_TYPE)/$(MACHINE)
 TOPDIR = $(BUILD_DIR)
@@ -121,6 +123,7 @@ setupmbuild:
 initialize: init
 
 init: setupmbuild $(BBLAYERS) $(CONFFILES)
+	@$(MAKE) --no-print-directory update-versions
 
 image: init
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake oea-image
@@ -151,6 +154,16 @@ download: init
 	@echo 'Downloading sources'
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake $(DISTRO)-image --runall=fetch
 
+update-versions:
+	@if [ -d $(DISTRO_VERSIONS_DIR)/.git ]; then \
+		cd $(DISTRO_VERSIONS_DIR) && git pull --ff-only 2>/dev/null || true; \
+	else \
+		mkdir -p $(dir $(DISTRO_VERSIONS_DIR)) && \
+		BRANCH=$$(cd $(CURDIR) && git rev-parse --abbrev-ref HEAD 2>/dev/null || echo main) && \
+		git clone --depth 1 -b $$BRANCH $(DISTRO_VERSIONS_REPO) $(DISTRO_VERSIONS_DIR) -q || \
+		echo "Note: distro-versions repo not available, using fallback versions"; \
+	fi
+
 update:
 	@echo 'Updating Git repositories...'
 	@HASH=`$(XSUM) $(MAKEFILE_LIST)`; \
@@ -172,7 +185,7 @@ update:
 		cd .. ; \
 	fi
 
-.PHONY: all image enigma2-image shell-image server-image base-image feed devel init initialize update usage machinebuild list
+.PHONY: all image enigma2-image shell-image server-image base-image feed devel init initialize update update-versions usage machinebuild list
 
 BITBAKE_ENV_HASH := $(call hash, \
 	'BITBAKE_ENV_VERSION = "0"' \
@@ -215,7 +228,7 @@ $(DISTRO)_CONF_HASH := $(call hash, \
 $(TOPDIR)/conf/$(DISTRO).conf: $(DEPDIR)/.$(DISTRO).conf.$($(DISTRO)_CONF_HASH)
 	@echo 'Generating $@'
 	@test -d $(@D) || mkdir -p $(@D)
-	@echo 'DISTRO_TYPE = "$(DISTRO_TYPE)"' >> $@
+	@echo 'DISTRO_TYPE ?= "$(DISTRO_TYPE)"' >> $@
 	@echo 'TMPDIR = "$(TMPDIR)"' >> $@
 	@echo 'BB_GENERATE_MIRROR_TARBALLS = "1"' >> $@
 	@echo 'BBINCLUDELOGS = "yes"' >> $@
