@@ -621,6 +621,9 @@ MACHINEBUILD=zgemmah82h
 else ifeq ($(MACHINEBUILD),zgemmah82hplus)
 MACHINE=h8
 MACHINEBUILD=zgemmah82hplus
+else ifeq ($(MACHINEBUILD),zgemmah8se)
+MACHINE=h8se
+MACHINEBUILD=zgemmah8se
 else ifeq ($(MACHINEBUILD),zgemmah9s)
 MACHINE=h9
 MACHINEBUILD=zgemmah9s
