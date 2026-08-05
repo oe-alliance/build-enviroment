@@ -157,7 +157,7 @@ download: init
 update-versions:
 	@if [ -d $(DISTRO_VERSIONS_DIR)/.git ]; then \
 		cd $(DISTRO_VERSIONS_DIR) && git fetch --depth 1 -q 2>/dev/null && \
-		git reset --hard origin/$$(git rev-parse --abbrev-ref HEAD) 2>/dev/null || true; \
+		git reset -q --hard origin/$$(git rev-parse --abbrev-ref HEAD) 2>/dev/null || true; \
 	else \
 		mkdir -p $(dir $(DISTRO_VERSIONS_DIR)) && \
 		BRANCH=$$(cd $(CURDIR) && git rev-parse --abbrev-ref HEAD 2>/dev/null || echo main) && \
