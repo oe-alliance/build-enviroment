@@ -18,6 +18,8 @@ BUILD_DIR = $(CURDIR)/builds/$(DISTRO)/$(DISTRO_TYPE)/$(MACHINE)
 TOPDIR = $(BUILD_DIR)
 DL_DIR = $(CURDIR)/sources
 SSTATE_DIR = $(CURDIR)/builds/$(DISTRO)/sstate-cache
+CCACHE_DIR ?= $(CURDIR)/ccache
+CCACHE_CONF ?= $(CURDIR)/ccache.conf
 TMPDIR = $(TOPDIR)/tmp
 DEPDIR = $(TOPDIR)/.deps
 MACHINEBUILD := $(MACHINE)
@@ -47,6 +49,7 @@ CONFFILES = \
 	$(TOPDIR)/conf/$(DISTRO).conf \
 	$(TOPDIR)/conf/bblayers.conf \
 	$(TOPDIR)/conf/local.conf \
+	$(CCACHE_CONF) \
 	$(TOPDIR)/conf/site.conf
 
 CONFDEPS = \
@@ -251,7 +254,14 @@ $(TOPDIR)/conf/local.conf: $(DEPDIR)/.local.conf.$(LOCAL_CONF_HASH)
 	@echo 'require $(TOPDIR)/conf/$(DISTRO).conf' >> $@
 
 $(TOPDIR)/conf/site.conf: $(CURDIR)/site.conf
-	@ln -s ../../../../../site.conf $@
+	@ln -sf ../../../../../site.conf $@
+
+$(CCACHE_CONF):
+	@echo 'sloppiness = include_file_ctime' > $@
+	@echo 'hash_dir = false' >> $@
+	@echo 'temporary_dir = $$CCACHE_DIR/tmp' >> $@
+	@echo 'compiler_check = content' >> $@
+	@echo 'max_size = 50G' >> $@
 
 $(CURDIR)/site.conf:
 	@echo 'SCONF_VERSION = "1"' >> $@
@@ -262,6 +272,12 @@ $(CURDIR)/site.conf:
 	@echo 'SSTATE_DIR = "$(SSTATE_DIR)"' >> $@
 	@echo 'BB_HASHSERVE_DB_DIR = "$(SSTATE_DIR)"' >> $@
 	@echo 'INHERIT += "rm_work"' >> $@
+	@echo '# ccache: uncomment the five lines below, needs ccache on the host' >> $@
+	@echo '#INHERIT += "ccache"' >> $@
+	@echo '#CCACHE_DIR = "$(CCACHE_DIR)"' >> $@
+	@echo '#export CCACHE_CONFIGPATH = "$(CCACHE_CONF)"' >> $@
+	@echo '#ASSUME_PROVIDED += "ccache-native"' >> $@
+	@echo '#HOSTTOOLS += "ccache"' >> $@
 	@echo 'INHERIT:remove = "create-spdx"' >> $@
 	@echo '#BB_GIT_SHALLOW_DEPTH = "1"' >> $@
 	@echo 'BB_GIT_SHALLOW = "0"' >> $@
