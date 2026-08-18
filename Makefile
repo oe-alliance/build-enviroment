@@ -259,7 +259,7 @@ $(TOPDIR)/conf/site.conf: $(CURDIR)/site.conf
 $(CCACHE_CONF):
 	@echo 'sloppiness = include_file_ctime' > $@
 	@echo 'hash_dir = false' >> $@
-	@echo 'temporary_dir = $$CCACHE_DIR/tmp' >> $@
+	@echo 'temporary_dir = /dev/shm/ccache-tmp' >> $@
 	@echo 'compiler_check = content' >> $@
 	@echo 'max_size = 50G' >> $@
 
