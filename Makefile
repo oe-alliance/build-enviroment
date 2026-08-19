@@ -189,7 +189,7 @@ update:
 		cd .. ; \
 	fi
 
-.PHONY: all image enigma2-image shell-image server-image base-image feed devel init initialize update update-versions usage machinebuild list
+.PHONY: all image enigma2-image shell-image server-image base-image feed devel init initialize update update-versions usage machinebuild list sstate-stats
 
 BITBAKE_ENV_HASH := $(call hash, \
 	'BITBAKE_ENV_VERSION = "0"' \
@@ -384,3 +384,25 @@ export LIST_SCRIPT
 
 list:
 	@python3 -c "$$LIST_SCRIPT" "$(METADIR)" $(FILTERS)
+
+# sstate cache breakdown by package arch; with MACHINE set, restricted to
+# that machine PACKAGE_ARCHS (env.source needs bash, hence the bash -c).
+sstate-stats:
+	@dir='$(SSTATE_DIR)'; machine='$(if $(MACHINEBUILD),$(MACHINE),)'; topdir='$(TOPDIR)'; distro='$(DISTRO)'; dtype='$(DISTRO_TYPE)'; \
+	[ -d "$$dir" ] || { echo "no sstate-cache: $$dir (DISTRO=$$distro?)"; exit 1; }; \
+	want=''; \
+	if [ -n "$$machine" ] && [ -f "$$topdir/env.source" ]; then \
+	want=$$(bash -c "cd \"$$topdir\"; . env.source >/dev/null 2>&1; echo \$$(bitbake-getvar -q --value PACKAGE_ARCHS 2>/dev/null) \$$(bitbake-getvar -q --value BUILD_ARCH 2>/dev/null)"); \
+	fi; \
+	echo "sstate-cache: $$dir  ($$distro/$$dtype)"; \
+	echo; \
+	find "$$dir" -name 'sstate:*' ! -name '*.siginfo' -printf '%s\t%f\n' 2>/dev/null | LC_ALL=C awk -F'\t' -v want="$$want" '\
+	function hum(b,  u,i) { split("B KiB MiB GiB TiB", u, " "); i = 1; while (b >= 1024 && i < 5) { b /= 1024; i++ } return sprintf("%.1f %s", b, u[i]) } \
+	BEGIN { n = split(want, w, " "); for (i = 1; i <= n; i++) keep[w[i]] = 1 } \
+	{ split($$2, f, ":"); a = f[3]; sub(/(-oe)?-linux[a-z0-9._-]*$$/, "", a); if (a == "") next; \
+	  if (length(want) == 0 || keep[a]) { c[a]++; s[a] += $$1; C++; S += $$1; if (length(a) > L) L = length(a) } } \
+	END { printf "%7s  %13s  %s\n", "COUNT", "SIZE", "ARCH"; fflush(); \
+	      for (a in c) printf "%d\t%7d  %13s  %s\n", c[a], c[a], hum(s[a]), a | "sort -rn | cut -f2-"; \
+	      close("sort -rn | cut -f2-"); \
+	      while (length(sep) < 24 + L) sep = sep "-"; \
+	      printf "%s\n%7d  %13s  %s\n", sep, C, hum(S), "TOTAL" }'
