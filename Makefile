@@ -26,6 +26,11 @@ METAQT=meta-qt5.15
 #METAQT=meta-qt5.15
 #endif
 
+ifeq ($(MACHINE),vuduo4klite)
+	VUPLUS_LAYER := $(CURDIR)/meta-oe-alliance/meta-brands/meta-vuplusde
+else
+	VUPLUS_LAYER := $(CURDIR)/meta-oe-alliance/meta-brands/meta-vuplus
+endif
 
 BBLAYERS ?= \
 	$(CURDIR)/meta-local \
@@ -67,7 +72,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-tripledot \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-uclan \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-ultramini \
-	$(CURDIR)/meta-oe-alliance/meta-brands/meta-vuplus \
+	$(VUPLUS_LAYER) \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xp \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xtrend \
 	$(CURDIR)/meta-oe-alliance/meta-brands/meta-xcore \
