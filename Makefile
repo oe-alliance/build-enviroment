@@ -272,9 +272,11 @@ $(CURDIR)/site.conf:
 	@echo 'SSTATE_DIR = "$(SSTATE_DIR)"' >> $@
 	@echo 'BB_HASHSERVE_DB_DIR = "$(SSTATE_DIR)"' >> $@
 	@echo 'INHERIT += "rm_work"' >> $@
-	@echo '# ccache: uncomment the five lines below, needs ccache on the host' >> $@
+	@echo '# ccache: uncomment the six lines below, needs ccache installed on the host.' >> $@
+	@echo '# The noexec keeps "bitbake -c cleanall" from wiping the shared cache.' >> $@
 	@echo '#INHERIT += "ccache"' >> $@
 	@echo '#CCACHE_DIR = "$(CCACHE_DIR)"' >> $@
+	@echo '#do_cleanccache[noexec] = "1"' >> $@
 	@echo '#export CCACHE_CONFIGPATH = "$(CCACHE_CONF)"' >> $@
 	@echo '#ASSUME_PROVIDED += "ccache-native"' >> $@
 	@echo '#HOSTTOOLS += "ccache"' >> $@
