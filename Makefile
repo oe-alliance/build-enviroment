@@ -158,12 +158,12 @@ download: init
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake $(DISTRO)-image --runall=fetch
 
 update-versions:
-	@if [ -d $(DISTRO_VERSIONS_DIR)/.git ]; then \
-		cd $(DISTRO_VERSIONS_DIR) && git fetch --depth 1 -q 2>/dev/null && \
-		git reset -q --hard origin/$$(git rev-parse --abbrev-ref HEAD) 2>/dev/null || true; \
+	@BRANCH=$$(cd $(CURDIR) && git rev-parse --abbrev-ref HEAD 2>/dev/null || echo main); \
+	if [ -d $(DISTRO_VERSIONS_DIR)/.git ]; then \
+		cd $(DISTRO_VERSIONS_DIR) && git fetch --depth 1 -q origin $$BRANCH 2>/dev/null && \
+		git checkout -q -f -B $$BRANCH FETCH_HEAD 2>/dev/null || true; \
 	else \
 		mkdir -p $(dir $(DISTRO_VERSIONS_DIR)) && \
-		BRANCH=$$(cd $(CURDIR) && git rev-parse --abbrev-ref HEAD 2>/dev/null || echo main) && \
 		git clone --depth 1 -b $$BRANCH $(DISTRO_VERSIONS_REPO) $(DISTRO_VERSIONS_DIR) -q || \
 		echo "Note: distro-versions repo not available, using fallback versions"; \
 	fi
